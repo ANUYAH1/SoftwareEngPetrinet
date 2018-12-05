@@ -1,3 +1,4 @@
+package logic;
 
 public interface PlaceInterface extends ArcEndpointInterface {
 	void setName(String name);

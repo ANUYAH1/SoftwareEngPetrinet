@@ -1,11 +1,13 @@
-public class Arc implements ArcInterface{
+package logic;
+
+public abstract class AbstractArc implements ArcInterface{
     private String name;
     private int weight;
     private ArcEndpointInterface origin;
     private ArcEndpointInterface destination;
 
 
-    public Arc(ArcEndpointInterface origin, ArcEndpointInterface destination){
+    public AbstractArc(ArcEndpointInterface origin, ArcEndpointInterface destination){
         this.origin = origin;
         this.destination = destination;
         origin.addArcOutput(this);
@@ -15,11 +17,13 @@ public class Arc implements ArcInterface{
     }
     @Override
     public void setName(String name) {
+
         this.name = name;
     }
 
     @Override
     public String getName() {
+
         return name;
     }
 
@@ -32,16 +36,19 @@ public class Arc implements ArcInterface{
 
     @Override
     public int getWeight() {
+
         return weight;
     }
 
     @Override
     public void setOrigin(ArcEndpointInterface p) {
+
         throw new UnsupportedOperationException();
     }
 
     @Override
     public ArcEndpointInterface getOrigin() {
+
         return origin;
     }
 

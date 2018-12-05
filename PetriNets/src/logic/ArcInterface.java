@@ -1,3 +1,4 @@
+package logic;
 
 public interface ArcInterface {
 	void setName(String name);

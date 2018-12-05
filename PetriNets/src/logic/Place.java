@@ -1,28 +1,59 @@
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
+package logic;
 
 import java.util.ArrayList;
-import java.util.LinkedHashMap;
 import java.util.List;
 
-public class Transition implements TransitionInterface{
-    private String name;
+public class Place implements PlaceInterface {
+    private String name = "";
+    private int numTokens = 0;
 
     private ArrayList<ArcInterface> arcInputs = new ArrayList<ArcInterface>();
     private ArrayList<ArcInterface> arcOutputs = new ArrayList<ArcInterface>();
 
+    public Place(){
+
+    }
+
     @Override
     public void setName(String name) {
-
+        this.name = name;
     }
 
     @Override
     public String getName() {
-        return null;
+        return name;
     }
 
     @Override
-    public boolean attemptTransition() {
-        throw new NotImplementedException();
+    public void setNumTokens(int tokens) {
+        numTokens = tokens;
+    }
+
+    @Override
+    public void addTokens(int tokens) {
+        if(tokens >= 0){
+            numTokens += tokens;
+        }
+        else throw new IllegalArgumentException("tokens is less than 0.  tokens = " + tokens);
+    }
+
+    @Override
+    public void removeTokens(int tokens) {
+        if(tokens >= 0 && numTokens - tokens >= 0){
+            numTokens -= tokens;
+        }
+        else {
+            if(tokens < 0){
+                throw new IllegalArgumentException("tokens is less than 0.  tokens = " + tokens);
+            }
+            else throw new NumberFormatException("removing more tokens than exist.  tokens = " + tokens + ".  numTokens = " + numTokens);
+        }
+
+    }
+
+    @Override
+    public int getNumTokens() {
+        return numTokens;
     }
 
     @Override
@@ -38,25 +69,25 @@ public class Transition implements TransitionInterface{
     @Override
     public void addArcInput(ArcInterface a) {
         if(a.getDestination() != this) {
-            throw new IllegalArgumentException("Illegal Arc for this Transition");
+            throw new IllegalArgumentException("Illegal logic.AbstractArc for this logic.Place");
         }
         if(!arcInputs.contains(a)){
             arcInputs.add(a);
         }
-        else throw new IllegalArgumentException("arc a already exists in this Transition");
+        else throw new IllegalArgumentException("arc a already exists in this place");
     }
 
     @Override
     public void addArcOutput(ArcInterface a) {
 
         if(a.getOrigin() != this) {
-            throw new IllegalArgumentException("Illegal Arc for this Transition");
+            throw new IllegalArgumentException("Illegal logic.AbstractArc for this logic.Place");
         }
         if(!arcOutputs.contains(a)){
             arcOutputs.add(a);
         }
 
-        else throw new IllegalArgumentException("arc a already exists in this Transition");
+        else throw new IllegalArgumentException("arc a already exists in this place");
     }
 
     @Override
