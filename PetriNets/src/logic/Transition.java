@@ -1,6 +1,5 @@
 package logic;
 
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +22,7 @@ public class Transition implements TransitionInterface{
 
     @Override
     public boolean attemptTransition() {
-        throw new NotImplementedException();
+        return false;
     }
 
     @Override
