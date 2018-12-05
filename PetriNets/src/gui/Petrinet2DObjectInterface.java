@@ -31,4 +31,19 @@ public interface Petrinet2DObjectInterface {
      */
     String getID();
 
+
+    /**
+     * Sets the name of the
+     * 2d object model
+     * @param Name
+     */
+    void setName(String Name);
+
+    /**
+     * returns name of the
+     * 2d Object
+     * @return
+     */
+    String getName();
+
 }

@@ -13,6 +13,10 @@ public class PetrinetGUI extends JFrame {
     public PetrinetGUI(){
         petrinetPanel = new PetrinetPanel();
         this.getContentPane().add(petrinetPanel);
+        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        this.setTitle("PETRINETS");
+        this.pack();
+        this.setVisible(true);
 
     }
 

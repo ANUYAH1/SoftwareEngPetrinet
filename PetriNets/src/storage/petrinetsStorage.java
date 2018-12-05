@@ -1,4 +1,4 @@
 package storage;
 
-public class petrinetsStorage {
+public class  petrinetsStorage {
 }
