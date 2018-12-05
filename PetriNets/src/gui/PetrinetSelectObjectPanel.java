@@ -30,7 +30,7 @@ public class PetrinetSelectObjectPanel extends JPanel implements  ActionListener
         this.add(arcSelectButton);
         this.add(placeSelectButton);
         this.setBorder(BorderFactory.createTitledBorder("Select Petrinet Model"));
-        selection = SelectObject.NONE;
+        selection = SelectObject.TRANSITION;
     }
 
     public SelectObject getSelection(){
