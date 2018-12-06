@@ -18,8 +18,24 @@ public class Arc2DObject implements Petrinet2DObjectInterface {
     private String Id;
     private String Name;
     private SelectObject selectObject;
+    private Petrinet2DObjectInterface origin;
+    private Petrinet2DObjectInterface destination;
 
+    public Petrinet2DObjectInterface getOrigin() {
+        return origin;
+    }
 
+    public void setOrigin(Petrinet2DObjectInterface origin) {
+        this.origin = origin;
+    }
+
+    public Petrinet2DObjectInterface getDestination() {
+        return destination;
+    }
+
+    public void setDestination(Petrinet2DObjectInterface destination) {
+        this.destination = destination;
+    }
 
     public Arc2DObject(ArcInterface arc){
         this.arc = arc;

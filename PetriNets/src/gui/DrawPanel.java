@@ -53,7 +53,9 @@ public class DrawPanel extends JPanel implements MouseListener {
         for(Petrinet2DObjectInterface object:objects){
 
                 if (Math.abs(object.getPoint().getY() - y) <= tolerance &&
-                        Math.abs(object.getPoint().getX() - x) <= tolerance ) {
+                        Math.abs(object.getPoint().getX() - x) <= tolerance &&
+                object.getObjectType()!=SelectObject.ARC
+                ) {
                     return object;
                 }
 
@@ -64,6 +66,15 @@ public class DrawPanel extends JPanel implements MouseListener {
     public void mouseClicked(MouseEvent e) {
         int positionX =e.getX();
         int positionY = e.getY();
+        // check if there is an object closeby
+        // around the tolerance of the GUI
+        Petrinet2DObjectInterface closeBy =
+                getClosestObject(positionX,positionY);
+        if(closeBy!=null){
+            logListener.log("Error: Please select another location, "+closeBy.getName() +" has close proximity!!");
+            return;
+        }
+
         if(currentPetrinetObject ==SelectObject.TRANSITION ){
             // at this point a transition was selected
             // create a dialog asking for transition name
@@ -179,56 +190,62 @@ public class DrawPanel extends JPanel implements MouseListener {
 
                                 // TODO someone has to compromise polymorphism
                                 ArcInterface arc = null;
-                                if (originObject.getObjectType() == SelectObject.TRANSITION
-                                        && destinationObject.getObjectType() == SelectObject.PLACE) {
-                                    Transition2DObject transition2DObject = (Transition2DObject) originObject;
-                                    TransitionInterface transition = transition2DObject.getTransition();
+                                try {
+                                    if (originObject.getObjectType() == SelectObject.TRANSITION
+                                            && destinationObject.getObjectType() == SelectObject.PLACE) {
+                                        Transition2DObject transition2DObject = (Transition2DObject) originObject;
+                                        TransitionInterface transition = transition2DObject.getTransition();
 
-                                    Place2DObject place2DObject = (Place2DObject) destinationObject;
-                                    PlaceInterface place = place2DObject.getPlace();
+                                        Place2DObject place2DObject = (Place2DObject) destinationObject;
+                                        PlaceInterface place = place2DObject.getPlace();
 
-                                    arc = new TransitionToPlaceArc
-                                            (transition, place);
-                                    arc.setWeight(weight);
-                                    arc.setName(name);
+                                        arc = new TransitionToPlaceArc
+                                                (transition, place);
+                                        arc.setWeight(weight);
+                                        arc.setName(name);
 
-                                    // now add this arc instance to the back end
-                                    // for the coverability tree
-                                    // TODO ask for explanation
-                                    transition.addArcOutput(arc);
-                                    place.addArcInput(arc);
-                                    canvas.repaint();
-                                    logListener.log("Info: Arc Drawn from : " +
-                                            originObject.getName() + " to" + destinationObject.getName());
+                                        // now add this arc instance to the back end
+                                        // for the coverability tree
+                                        // TODO ask for explanation
+                                        transition.addArcOutput(arc);
+                                        place.addArcInput(arc);
+                                        canvas.repaint();
+                                        logListener.log("Info: Arc Drawn from : " +
+                                                originObject.getName() + " to" + destinationObject.getName());
 
 
-                                } else if (originObject.getObjectType() == SelectObject.PLACE
-                                        && destinationObject.getObjectType() == SelectObject.TRANSITION) {
-                                    Transition2DObject transition2DObject = (Transition2DObject) destinationObject;
-                                    TransitionInterface transition = transition2DObject.getTransition();
+                                    } else if (originObject.getObjectType() == SelectObject.PLACE
+                                            && destinationObject.getObjectType() == SelectObject.TRANSITION) {
+                                        Transition2DObject transition2DObject = (Transition2DObject) destinationObject;
+                                        TransitionInterface transition = transition2DObject.getTransition();
 
-                                    Place2DObject place2DObject = (Place2DObject) originObject;
-                                    PlaceInterface place = place2DObject.getPlace();
+                                        Place2DObject place2DObject = (Place2DObject) originObject;
+                                        PlaceInterface place = place2DObject.getPlace();
 
-                                    arc = new PlaceToTransitionArc
-                                            (place, transition);
-                                    arc.setWeight(weight);
-                                    arc.setName(name);
+                                        arc = new PlaceToTransitionArc
+                                                (place, transition);
+                                        arc.setWeight(weight);
+                                        arc.setName(name);
 
-                                    // now add this arc instance to the back end
-                                    // for the coverability tree
-                                    // TODO ASK FOR EXPLANATION
-                                    transition.addArcOutput(arc);
-                                    place.addArcInput(arc);
+                                        // now add this arc instance to the back end
+                                        // for the coverability tree
+                                        // TODO ASK FOR EXPLANATION
+                                        transition.addArcInput(arc);
+                                        place.addArcOutput(arc);
 
-                                } else {
-                                    logListener.log("Error: The above case should not occur");
+                                    } else {
+                                        logListener.log("Error: The above case should not occur");
+                                    }
+                                }catch (IllegalArgumentException ex){
+                                    logListener.log("Error: "+ex.getMessage());
                                 }
                                 if(arc!=null){
                                     Arc2DObject arc2DObject = new Arc2DObject(arc);
                                     arc2DObject.setName(name);
                                     arc2DObject.setDestinationPoint(destinationPoint);
                                     arc2DObject.setPoint(originPoint);
+                                    arc2DObject.setDestination(destinationObject);
+                                    arc2DObject.setOrigin(originObject);
                                     Petrinet2DObjectInterface arcObject= arc2DObject;
 
 
@@ -240,6 +257,8 @@ public class DrawPanel extends JPanel implements MouseListener {
                                 }
 
 
+                            }else{
+                                logListener.log("Error: Unable to parse arc, -> Format ArcName<Weight>");
                             }
                         }
                     }
@@ -279,6 +298,7 @@ public class DrawPanel extends JPanel implements MouseListener {
                     objects.remove(objects.size() - 1);
             redoHistory.add(object);
             canvas.repaint();
+            logListener.log("Info: Undo last operation!!");
         }
 
     }
@@ -315,6 +335,7 @@ public class DrawPanel extends JPanel implements MouseListener {
                     redoHistory.remove(redoHistory.size() - 1);
             objects.add(object);
             canvas.repaint();
+            logListener.log("Info: Redo last operation!!");
         }
     }
 

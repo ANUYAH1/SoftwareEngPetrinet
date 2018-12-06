@@ -20,7 +20,7 @@ public class PetrinetGUI extends JFrame implements MenuBarListener {
     private    JFileChooser fileChooser;
     private StorageInterface storage;
     private JOptionPane optionPane;
-    private final String STORAGEEXTENSION="petri";
+
     private FileFilter fileFilter ;
 
 
@@ -35,12 +35,12 @@ public class PetrinetGUI extends JFrame implements MenuBarListener {
             @Override
             public boolean accept(File f) {
 
-                return f.getName().endsWith(storage.getExtension());
+                return f.getPath().endsWith("."+storage.getExtension());
             }
 
             @Override
             public String getDescription() {
-                return null;
+                return "Petri Project";
             }
         };
 
@@ -88,6 +88,7 @@ public class PetrinetGUI extends JFrame implements MenuBarListener {
                 this.setTitle("Petrinet- "+petrinetProject.getName());
             }
             petrinetPanel.log("Info: Project " + petrinetProject.getName() + " Loaded!!");
+            enablePanel(petrinetPanel,true);
             // send this file path to storage
         }catch (Exception ex){
             petrinetPanel.log("Failed to open Project");
@@ -171,6 +172,8 @@ public class PetrinetGUI extends JFrame implements MenuBarListener {
                 petrinetProject = new ProjectModel();
                 petrinetProject.setName(projectName);
                 enablePanel(petrinetPanel,true);
+                //clear the gui
+                petrinetPanel.clearProject();
                 petrinetPanel.log("Info: New Project " + petrinetProject.getName() + " Starte!!: Dont forget to save " +
                         ":)");
             }

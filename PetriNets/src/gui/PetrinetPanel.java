@@ -45,4 +45,8 @@ public class PetrinetPanel extends JPanel implements PetrinetSelectObjectListene
     public ArrayList<Petrinet2DObjectInterface> getGuiObjects() {
         return drawPanel.getGuiObjects();
     }
+
+    public void clearProject() {
+        drawPanel.clearAll();
+    }
 }
