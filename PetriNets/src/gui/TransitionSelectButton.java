@@ -11,6 +11,7 @@ public class TransitionSelectButton extends JButton {
             Image img = ImageIO.read(getClass().getResource("/icons/transition_logo.png"));
             this.setIcon(new ImageIcon(img));
             this.setToolTipText("Transition");
+
         }catch (Exception ex){
             System.out.println("Error in loading image");
         }

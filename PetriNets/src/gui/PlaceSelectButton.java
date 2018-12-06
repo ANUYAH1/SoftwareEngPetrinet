@@ -10,6 +10,7 @@ public class PlaceSelectButton extends JButton {
             Image img = ImageIO.read(getClass().getResource("/icons/place_logo.png"));
             this.setIcon(new ImageIcon(img));
             this.setToolTipText("Place");
+
         }catch (Exception ex){
 
         }

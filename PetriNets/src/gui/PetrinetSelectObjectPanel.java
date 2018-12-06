@@ -11,8 +11,13 @@ public class PetrinetSelectObjectPanel extends JPanel implements  ActionListener
     private PlaceSelectButton placeSelectButton;
     private ArcSelectButton arcSelectButton;
     private TransitionSelectButton transitionSelectButton;
+    private PetrinetSelectObjectListener listener;
 
-    public PetrinetSelectObjectPanel(){
+
+
+    public PetrinetSelectObjectPanel(PetrinetSelectObjectListener listener){
+        this.listener = listener;
+
         placeSelectButton = new PlaceSelectButton();
         arcSelectButton = new ArcSelectButton();
         transitionSelectButton = new TransitionSelectButton();
@@ -29,8 +34,9 @@ public class PetrinetSelectObjectPanel extends JPanel implements  ActionListener
         this.add(transitionSelectButton);
         this.add(arcSelectButton);
         this.add(placeSelectButton);
+        this.setRequestFocusEnabled(false);
         this.setBorder(BorderFactory.createTitledBorder("Select Petrinet Model"));
-        selection = SelectObject.TRANSITION;
+        selection = SelectObject.NONE;
     }
 
     public SelectObject getSelection(){
@@ -55,5 +61,7 @@ public class PetrinetSelectObjectPanel extends JPanel implements  ActionListener
             transitionSelectButton.setBackground(Color.LIGHT_GRAY);
             arcSelectButton.setBackground(Color.GRAY);
         }
+        listener.selectedPetrinetObject(selection);
+
     }
 }

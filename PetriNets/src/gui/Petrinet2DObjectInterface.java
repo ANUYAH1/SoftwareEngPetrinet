@@ -11,12 +11,24 @@ public interface Petrinet2DObjectInterface {
      */
     Point getPoint();
 
+
+
+    /**
+     * Get SelectionType
+     */
+    SelectObject getObjectType();
+
+    /**
+     * get object type
+     * @param selectObject
+     */
+    void setObjectType(SelectObject selectObject);
     /**
      * this takes in the 2d graphics and
      * draws the petrinet object
-     * @param grpahics
+     * @param graphics
      */
-    void draw(Graphics2D grpahics);
+    void draw(Graphics graphics);
 
     void setPoint(Point point);
     

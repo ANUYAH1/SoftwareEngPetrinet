@@ -10,8 +10,10 @@ public abstract class AbstractArc implements ArcInterface{
     public AbstractArc(ArcEndpointInterface origin, ArcEndpointInterface destination){
         this.origin = origin;
         this.destination = destination;
-        origin.addArcOutput(this);
-        destination.addArcOutput(this);
+        //TODO hey i edited this cos it was giving
+        // my gui bugs
+//        origin.addArcOutput(this);
+//        destination.addArcOutput(this);
         weight = 1;
         name = "";
     }

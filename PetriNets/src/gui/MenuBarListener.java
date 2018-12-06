@@ -39,8 +39,13 @@ public interface MenuBarListener {
     void redoMenuCommand();
 
     /**
-     * Listener for about menu
+     * Listener for text menu
      */
     void aboutMenuCommand();
 
+    /**
+     * Listener for when a new menu
+     * is clicked
+     */
+    void newMenuCommand();
 }

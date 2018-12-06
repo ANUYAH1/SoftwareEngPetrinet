@@ -15,6 +15,12 @@ public class MenuBar extends JMenuBar implements ActionListener {
         JMenu fileMenu = new JMenu("File");
         fileMenu.setName("file_menu");
 
+        JMenuItem newFile = new JMenuItem("New");
+
+        newFile.setName("file_menu_new");
+        newFile.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_N,KeyEvent.VK_CONTROL));
+        newFile.addActionListener(this);
+
         JMenuItem openFile = new JMenuItem("Open");
 
         openFile.setName("file_menu_open");
@@ -30,9 +36,11 @@ public class MenuBar extends JMenuBar implements ActionListener {
         exit.setName("file_menu_exit");
         exit.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_F4,KeyEvent.VK_ALT));
         exit.addActionListener(this);
+        fileMenu.add(newFile);
         fileMenu.add(openFile);
         fileMenu.add(saveFile);
         fileMenu.add(exit);
+
         this.add(fileMenu);
         //end work on File Menu
 
@@ -43,12 +51,12 @@ public class MenuBar extends JMenuBar implements ActionListener {
         editMenu.setName("edit_menu");
         JMenuItem undo = new JMenuItem("Undo");
         undo.setName("edit_menu_undo");
-        undo.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_O,KeyEvent.VK_CONTROL));
+        undo.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_U,KeyEvent.VK_CONTROL));
         undo.addActionListener(this);
 
         JMenuItem redo = new JMenuItem("Redo");
         redo.setName("edit_menu_redo");
-        redo.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_U,KeyEvent.VK_CONTROL));
+        redo.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_R,KeyEvent.VK_CONTROL));
         redo.addActionListener(this);
         editMenu.add(undo);
         editMenu.add(redo);
@@ -63,6 +71,7 @@ public class MenuBar extends JMenuBar implements ActionListener {
         about.setName("help_menu_about");
 
         about.addActionListener(this);
+        helpMenu.add(about);
         this.add(helpMenu);
         //End work on Help Menu
     }
@@ -81,6 +90,8 @@ public class MenuBar extends JMenuBar implements ActionListener {
             listener.saveFileMenuCommand();
         }else if(((JMenuItem)e.getSource()).getName().equals("file_menu_open")){
             listener.openFileMenuCommand();
+        }else if(((JMenuItem)e.getSource()).getName().equals("file_menu_new")){
+            listener.newMenuCommand();
         }
     }
 }
