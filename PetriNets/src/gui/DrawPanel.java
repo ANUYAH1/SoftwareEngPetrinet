@@ -62,6 +62,10 @@ public class DrawPanel extends JPanel implements MouseListener {
         }
         return null;
     }
+    
+    private void log (LogUIModel log){
+        logListener.log(log);
+    }
     @Override
     public void mouseClicked(MouseEvent e) {
         int positionX =e.getX();
@@ -71,7 +75,7 @@ public class DrawPanel extends JPanel implements MouseListener {
         Petrinet2DObjectInterface closeBy =
                 getClosestObject(positionX,positionY);
         if(closeBy!=null){
-            logListener.log("Error: Please select another location, "+closeBy.getName() +" has close proximity!!");
+            logListener.log(LogUIModel.createErrorLog("Please select another location, "+closeBy.getName() +" has close proximity!!"));
             return;
         }
 
@@ -94,11 +98,12 @@ public class DrawPanel extends JPanel implements MouseListener {
                     transitionObject.setPoint(new Point(positionX, positionY));
                     objects.add(transitionObject);
                     redoHistory.clear();
-
-                    logListener.log("Info: Added Transition: " + name);
+                    
+                    log(LogUIModel.createInfoLog("Added Transition: " + name));
                     canvas.repaint();
                 }else{
-                    logListener.log("Error: Transition name cannot be empty: :(");
+                    
+                    log(LogUIModel.createErrorLog("Transition name cannot be empty: :("));
                 }
             }
 
@@ -132,16 +137,18 @@ public class DrawPanel extends JPanel implements MouseListener {
                          objects.add(place2DObject);
                          redoHistory.clear();
 
-                         logListener.log("Info: Added Place: " + value);
+                         log(LogUIModel.createInfoLog("Added Place: " + value));
                          canvas.repaint();
                      }else{
-                         logListener.log("Error: Unable to parse place, follow this placename<tokens>");
+                         log(LogUIModel.createErrorLog("Unable to parse place, follow this placename<tokens>"));
                      }
                 }else{
-                    logListener.log("Error: Transition name cannot be empty: :(");
+                    logListener.log(LogUIModel.createErrorLog("Transition name cannot be empty: :("));
                 }
             }
 
+        }else if(currentPetrinetObject == SelectObject.NONE){
+            logListener.log(LogUIModel.createErrorLog("Choose a petrinet model"));
         }
 
     }
@@ -157,11 +164,11 @@ public class DrawPanel extends JPanel implements MouseListener {
 
 
             if(originObject!=null) {
-                logListener.log("Info: drawing arc from origin: " + originObject.getName());
+                logListener.log(LogUIModel.createInfoLog("drawing arc from origin: " + originObject.getName()));
                 originPoint  = new Point(x,y);
             }
             else
-                logListener.log("Error: error starting arc: No transition or place");
+                logListener.log(LogUIModel.createErrorLog("error starting arc: No transition or place"));
         }
     }
 
@@ -174,7 +181,7 @@ public class DrawPanel extends JPanel implements MouseListener {
 
             destinationObject = getClosestObject(x,y);
             if(destinationObject!=null && originObject != null) {
-                logListener.log("Info: drawing arc to: " + destinationObject.getName());
+                logListener.log(LogUIModel.createInfoLog("drawing arc to: " + destinationObject.getName()));
                 destinationPoint = new Point(x,y);
                 if(destinationObject.getObjectType()!= originObject.getObjectType()) {
                     CustomDialog dialog = new CustomDialog(this, "Enter Arc " +
@@ -210,8 +217,8 @@ public class DrawPanel extends JPanel implements MouseListener {
                                         transition.addArcOutput(arc);
                                         place.addArcInput(arc);
                                         canvas.repaint();
-                                        logListener.log("Info: Arc Drawn from : " +
-                                                originObject.getName() + " to" + destinationObject.getName());
+                                        logListener.log(LogUIModel.createInfoLog("Arc Drawn from : " +
+                                                originObject.getName() + " to" + destinationObject.getName()));
 
 
                                     } else if (originObject.getObjectType() == SelectObject.PLACE
@@ -234,10 +241,10 @@ public class DrawPanel extends JPanel implements MouseListener {
                                         place.addArcOutput(arc);
 
                                     } else {
-                                        logListener.log("Error: The above case should not occur");
+                                        logListener.log(LogUIModel.createErrorLog("The above case should not occur"));
                                     }
                                 }catch (IllegalArgumentException ex){
-                                    logListener.log("Error: "+ex.getMessage());
+                                    logListener.log(LogUIModel.createErrorLog(""+ex.getMessage()));
                                 }
                                 if(arc!=null){
                                     Arc2DObject arc2DObject = new Arc2DObject(arc);
@@ -246,28 +253,29 @@ public class DrawPanel extends JPanel implements MouseListener {
                                     arc2DObject.setPoint(originPoint);
                                     arc2DObject.setDestination(destinationObject);
                                     arc2DObject.setOrigin(originObject);
+                                    arc2DObject.setObjectType(SelectObject.ARC);
                                     Petrinet2DObjectInterface arcObject= arc2DObject;
 
 
                                     objects.add(arcObject);
 
                                     canvas.repaint();
-                                    logListener.log("Info: Arc Drawn from : " +
-                                            originObject.getName() + " to" + destinationObject.getName());
+                                    logListener.log(LogUIModel.createInfoLog("Arc Drawn from : " +
+                                            originObject.getName() + " to" + destinationObject.getName()));
                                 }
 
 
                             }else{
-                                logListener.log("Error: Unable to parse arc, -> Format ArcName<Weight>");
+                                logListener.log(LogUIModel.createErrorLog("Unable to parse arc, -> Format ArcName<Weight>"));
                             }
                         }
                     }
                 }else{
-                    logListener.log("Error: Cannot draw arc between the same object type");
+                    logListener.log(LogUIModel.createErrorLog("Cannot draw arc between the same object type"));
                 }
             }
             else
-                logListener.log("Error: Ending arc no transition / place");
+                logListener.log(LogUIModel.createErrorLog("Ending arc no transition / place"));
 
             originObject = null;
             destinationObject = null;
@@ -298,7 +306,7 @@ public class DrawPanel extends JPanel implements MouseListener {
                     objects.remove(objects.size() - 1);
             redoHistory.add(object);
             canvas.repaint();
-            logListener.log("Info: Undo last operation!!");
+            logListener.log(LogUIModel.createInfoLog("Undo last operation!!"));
         }
 
     }
@@ -335,7 +343,7 @@ public class DrawPanel extends JPanel implements MouseListener {
                     redoHistory.remove(redoHistory.size() - 1);
             objects.add(object);
             canvas.repaint();
-            logListener.log("Info: Redo last operation!!");
+            logListener.log(LogUIModel.createInfoLog("Redo last operation!!"));
         }
     }
 

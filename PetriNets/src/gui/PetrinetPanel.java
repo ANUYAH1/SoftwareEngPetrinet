@@ -31,7 +31,7 @@ public class PetrinetPanel extends JPanel implements PetrinetSelectObjectListene
     }
 
     @Override
-    public void log(String log) {
+    public void log(LogUIModel log) {
         logPanel.log(log);
     }
 

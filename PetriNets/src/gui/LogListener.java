@@ -1,5 +1,5 @@
 package gui;
 
 public interface LogListener {
-    void log(String log);
+    void log(LogUIModel log);
 }

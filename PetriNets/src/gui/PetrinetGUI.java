@@ -87,11 +87,16 @@ public class PetrinetGUI extends JFrame implements MenuBarListener {
             if(petrinetProject!=null){
                 this.setTitle("Petrinet- "+petrinetProject.getName());
             }
-            petrinetPanel.log("Info: Project " + petrinetProject.getName() + " Loaded!!");
+            String message ="Project " + petrinetProject.getName() + " Loaded!!";
+            LogUIModel log =LogUIModel.createErrorLog(message);
+            petrinetPanel.log(log);
             enablePanel(petrinetPanel,true);
             // send this file path to storage
         }catch (Exception ex){
-            petrinetPanel.log("Failed to open Project");
+            String message = "Failed to open Project";
+
+            LogUIModel log =LogUIModel.createErrorLog(message);
+            petrinetPanel.log(log);
         }
 
     }
@@ -125,11 +130,15 @@ public class PetrinetGUI extends JFrame implements MenuBarListener {
 
                 petrinetProject.setFilePath(file.getPath());
                 storage.saveProject(petrinetProject);
-                petrinetPanel.log("Info: Project " + petrinetProject.getName() + " Saved!!");
+                String message = "Info: Project " + petrinetProject.getName() + " Saved!!";
+                LogUIModel log =LogUIModel.createErrorLog(message);
+                petrinetPanel.log(log);
             }
             // send this file path to storage
         }catch (Exception ex){
-            petrinetPanel.log("Error: Could not save project!!");
+            String message = "Error: Could not save project!!";
+            LogUIModel log =LogUIModel.createErrorLog(message);
+            petrinetPanel.log(log);
         }
     }
 
@@ -155,7 +164,9 @@ public class PetrinetGUI extends JFrame implements MenuBarListener {
             String about = storage.getAbout();
             JOptionPane.showMessageDialog(this,about,"About",JOptionPane.PLAIN_MESSAGE);
         }catch (Exception ex){
-            petrinetPanel.log("Error: Could not load About!!");
+            String message = "Error: Could not load About!!";
+            LogUIModel log =LogUIModel.createErrorLog(message);
+            petrinetPanel.log(log);
         }
 
     }
@@ -174,15 +185,19 @@ public class PetrinetGUI extends JFrame implements MenuBarListener {
                 enablePanel(petrinetPanel,true);
                 //clear the gui
                 petrinetPanel.clearProject();
-                petrinetPanel.log("Info: New Project " + petrinetProject.getName() + " Starte!!: Dont forget to save " +
-                        ":)");
+                String message =" New Project " + petrinetProject.getName() + " Starte!!: Dont forget to save " +
+                ":)";
+                LogUIModel log =LogUIModel.createInfoLog(message);
+                petrinetPanel.log(log);
             }
 
 
 
 
         }catch (Exception ex){
-            petrinetPanel.log("Error: Failed to open new project");
+            String message ="Failed to open project!!";
+            LogUIModel log =LogUIModel.createErrorLog(message);
+            petrinetPanel.log(log);
         }
     }
 }

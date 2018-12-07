@@ -72,12 +72,25 @@ public class Arc2DObject implements Petrinet2DObjectInterface {
                 (int)destinationPoint.getX(),
         (int)destinationPoint.getY());
         // draw triangular head;
-        int [] x = new int [] {(int)destinationPoint.getX() ,(int)destinationPoint.getX(),
-                (int)destinationPoint.getX()+(ARROWHEAD*2)};
-        int [] y = new int []{
+        int [] x =null;
+        int [] y = null;
+        //this is towards the left
+        // so let arrow face right
+        if(destinationPoint.getX() - point.getX() >0){
+            x =new int[] {(int)destinationPoint.getX() ,(int)destinationPoint.getX(),
+                    (int)destinationPoint.getX()+(ARROWHEAD*2)};
+            y =new int []{
                 (int) destinationPoint.getY() + ARROWHEAD, (int) destinationPoint.getY() - ARROWHEAD,
-                (int) destinationPoint.getY()
-        };
+                        (int) destinationPoint.getY()
+            };
+        }else{
+            x =new int[] {(int)destinationPoint.getX() ,(int)destinationPoint.getX(),
+                    (int)destinationPoint.getX()-(ARROWHEAD*2)};
+            y =new int []{
+                    (int) destinationPoint.getY() + ARROWHEAD, (int) destinationPoint.getY() - ARROWHEAD,
+                    (int) destinationPoint.getY()
+            };
+        }
 
         graphics.fillPolygon(x,y,3);
 

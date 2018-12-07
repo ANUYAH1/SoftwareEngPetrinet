@@ -55,7 +55,7 @@ public class Place2DObject implements  Petrinet2DObjectInterface{
         int randX = 0;
         int randY = 0;
 
-        int randPadding=9;
+        int randPadding=12;
         graphics.setColor(TOKENCOLOR);
         for(int i = 0; i <place.getNumTokens();i++){
              randX = ran.nextInt(PLACE_RADIUS-randPadding)+(int)point.getX() +(i==0?randPadding:0);
