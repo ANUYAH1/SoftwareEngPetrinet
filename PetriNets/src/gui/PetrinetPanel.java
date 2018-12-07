@@ -4,6 +4,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
+/**
+ * This houses the whole main
+ * petrinet structure
+ */
 public class PetrinetPanel extends JPanel implements PetrinetSelectObjectListener,LogListener {
     private DrawPanel drawPanel;
     private PetrinetSelectObjectPanel selectObjectPanel;
@@ -35,17 +39,35 @@ public class PetrinetPanel extends JPanel implements PetrinetSelectObjectListene
         logPanel.log(log);
     }
 
+    /**
+     * Undo last operation
+     */
     public void undo() {
         drawPanel.undo();
     }
+
+    /**
+     * redo last operation
+     */
     public void redo(){
         drawPanel.redo();
     }
 
+    /**
+     * Returns a copy of the
+     * GUI objects with its
+     * back end instances
+     * @return
+     */
     public ArrayList<Petrinet2DObjectInterface> getGuiObjects() {
         return drawPanel.getGuiObjects();
     }
 
+    /**
+     * Clears the project
+     * called when you need to
+     * start a new project
+     */
     public void clearProject() {
         drawPanel.clearAll();
     }

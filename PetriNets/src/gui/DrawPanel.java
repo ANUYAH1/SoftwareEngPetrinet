@@ -9,6 +9,12 @@ import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import java.util.UUID;
 
+/**
+ * This houses the core part of
+ * the GUI it is responsible
+ * for all drawings and majority
+ * of the user interactions
+ */
 public class DrawPanel extends JPanel implements MouseListener {
     // this stores all to be drawn on the
     // gui

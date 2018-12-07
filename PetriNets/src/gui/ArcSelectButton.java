@@ -4,6 +4,9 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * Creating the arc select button
+ */
 public class ArcSelectButton extends JButton {
     public ArcSelectButton(){
         try {

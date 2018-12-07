@@ -5,6 +5,11 @@ import logic.ArcInterface;
 
 import java.awt.*;
 
+/**
+ * This class is responsible for
+ * drawing the arc in the petrinet
+ * project it implements the Petrnet2dObjectInterface
+ */
 public class Arc2DObject implements Petrinet2DObjectInterface {
     private ArcInterface arc;
     private Point point;
@@ -21,29 +26,58 @@ public class Arc2DObject implements Petrinet2DObjectInterface {
     private Petrinet2DObjectInterface origin;
     private Petrinet2DObjectInterface destination;
 
+    /**
+     * returns the origin of the arc
+     * @return
+     */
     public Petrinet2DObjectInterface getOrigin() {
         return origin;
     }
 
+    /**
+     * sets the origin of the arc
+     * @param origin
+     */
     public void setOrigin(Petrinet2DObjectInterface origin) {
         this.origin = origin;
     }
 
+    /**
+     * returns the destination of
+     * the arc
+     * @return
+     */
     public Petrinet2DObjectInterface getDestination() {
         return destination;
     }
 
+    /**
+     * Sets the destination of the arc
+     * @param destination
+     */
     public void setDestination(Petrinet2DObjectInterface destination) {
         this.destination = destination;
     }
 
+    /**
+     * Initializes the arc with the
+     * back end instances using its interface
+     * for decoupling
+     * @param arc
+     */
     public Arc2DObject(ArcInterface arc){
         this.arc = arc;
     }
+
+    /**
+     * returns the origin point of the arc
+     * @return
+     */
     @Override
     public Point getPoint() {
         return point;
     }
+
 
     @Override
     public SelectObject getObjectType() {
@@ -55,10 +89,20 @@ public class Arc2DObject implements Petrinet2DObjectInterface {
         this.selectObject = selectObject;
     }
 
+    /**
+     * Get the destination point
+     * of the arc
+     * @return
+     */
     public Point getDestinationPoint() {
         return destinationPoint;
     }
 
+    /**
+     * Sets the destination point of the
+     * arc
+     * @param destinationPoint
+     */
     public void setDestinationPoint(Point destinationPoint) {
         this.destinationPoint = destinationPoint;
     }

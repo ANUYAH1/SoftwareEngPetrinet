@@ -4,23 +4,20 @@ import javax.swing.*;
 import java.beans.*; //property change stuff
 import java.awt.*;
 import java.awt.event.*;
- 
-/* 1.4 example used by DialogDemo.java. */
+
+/**
+ * This class creates a custom input
+ * dialog popup
+ */
 class CustomDialog {
     private String typedText = null;
     private JTextField textField;
-
- 
-
-    private JOptionPane optionPane;
- 
-    private String btnString1 = "Enter";
-    private String btnString2 = "Cancel";
     private boolean postiveSelection;
  
     /**
      * Returns null if the typed string was invalid;
      * otherwise, returns the string as the user entered it.
+     *
      */
     public String getValidatedText() {
         return typedText;
@@ -45,15 +42,16 @@ class CustomDialog {
         typedText = textField.getText();
         textField.setText(null);
     }
- 
-    /** This method handles events for the text field. */
-    public void actionPerformed(ActionEvent e) {
-        optionPane.setValue(btnString1);
-    }
+
+    /**
+     * returns a true if the user clicked
+     * okay
+     * @return
+     */
 
     public boolean isPostiveSelection() {
         return postiveSelection;
     }
-    /** This method clears the dialog and hides it. */
+
 
 }

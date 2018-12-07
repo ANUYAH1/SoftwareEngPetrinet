@@ -79,7 +79,11 @@ public class Transition2DObject implements Petrinet2DObjectInterface {
         return Name;
     }
 
-
+    /**
+     * returns the transition
+     * back end instance
+     * @return
+     */
     public TransitionInterface getTransition() {
         return transition;
     }

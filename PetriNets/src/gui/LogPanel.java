@@ -29,6 +29,12 @@ public class LogPanel extends JPanel {
 
     }
 
+
+    /**
+     * Takes in log parameter and
+     * adds it to the log display
+     * @param log
+     */
     public void log(LogUIModel log) {
         //only log data when
         // the panel is enabled
@@ -54,9 +60,22 @@ public class LogPanel extends JPanel {
         }
 
     }
+
+    /**
+     * Clears the log
+     */
     public void clearLog (){
         logArea.removeAll();
         logs.clear();
         revalidate();
+    }
+
+    /**
+     * returns the log
+     *
+     * @return
+     */
+    public ArrayList<LogUIModel> getLog(){
+        return new ArrayList<>(logs);
     }
 }

@@ -4,6 +4,10 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * button responsible
+ * for transition button
+ */
 public class TransitionSelectButton extends JButton {
 
     public TransitionSelectButton(){

@@ -6,5 +6,10 @@ package gui;
  * selected
  */
 public interface PetrinetSelectObjectListener {
+    /**
+     * fired when an object
+     * is selected
+     * @param selectObject
+     */
     void selectedPetrinetObject(SelectObject selectObject);
 }

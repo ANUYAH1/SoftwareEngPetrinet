@@ -4,6 +4,9 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * responsible for drawing Place Button
+ */
 public class PlaceSelectButton extends JButton {
     public PlaceSelectButton(){
         try {

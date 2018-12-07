@@ -12,6 +12,11 @@ import java.awt.event.WindowEvent;
 import java.io.File;
 import java.util.ArrayList;
 
+/**
+ * This houses the GUI component
+ * of this project it is the main
+ * frame
+ */
 public class PetrinetGUI extends JFrame implements MenuBarListener {
     //petrinet back end instance initialized here
     private ProjectInterface petrinetProject;
@@ -57,6 +62,13 @@ public class PetrinetGUI extends JFrame implements MenuBarListener {
 
 
     }
+
+    /**
+     * An inefficient way of disabling
+     * panels
+     * @param panel
+     * @param enable
+     */
     private void enablePanel(JPanel panel , boolean enable){
         Component [] components = panel.getComponents();
         for (Component c:

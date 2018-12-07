@@ -5,6 +5,11 @@ import logic.PlaceInterface;
 import java.awt.*;
 import java.util.Random;
 
+/**
+ * This class is responsible for
+ * drawing a
+ * place
+ */
 public class Place2DObject implements  Petrinet2DObjectInterface{
     private Point point;
     private PlaceInterface place;

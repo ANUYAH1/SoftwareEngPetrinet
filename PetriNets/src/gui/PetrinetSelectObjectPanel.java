@@ -6,6 +6,12 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * This class is responsible for
+ * the panel in the GUI required to
+ * know what has been selected to
+ * draw on the canvas
+ */
 public class PetrinetSelectObjectPanel extends JPanel implements  ActionListener {
     private SelectObject selection;
     private PlaceSelectButton placeSelectButton;
@@ -14,7 +20,11 @@ public class PetrinetSelectObjectPanel extends JPanel implements  ActionListener
     private PetrinetSelectObjectListener listener;
 
 
-
+    /**
+     * Takes in a listener to
+     * listen for changes in this panel
+     * @param listener
+     */
     public PetrinetSelectObjectPanel(PetrinetSelectObjectListener listener){
         this.listener = listener;
 
