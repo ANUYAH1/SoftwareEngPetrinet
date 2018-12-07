@@ -2,25 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="009330af-c4b0-4fbe-bf41-4236a0234001" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../PETRINET-UML.suml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../PETRINET.suml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/Arc2DObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/Arc2DObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/ArcSelectButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/ArcSelectButton.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/CustomDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/CustomDialog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/DrawPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/DrawPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/LogPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/LogPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/LogUIModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/LogUIModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/Petrinet2DObjectInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/Petrinet2DObjectInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/PetrinetGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/PetrinetGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/PetrinetPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/PetrinetPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/PetrinetSelectObjectListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/PetrinetSelectObjectListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/PetrinetSelectObjectPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/PetrinetSelectObjectPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/Place2DObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/Place2DObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/PlaceSelectButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/PlaceSelectButton.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/SelectObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/SelectObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/Transition2DObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/Transition2DObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/TransitionSelectButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/TransitionSelectButton.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -66,559 +48,218 @@
               <ID>JAVA</ID>
               <OriginalElement>driver.PetrinetMain</OriginalElement>
               <nodes>
-                <node x="1825.3333333333335" y="725.0">gui.PetrinetPanel</node>
-                <node x="2409.447635182543" y="0.0">logic.ArcInterface</node>
-                <node x="3038.75" y="616.0">gui.MenuBarListener</node>
-                <node x="2082.9791666666665" y="268.0">logic.AbstractArc</node>
-                <node x="389.0" y="437.0">gui.PetrinetSelectObjectListener</node>
-                <node x="2176.6884568121395" y="437.0">logic.PlaceToTransitionArc</node>
-                <node x="2514.0416666666665" y="437.0">logic.Place</node>
-                <node x="1507.6884568121395" y="437.0">gui.Transition2DObject</node>
-                <node x="1977.6884568121395" y="437.0">logic.TransitionToPlaceArc</node>
-                <node x="1852.6884568121395" y="268.0">logic.TransitionInterface</node>
-                <node x="842.0" y="437.0">gui.ArcSelectButton</node>
-                <node x="1862.5833333333335" y="844.0">gui.PetrinetGUI</node>
-                <node x="723.875" y="616.0">gui.PetrinetSelectObjectPanel</node>
-                <node x="1380.6565600247714" y="139.0">gui.SelectObject</node>
-                <node x="3081.375" y="725.0">gui.MenuBar</node>
-                <node x="218.0" y="616.0">storage.StorageInterface</node>
-                <node x="1204.0" y="268.0">gui.Petrinet2DObjectInterface</node>
-                <node x="632.0" y="437.0">gui.TransitionSelectButton</node>
-                <node x="2071.892136947848" y="139.0">logic.ArcEndpointInterface</node>
-                <node x="1361.6884568121395" y="437.0">gui.Arc2DObject</node>
-                <node x="159.5" y="725.0">storage.Storage</node>
-                <node x="2883.75" y="437.0">gui.CustomDialog</node>
-                <node x="2619.75" y="437.0">gui.LogListener</node>
-                <node x="2272.0416666666665" y="268.0">logic.PlaceInterface</node>
-                <node x="1861.8333333333335" y="616.0">gui.DrawPanel</node>
-                <node x="1694.6884568121395" y="437.0">gui.Place2DObject</node>
-                <node x="10.5" y="616.0">storage.ProjectModel</node>
-                <node x="1012.0" y="437.0">gui.PlaceSelectButton</node>
-                <node x="1859.5833333333335" y="923.0">driver.PetrinetMain</node>
-                <node x="130.375" y="437.0">storage.ProjectInterface</node>
-                <node x="2781.4059685158763" y="139.0">gui.LogType</node>
-                <node x="2383.0416666666665" y="437.0">logic.Transition</node>
-                <node x="2759.75" y="437.0">gui.LogPanel</node>
-                <node x="2801.6559685158763" y="268.0">gui.LogUIModel</node>
+                <node x="1779.0445211038955" y="11.0">logic.ArcInterface</node>
+                <node x="1470.7945211038957" y="796.0">logic.AbstractArc</node>
+                <node x="1113.7945211038957" y="1093.0">gui.Transition2DObject</node>
+                <node x="1644.7945211038957" y="1203.0">logic.PlaceToTransitionArc</node>
+                <node x="2351.2666666666664" y="1071.0">logic.Place</node>
+                <node x="1445.7945211038957" y="1203.0">logic.TransitionToPlaceArc</node>
+                <node x="1209.7945211038957" y="851.0">logic.TransitionInterface</node>
+                <node x="0.0" y="840.0">storage.StorageInterface</node>
+                <node x="1066.0732142857141" y="0.0">gui.Petrinet2DObjectInterface</node>
+                <node x="1203.7885446729194" y="327.0">gui.Arc2DObject</node>
+                <node x="1874.2458333333332" y="426.0">logic.ArcEndpointInterface</node>
+                <node x="178.75104467291953" y="1159.0">storage.Storage</node>
+                <node x="2057.2666666666664" y="1093.0">gui.Place2DObject</node>
+                <node x="2085.7666666666664" y="818.0">logic.PlaceInterface</node>
+                <node x="305.9999999999998" y="818.0">storage.ProjectModel</node>
+                <node x="83.0" y="426.0">storage.ProjectInterface</node>
+                <node x="800.7945211038957" y="1104.0">logic.Transition</node>
               </nodes>
               <notes />
               <edges>
                 <edge source="logic.Place" target="logic.ArcInterface">
-                  <point x="-10.0" y="-14.5" />
-                  <point x="2544.0416666666665" y="417.0" />
-                  <point x="2548.5416666666665" y="417.0" />
-                  <point x="2548.5416666666665" y="109.0" />
-                  <point x="2506.822635182543" y="109.0" />
-                  <point x="35.875" y="14.5" />
-                </edge>
-                <edge source="gui.DrawPanel" target="gui.CustomDialog">
-                  <point x="53.56521739130426" y="-14.5" />
-                  <point x="1971.3985507246377" y="596.0" />
-                  <point x="2934.0" y="596.0" />
-                  <point x="-16.75" y="14.5" />
-                </edge>
-                <edge source="gui.LogUIModel" target="gui.LogType">
-                  <point x="30.25" y="-14.5" />
-                  <point x="2892.4059685158763" y="248.0" />
-                  <point x="2865.5726351825433" y="248.0" />
-                  <point x="33.66666666666663" y="14.5" />
-                </edge>
-                <edge source="gui.PetrinetPanel" target="gui.DrawPanel">
-                  <point x="11.727272727272748" y="-14.5" />
-                  <point x="1901.5606060606062" y="665.0" />
-                  <point x="1945.8333333333335" y="665.0" />
-                  <point x="28.0" y="14.5" />
+                  <point x="-36.625" y="-146.5" />
+                  <point x="2461.1416666666664" y="1041.0" />
+                  <point x="2544.07604467292" y="1041.0" />
+                  <point x="2544.07604467292" y="297.0" />
+                  <point x="2032.499066558441" y="297.0" />
+                  <point x="89.45454545454527" y="102.5" />
                 </edge>
                 <edge source="storage.Storage" target="storage.ProjectInterface">
-                  <point x="0.0" y="-14.5" />
-                  <point x="207.5" y="596.0" />
-                  <point x="221.0" y="596.0" />
-                  <point x="18.125" y="14.5" />
-                </edge>
-                <edge source="gui.PetrinetGUI" target="storage.ProjectModel">
-                  <point x="-45.769230769230944" y="-14.5" />
-                  <point x="1876.3141025641025" y="814.0" />
-                  <point x="42.5" y="814.0" />
-                  <point x="-32.0" y="14.5" />
-                </edge>
-                <edge source="gui.LogPanel" target="gui.LogUIModel">
-                  <point x="7.105427357601002E-15" y="-14.5" />
-                  <point x="2811.75" y="407.0" />
-                  <point x="2852.0726351825433" y="407.0" />
-                  <point x="-10.083333333333343" y="14.5" />
+                  <point x="0.0" y="-58.5" />
+                  <point x="321.25104467291953" y="1051.0" />
+                  <point x="295.5" y="1051.0" />
+                  <point x="0.0" y="80.5" />
                 </edge>
                 <edge source="logic.PlaceToTransitionArc" target="logic.TransitionInterface">
                   <point x="-67.125" y="-14.5" />
-                  <point x="2199.0634568121395" y="367.0" />
-                  <point x="1975.6884568121395" y="367.0" />
-                  <point x="41.0" y="14.5" />
-                </edge>
-                <edge source="gui.PetrinetGUI" target="storage.ProjectInterface">
-                  <point x="-36.615384615384755" y="-14.5" />
-                  <point x="1885.4679487179487" y="804.0" />
-                  <point x="149.0" y="804.0" />
-                  <point x="149.0" y="596.0" />
-                  <point x="184.75" y="596.0" />
-                  <point x="-18.125" y="14.5" />
+                  <point x="1667.1695211038957" y="1031.0" />
+                  <point x="1426.6945211038956" y="1031.0" />
+                  <point x="96.39999999999986" y="47.5" />
                 </edge>
                 <edge source="logic.Transition" target="logic.ArcInterface">
-                  <point x="13.75" y="-14.5" />
-                  <point x="2451.7916666666665" y="417.0" />
-                  <point x="2445.4384568121395" y="417.0" />
-                  <point x="2445.4384568121395" y="109.0" />
-                  <point x="2476.072635182543" y="109.0" />
-                  <point x="5.125" y="14.5" />
-                </edge>
-                <edge source="gui.DrawPanel" target="logic.TransitionInterface">
-                  <point x="0.0" y="-14.5" />
-                  <point x="1917.8333333333335" y="486.0" />
-                  <point x="1921.021790145473" y="486.0" />
-                  <point x="-13.666666666666629" y="14.5" />
-                </edge>
-                <edge source="gui.PetrinetPanel" target="gui.Petrinet2DObjectInterface">
-                  <point x="-11.727272727272748" y="-14.5" />
-                  <point x="1878.1060606060607" y="665.0" />
-                  <point x="1182.5" y="665.0" />
-                  <point x="1182.5" y="417.0" />
-                  <point x="1264.375" y="417.0" />
-                  <point x="-43.125" y="14.5" />
+                  <point x="-36.625" y="-113.5" />
+                  <point x="910.6695211038957" y="1031.0" />
+                  <point x="1072.190354437229" y="1031.0" />
+                  <point x="1072.190354437229" y="726.0" />
+                  <point x="1581.2885446729194" y="726.0" />
+                  <point x="1581.2885446729194" y="277.0" />
+                  <point x="1883.408157467532" y="277.0" />
+                  <point x="-59.63636363636351" y="102.5" />
                 </edge>
                 <edge source="storage.Storage" target="storage.StorageInterface">
-                  <point x="32.0" y="-14.5" />
-                  <point x="239.5" y="705.0" />
-                  <point x="255.5" y="705.0" />
-                  <point x="-37.5" y="14.5" />
+                  <point x="-95.0" y="-58.5" />
+                  <point x="226.25104467291953" y="1051.0" />
+                  <point x="142.5" y="1051.0" />
+                  <point x="0.0" y="58.5" />
                 </edge>
                 <edge source="logic.TransitionToPlaceArc" target="logic.PlaceInterface">
                   <point x="67.125" y="-14.5" />
-                  <point x="2134.3134568121395" y="417.0" />
-                  <point x="2327.875" y="417.0" />
-                  <point x="-11.166666666666742" y="14.5" />
-                </edge>
-                <edge source="gui.DrawPanel" target="logic.PlaceToTransitionArc">
-                  <point x="9.73913043478251" y="-14.5" />
-                  <point x="1927.572463768116" y="506.0" />
-                  <point x="2266.1884568121395" y="506.0" />
-                  <point x="0.0" y="14.5" />
-                </edge>
-                <edge source="gui.DrawPanel" target="logic.TransitionToPlaceArc">
-                  <point x="4.869565217391255" y="-14.5" />
-                  <point x="1922.7028985507247" y="496.0" />
-                  <point x="2067.1884568121395" y="496.0" />
-                  <point x="0.0" y="14.5" />
-                </edge>
-                <edge source="gui.PetrinetSelectObjectPanel" target="gui.PetrinetSelectObjectListener">
-                  <point x="-72.09999999999991" y="-14.5" />
-                  <point x="754.7750000000001" y="586.0" />
-                  <point x="574.0" y="586.0" />
-                  <point x="74.0" y="14.5" />
-                </edge>
-                <edge source="gui.LogPanel" target="gui.LogType">
-                  <point x="-34.66666666666663" y="-14.5" />
-                  <point x="2777.0833333333335" y="377.0" />
-                  <point x="2791.1559685158763" y="377.0" />
-                  <point x="2791.1559685158763" y="248.0" />
-                  <point x="2798.23930184921" y="248.0" />
-                  <point x="-33.66666666666663" y="14.5" />
+                  <point x="1602.4195211038957" y="1041.0" />
+                  <point x="2107.4666666666662" y="1041.0" />
+                  <point x="-86.80000000000018" y="80.5" />
                 </edge>
                 <edge source="gui.Place2DObject" target="gui.Petrinet2DObjectInterface">
-                  <point x="-54.799999999999955" y="-14.5" />
-                  <point x="1708.3884568121396" y="317.0" />
-                  <point x="1402.375" y="317.0" />
-                  <point x="94.875" y="14.5" />
-                </edge>
-                <edge source="gui.PetrinetGUI" target="gui.MenuBarListener">
-                  <point x="9.153846153846189" y="-14.5" />
-                  <point x="1931.2371794871797" y="774.0" />
-                  <point x="3034.0796369478485" y="774.0" />
-                  <point x="3034.0796369478485" y="705.0" />
-                  <point x="3064.083333333334" y="705.0" />
-                  <point x="-50.666666666666515" y="14.5" />
-                </edge>
-                <edge source="gui.DrawPanel" target="logic.Place">
-                  <point x="29.217391304347757" y="-14.5" />
-                  <point x="1947.0507246376812" y="546.0" />
-                  <point x="2554.0416666666665" y="546.0" />
-                  <point x="0.0" y="14.5" />
+                  <point x="-91.33333333333348" y="-124.5" />
+                  <point x="2102.933333333333" y="1031.0" />
+                  <point x="1875.627854437229" y="1031.0" />
+                  <point x="1875.627854437229" y="706.0" />
+                  <point x="1193.2885446729194" y="706.0" />
+                  <point x="1193.2885446729194" y="307.0" />
+                  <point x="1203.0732142857141" y="307.0" />
+                  <point x="0.0" y="113.5" />
                 </edge>
                 <edge source="logic.AbstractArc" target="logic.ArcInterface">
-                  <point x="-40.66666666666663" y="-14.5" />
-                  <point x="2103.3125" y="238.0" />
-                  <point x="2061.392136947848" y="238.0" />
-                  <point x="2061.392136947848" y="69.0" />
-                  <point x="2435.072635182543" y="69.0" />
-                  <point x="-35.875" y="14.5" />
+                  <point x="-109.33333333333326" y="-102.5" />
+                  <point x="1525.4611877705624" y="746.0" />
+                  <point x="1863.7458333333332" y="746.0" />
+                  <point x="1863.7458333333332" y="297.0" />
+                  <point x="1943.0445211038955" y="297.0" />
+                  <point x="0.0" y="102.5" />
                 </edge>
                 <edge source="storage.Storage" target="storage.ProjectModel">
-                  <point x="-32.0" y="-14.5" />
-                  <point x="175.5" y="705.0" />
-                  <point x="106.5" y="705.0" />
-                  <point x="32.0" y="14.5" />
+                  <point x="95.0" y="-58.5" />
+                  <point x="416.25104467291953" y="1051.0" />
+                  <point x="518.4999999999998" y="1051.0" />
+                  <point x="0.0" y="80.5" />
                 </edge>
                 <edge source="logic.ArcInterface" target="logic.ArcEndpointInterface">
-                  <point x="-15.375" y="14.5" />
-                  <point x="2455.572635182543" y="89.0" />
-                  <point x="2206.142136947848" y="89.0" />
-                  <point x="44.75" y="-14.5" />
+                  <point x="59.63636363636374" y="102.5" />
+                  <point x="2002.6808847402594" y="307.0" />
+                  <point x="2093.9958333333334" y="307.0" />
+                  <point x="73.25" y="-80.5" />
                 </edge>
                 <edge source="logic.TransitionToPlaceArc" target="logic.TransitionInterface">
                   <point x="-67.125" y="-14.5" />
-                  <point x="2000.0634568121395" y="387.0" />
-                  <point x="1948.355123478806" y="387.0" />
-                  <point x="13.666666666666629" y="14.5" />
-                </edge>
-                <edge source="gui.DrawPanel" target="logic.ArcInterface">
-                  <point x="24.347826086956502" y="-14.5" />
-                  <point x="1942.18115942029" y="536.0" />
-                  <point x="2503.5416666666665" y="536.0" />
-                  <point x="2503.5416666666665" y="119.0" />
-                  <point x="2496.572635182543" y="119.0" />
-                  <point x="25.625" y="14.5" />
-                </edge>
-                <edge source="gui.PetrinetPanel" target="gui.PetrinetSelectObjectListener">
-                  <point x="-46.90909090909099" y="-14.5" />
-                  <point x="1842.9242424242425" y="695.0" />
-                  <point x="480.27560693034684" y="695.0" />
-                  <point x="480.27560693034684" y="596.0" />
-                  <point x="426.0" y="596.0" />
-                  <point x="-74.0" y="14.5" />
-                </edge>
-                <edge source="gui.DrawPanel" target="logic.PlaceInterface">
-                  <point x="14.608695652173992" y="-14.5" />
-                  <point x="1932.4420289855075" y="516.0" />
-                  <point x="2372.5416666666665" y="516.0" />
-                  <point x="33.5" y="14.5" />
-                </edge>
-                <edge source="driver.PetrinetMain" target="gui.PetrinetGUI">
-                  <point x="0.0" y="-14.5" />
-                  <point x="0.0" y="14.5" />
-                </edge>
-                <edge source="gui.PetrinetSelectObjectPanel" target="gui.PlaceSelectButton">
-                  <point x="72.09999999999991" y="-14.5" />
-                  <point x="898.9749999999999" y="586.0" />
-                  <point x="1052.0" y="586.0" />
-                  <point x="-40.0" y="14.5" />
-                </edge>
-                <edge source="gui.Place2DObject" target="gui.SelectObject">
-                  <point x="-27.40000000000009" y="-14.5" />
-                  <point x="1735.7884568121394" y="367.0" />
-                  <point x="1716.8296369478483" y="367.0" />
-                  <point x="1716.8296369478483" y="218.0" />
-                  <point x="1481.61809848631" y="218.0" />
-                  <point x="38.46153846153857" y="14.5" />
+                  <point x="1468.1695211038957" y="1051.0" />
+                  <point x="1378.4945211038957" y="1051.0" />
+                  <point x="48.200000000000045" y="47.5" />
                 </edge>
                 <edge source="gui.Transition2DObject" target="logic.TransitionInterface">
-                  <point x="66.79999999999995" y="-14.5" />
-                  <point x="1657.9884568121395" y="387.0" />
-                  <point x="1893.6884568121395" y="387.0" />
-                  <point x="-41.0" y="14.5" />
+                  <point x="0.0" y="-124.5" />
+                  <point x="1253.7945211038957" y="1051.0" />
+                  <point x="1282.0945211038957" y="1051.0" />
+                  <point x="-48.200000000000045" y="47.5" />
                 </edge>
                 <edge source="gui.Arc2DObject" target="gui.Petrinet2DObjectInterface">
-                  <point x="-18.0" y="-14.5" />
-                  <point x="1406.6884568121395" y="397.0" />
-                  <point x="1367.875" y="397.0" />
-                  <point x="60.375" y="14.5" />
+                  <point x="-71.20000000000005" y="-179.5" />
+                  <point x="1310.5885446729194" y="307.0" />
+                  <point x="1281.3589285714284" y="307.0" />
+                  <point x="78.28571428571422" y="113.5" />
                 </edge>
                 <edge source="storage.ProjectInterface" target="gui.Petrinet2DObjectInterface">
-                  <point x="0.0" y="-14.5" />
-                  <point x="202.875" y="407.0" />
-                  <point x="1247.125" y="407.0" />
-                  <point x="-60.375" y="14.5" />
-                </edge>
-                <edge source="gui.DrawPanel" target="gui.Arc2DObject">
-                  <point x="-34.08695652173901" y="-14.5" />
-                  <point x="1883.7463768115945" y="556.0" />
-                  <point x="1393.1884568121395" y="556.0" />
-                  <point x="-31.5" y="14.5" />
-                </edge>
-                <edge source="gui.MenuBar" target="gui.MenuBarListener">
-                  <point x="-25.75" y="-14.5" />
-                  <point x="3107.125" y="705.0" />
-                  <point x="3114.75" y="705.0" />
-                  <point x="0.0" y="14.5" />
-                </edge>
-                <edge source="gui.DrawPanel" target="gui.LogListener">
-                  <point x="43.82608695652175" y="-14.5" />
-                  <point x="1961.6594202898552" y="576.0" />
-                  <point x="2679.75" y="576.0" />
-                  <point x="0.0" y="14.5" />
-                </edge>
-                <edge source="gui.Arc2DObject" target="logic.ArcInterface">
-                  <point x="36.0" y="-14.5" />
-                  <point x="1460.6884568121395" y="357.0" />
-                  <point x="1661.2929982346946" y="357.0" />
-                  <point x="1661.2929982346946" y="49.0" />
-                  <point x="2414.572635182543" y="49.0" />
-                  <point x="-56.375" y="14.5" />
+                  <point x="0.0" y="-80.5" />
+                  <point x="295.5" y="287.0" />
+                  <point x="1085.6446428571426" y="287.0" />
+                  <point x="-117.42857142857156" y="113.5" />
                 </edge>
                 <edge source="storage.ProjectModel" target="storage.ProjectInterface">
-                  <point x="32.0" y="-14.5" />
-                  <point x="106.5" y="586.0" />
-                  <point x="148.5" y="586.0" />
-                  <point x="-54.375" y="14.5" />
+                  <point x="-106.25" y="-80.5" />
+                  <point x="412.2499999999998" y="776.0" />
+                  <point x="437.16666666666674" y="776.0" />
+                  <point x="141.66666666666663" y="80.5" />
                 </edge>
-                <edge source="gui.Petrinet2DObjectInterface" target="gui.SelectObject">
-                  <point x="0.0" y="-14.5" />
-                  <point x="1307.5" y="238.0" />
-                  <point x="1433.5411754093868" y="238.0" />
-                  <point x="-9.615384615384528" y="14.5" />
-                </edge>
-                <edge source="gui.PetrinetGUI" target="storage.Storage">
-                  <point x="-27.461538461538566" y="-14.5" />
-                  <point x="1894.621794871795" y="794.0" />
-                  <point x="207.5" y="794.0" />
-                  <point x="0.0" y="14.5" />
-                </edge>
-                <edge source="gui.PetrinetSelectObjectListener" target="gui.SelectObject">
-                  <point x="0.0" y="-14.5" />
-                  <point x="500.0" y="198.0" />
-                  <point x="1395.0796369478483" y="198.0" />
-                  <point x="-48.076923076923094" y="14.5" />
+                <edge source="gui.Arc2DObject" target="logic.ArcInterface">
+                  <point x="142.4000000000001" y="-179.5" />
+                  <point x="1524.1885446729195" y="257.0" />
+                  <point x="1823.7717938311685" y="257.0" />
+                  <point x="-119.27272727272725" y="102.5" />
                 </edge>
                 <edge source="storage.ProjectModel" target="gui.Petrinet2DObjectInterface">
-                  <point x="-32.0" y="-14.5" />
-                  <point x="42.5" y="397.0" />
-                  <point x="1229.875" y="397.0" />
-                  <point x="-77.625" y="14.5" />
-                </edge>
-                <edge source="gui.PetrinetSelectObjectPanel" target="gui.ArcSelectButton">
-                  <point x="10.300000000000182" y="-14.5" />
-                  <point x="837.1750000000002" y="556.0" />
-                  <point x="879.25" y="556.0" />
-                  <point x="-37.25" y="14.5" />
+                  <point x="106.25" y="-80.5" />
+                  <point x="624.7499999999999" y="297.0" />
+                  <point x="1124.7875" y="297.0" />
+                  <point x="-78.28571428571422" y="113.5" />
                 </edge>
                 <edge source="logic.Place" target="logic.PlaceInterface">
-                  <point x="-30.0" y="-14.5" />
-                  <point x="2524.0416666666665" y="327.0" />
-                  <point x="2394.875" y="327.0" />
-                  <point x="55.83333333333326" y="14.5" />
-                </edge>
-                <edge source="gui.PetrinetGUI" target="gui.CustomDialog">
-                  <point x="45.769230769230944" y="-14.5" />
-                  <point x="1967.8525641025644" y="814.0" />
-                  <point x="3210.6121794871797" y="814.0" />
-                  <point x="3210.6121794871797" y="586.0" />
-                  <point x="3001.0" y="586.0" />
-                  <point x="50.25" y="14.5" />
+                  <point x="-109.875" y="-146.5" />
+                  <point x="2387.8916666666664" y="1041.0" />
+                  <point x="2281.0666666666666" y="1041.0" />
+                  <point x="86.80000000000018" y="80.5" />
                 </edge>
                 <edge source="logic.AbstractArc" target="logic.ArcEndpointInterface">
-                  <point x="0.0" y="-14.5" />
-                  <point x="2143.9791666666665" y="248.0" />
-                  <point x="2139.017136947848" y="248.0" />
-                  <point x="-22.375" y="14.5" />
-                </edge>
-                <edge source="gui.PetrinetPanel" target="gui.LogListener">
-                  <point x="23.454545454545496" y="-14.5" />
-                  <point x="1913.287878787879" y="675.0" />
-                  <point x="2719.75" y="675.0" />
-                  <point x="40.0" y="14.5" />
+                  <point x="0.0" y="-102.5" />
+                  <point x="1634.7945211038957" y="766.0" />
+                  <point x="1984.1208333333332" y="766.0" />
+                  <point x="-36.625" y="80.5" />
                 </edge>
                 <edge source="logic.TransitionInterface" target="logic.ArcEndpointInterface">
-                  <point x="0.0" y="-14.5" />
-                  <point x="1934.6884568121395" y="248.0" />
-                  <point x="2094.267136947848" y="248.0" />
-                  <point x="-67.125" y="14.5" />
+                  <point x="0.0" y="-47.5" />
+                  <point x="1330.2945211038957" y="756.0" />
+                  <point x="1910.8708333333332" y="756.0" />
+                  <point x="-109.875" y="80.5" />
                 </edge>
                 <edge source="storage.StorageInterface" target="storage.ProjectInterface">
-                  <point x="0.0" y="-14.5" />
-                  <point x="293.0" y="596.0" />
-                  <point x="257.25" y="596.0" />
-                  <point x="54.375" y="14.5" />
-                </edge>
-                <edge source="gui.PetrinetSelectObjectPanel" target="gui.SelectObject">
-                  <point x="51.5" y="-14.5" />
-                  <point x="878.375" y="576.0" />
-                  <point x="1001.5" y="576.0" />
-                  <point x="1001.5" y="218.0" />
-                  <point x="1414.3104061786175" y="218.0" />
-                  <point x="-28.84615384615381" y="14.5" />
-                </edge>
-                <edge source="gui.PetrinetSelectObjectPanel" target="gui.TransitionSelectButton">
-                  <point x="-30.90000000000009" y="-14.5" />
-                  <point x="795.9749999999999" y="566.0" />
-                  <point x="679.5" y="566.0" />
-                  <point x="-47.5" y="14.5" />
+                  <point x="0.0" y="-58.5" />
+                  <point x="142.5" y="776.0" />
+                  <point x="153.83333333333326" y="776.0" />
+                  <point x="-141.66666666666663" y="80.5" />
                 </edge>
                 <edge source="logic.PlaceToTransitionArc" target="logic.AbstractArc">
                   <point x="22.375" y="-14.5" />
-                  <point x="2288.5634568121395" y="347.0" />
-                  <point x="2189.7291666666665" y="347.0" />
-                  <point x="45.75" y="14.5" />
-                </edge>
-                <edge source="gui.PetrinetGUI" target="gui.LogUIModel">
-                  <point x="54.92307692307713" y="-14.5" />
-                  <point x="1977.0064102564106" y="824.0" />
-                  <point x="3219.7660256410254" y="824.0" />
-                  <point x="3219.7660256410254" y="407.0" />
-                  <point x="2912.5726351825433" y="407.0" />
-                  <point x="50.41666666666674" y="14.5" />
+                  <point x="1756.6695211038957" y="1031.0" />
+                  <point x="1757.7945211038957" y="1031.0" />
+                  <point x="123.0" y="102.5" />
                 </edge>
                 <edge source="logic.TransitionToPlaceArc" target="logic.AbstractArc">
-                  <point x="-22.375" y="-14.5" />
-                  <point x="2044.8134568121395" y="377.0" />
-                  <point x="2098.2291666666665" y="377.0" />
-                  <point x="-45.75" y="14.5" />
-                </edge>
-                <edge source="gui.DrawPanel" target="gui.Transition2DObject">
-                  <point x="-19.478260869565247" y="-14.5" />
-                  <point x="1898.3550724637682" y="526.0" />
-                  <point x="1632.9384568121395" y="526.0" />
-                  <point x="41.75" y="14.5" />
-                </edge>
-                <edge source="gui.PetrinetGUI" target="gui.PetrinetPanel">
-                  <point x="-9.153846153846189" y="-14.5" />
-                  <point x="1912.9294871794873" y="774.0" />
-                  <point x="1857.5833333333335" y="774.0" />
-                  <point x="-32.25" y="14.5" />
-                </edge>
-                <edge source="gui.DrawPanel" target="gui.Petrinet2DObjectInterface">
-                  <point x="-48.695652173913004" y="-14.5" />
-                  <point x="1869.1376811594205" y="586.0" />
-                  <point x="1290.5118957617078" y="586.0" />
-                  <point x="1290.5118957617078" y="417.0" />
-                  <point x="1281.625" y="417.0" />
-                  <point x="-25.875" y="14.5" />
-                </edge>
-                <edge source="gui.PetrinetPanel" target="gui.SelectObject">
-                  <point x="-58.63636363636351" y="-14.5" />
-                  <point x="1831.19696969697" y="705.0" />
-                  <point x="378.5" y="705.0" />
-                  <point x="378.5" y="188.0" />
-                  <point x="1385.4642523324637" y="188.0" />
-                  <point x="-57.69230769230762" y="14.5" />
-                </edge>
-                <edge source="gui.PetrinetPanel" target="gui.PetrinetSelectObjectPanel">
-                  <point x="-35.181818181818244" y="-14.5" />
-                  <point x="1854.6515151515152" y="685.0" />
-                  <point x="775.375" y="685.0" />
-                  <point x="-51.5" y="14.5" />
+                  <point x="22.375" y="-14.5" />
+                  <point x="1557.6695211038957" y="1051.0" />
+                  <point x="1593.7945211038957" y="1051.0" />
+                  <point x="-41.0" y="102.5" />
                 </edge>
                 <edge source="gui.Transition2DObject" target="gui.Petrinet2DObjectInterface">
-                  <point x="-66.79999999999995" y="-14.5" />
-                  <point x="1524.3884568121396" y="337.0" />
-                  <point x="1385.125" y="337.0" />
-                  <point x="77.625" y="14.5" />
-                </edge>
-                <edge source="gui.LogListener" target="gui.LogUIModel">
-                  <point x="0.0" y="-14.5" />
-                  <point x="2679.75" y="397.0" />
-                  <point x="2831.9059685158763" y="397.0" />
-                  <point x="-30.25" y="14.5" />
-                </edge>
-                <edge source="gui.DrawPanel" target="logic.Transition">
-                  <point x="19.478260869565247" y="-14.5" />
-                  <point x="1937.3115942028987" y="526.0" />
-                  <point x="2438.0416666666665" y="526.0" />
-                  <point x="0.0" y="14.5" />
-                </edge>
-                <edge source="gui.DrawPanel" target="gui.SelectObject">
-                  <point x="-53.56521739130426" y="-14.5" />
-                  <point x="1864.2681159420292" y="596.0" />
-                  <point x="1193.5" y="596.0" />
-                  <point x="1193.5" y="228.0" />
-                  <point x="1423.925790794002" y="228.0" />
-                  <point x="-19.230769230769283" y="14.5" />
-                </edge>
-                <edge source="gui.Transition2DObject" target="gui.SelectObject">
-                  <point x="-33.40000000000009" y="-14.5" />
-                  <point x="1557.7884568121394" y="327.0" />
-                  <point x="1509.5576923076924" y="327.0" />
-                  <point x="1509.5576923076924" y="238.0" />
-                  <point x="1462.3873292555406" y="238.0" />
-                  <point x="19.230769230769283" y="14.5" />
+                  <point x="-93.33333333333326" y="-124.5" />
+                  <point x="1160.4611877705624" y="1021.0" />
+                  <point x="818.6630426286672" y="1021.0" />
+                  <point x="818.6630426286672" y="307.0" />
+                  <point x="1163.9303571428572" y="307.0" />
+                  <point x="-39.14285714285711" y="113.5" />
                 </edge>
                 <edge source="gui.Place2DObject" target="logic.PlaceInterface">
-                  <point x="54.799999999999955" y="-14.5" />
-                  <point x="1817.9884568121395" y="407.0" />
-                  <point x="2305.5416666666665" y="407.0" />
-                  <point x="-33.5" y="14.5" />
-                </edge>
-                <edge source="logic.Transition" target="logic.TransitionInterface">
-                  <point x="-41.25" y="-14.5" />
-                  <point x="2396.7916666666665" y="337.0" />
-                  <point x="2003.0217901454728" y="337.0" />
-                  <point x="68.33333333333326" y="14.5" />
+                  <point x="0.0" y="-124.5" />
+                  <point x="0.0" y="80.5" />
                 </edge>
                 <edge source="logic.ArcEndpointInterface" target="logic.ArcInterface">
-                  <point x="-44.75" y="-14.5" />
-                  <point x="2116.642136947848" y="79.0" />
-                  <point x="2445.322635182543" y="79.0" />
-                  <point x="-25.625" y="14.5" />
+                  <point x="-73.25" y="-80.5" />
+                  <point x="1947.4958333333332" y="307.0" />
+                  <point x="1972.8627029220775" y="307.0" />
+                  <point x="29.818181818181756" y="102.5" />
                 </edge>
-                <edge source="gui.DrawPanel" target="gui.Place2DObject">
-                  <point x="-9.73913043478251" y="-14.5" />
-                  <point x="1908.094202898551" y="506.0" />
-                  <point x="1797.4384568121395" y="506.0" />
-                  <point x="34.25" y="14.5" />
-                </edge>
-                <edge source="gui.PetrinetPanel" target="gui.LogPanel">
-                  <point x="35.181818181818244" y="-14.5" />
-                  <point x="1925.0151515151517" y="685.0" />
-                  <point x="2849.701331568028" y="685.0" />
-                  <point x="2849.701331568028" y="576.0" />
-                  <point x="2785.75" y="576.0" />
-                  <point x="-26.0" y="14.5" />
-                </edge>
-                <edge source="gui.PetrinetGUI" target="storage.StorageInterface">
-                  <point x="-18.307692307692378" y="-14.5" />
-                  <point x="1903.775641025641" y="784.0" />
-                  <point x="330.5" y="784.0" />
-                  <point x="37.5" y="14.5" />
-                </edge>
-                <edge source="gui.PetrinetGUI" target="gui.MenuBar">
-                  <point x="27.461538461538566" y="-14.5" />
-                  <point x="1949.544871794872" y="794.0" />
-                  <point x="3158.625" y="794.0" />
-                  <point x="25.75" y="14.5" />
-                </edge>
-                <edge source="gui.DrawPanel" target="gui.LogUIModel">
-                  <point x="34.08695652173924" y="-14.5" />
-                  <point x="1951.9202898550727" y="556.0" />
-                  <point x="2609.25" y="556.0" />
-                  <point x="2609.25" y="387.0" />
-                  <point x="2811.7393018492094" y="387.0" />
-                  <point x="-50.41666666666674" y="14.5" />
-                </edge>
-                <edge source="gui.Arc2DObject" target="gui.SelectObject">
-                  <point x="0.0" y="-14.5" />
-                  <point x="1424.6884568121395" y="417.0" />
-                  <point x="1421.5" y="417.0" />
-                  <point x="1421.5" y="248.0" />
-                  <point x="1443.1565600247714" y="248.0" />
-                  <point x="0.0" y="14.5" />
-                </edge>
-                <edge source="gui.PetrinetGUI" target="gui.Petrinet2DObjectInterface">
-                  <point x="-54.92307692307713" y="-14.5" />
-                  <point x="1867.1602564102564" y="824.0" />
-                  <point x="0.0" y="824.0" />
-                  <point x="0.0" y="387.0" />
-                  <point x="1212.625" y="387.0" />
-                  <point x="-94.875" y="14.5" />
+                <edge source="logic.Transition" target="logic.TransitionInterface">
+                  <point x="109.875" y="-113.5" />
+                  <point x="1057.1695211038957" y="1051.0" />
+                  <point x="1233.8945211038956" y="1051.0" />
+                  <point x="-96.40000000000009" y="47.5" />
                 </edge>
                 <edge source="logic.PlaceToTransitionArc" target="logic.PlaceInterface">
                   <point x="67.125" y="-14.5" />
-                  <point x="2333.3134568121395" y="417.0" />
-                  <point x="2350.2083333333335" y="417.0" />
-                  <point x="11.166666666666742" y="14.5" />
+                  <point x="1801.4195211038957" y="1051.0" />
+                  <point x="2150.8666666666663" y="1051.0" />
+                  <point x="-43.40000000000009" y="80.5" />
                 </edge>
                 <edge source="logic.PlaceInterface" target="logic.ArcEndpointInterface">
-                  <point x="0.0" y="-14.5" />
-                  <point x="2339.0416666666665" y="248.0" />
-                  <point x="2228.517136947848" y="248.0" />
-                  <point x="67.125" y="14.5" />
-                </edge>
-                <edge source="gui.PetrinetPanel" target="gui.LogUIModel">
-                  <point x="58.63636363636374" y="-14.5" />
-                  <point x="1948.4696969696972" y="705.0" />
-                  <point x="3028.25" y="705.0" />
-                  <point x="3028.25" y="417.0" />
-                  <point x="2892.4059685158763" y="417.0" />
-                  <point x="30.25" y="14.5" />
+                  <point x="0.0" y="-80.5" />
+                  <point x="2194.2666666666664" y="776.0" />
+                  <point x="2130.6208333333334" y="776.0" />
+                  <point x="109.875" y="80.5" />
                 </edge>
               </edges>
-              <settings layout="Hierarchic Group" zoom="0.36082792709298733" x="1608.5" y="466.0" />
+              <settings layout="Hierarchic Group" zoom="0.8608279270929873" x="1551.247981338597" y="939.4713798672169" />
               <SelectedNodes />
-              <Categories />
+              <Categories>
+                <Category>Methods</Category>
+              </Categories>
               <SCOPE>All</SCOPE>
               <VISIBILITY>private</VISIBILITY>
             </state>
@@ -825,7 +466,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544203758331" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544207657007" />
     <property name="jdk.selected.JAVA_MODULE" value="1.11" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -894,17 +535,53 @@
       <workItem from="1544085107657" duration="26151000" />
       <workItem from="1544197995095" duration="1134000" />
       <workItem from="1544200573530" duration="1875000" />
-      <workItem from="1544202774786" duration="756000" />
+      <workItem from="1544202774786" duration="2361000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="66619000" />
+    <option name="totallyTimeSpent" value="68224000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="951" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.28606358" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.28606358" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Designer" order="2" />
+      <window_info id="UI Designer" order="3" />
+      <window_info id="Favorites" order="4" side_tool="true" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Image Layers" order="6" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32959184" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4993895" weight="0.32945284" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39953542" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Duplicate detector" order="7" visible="true" weight="0.3298731" />
+      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.4993895" weight="0.32740214" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50061053" side_tool="true" weight="0.32959184" />
+      <window_info anchor="bottom" id="Database Changes" order="10" />
+      <window_info anchor="bottom" id="Version Control" order="11" />
+      <window_info anchor="bottom" id="Docker" order="12" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Messages" order="13" weight="0.32959184" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Maven" order="3" />
+      <window_info anchor="right" id="Palette" order="4" />
+      <window_info anchor="right" id="Capture Analysis" order="5" />
+      <window_info anchor="right" id="Database" order="6" weight="0.32967034" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Theme Preview" order="8" />
+      <window_info anchor="right" id="Coverage" order="9" side_tool="true" weight="0.32967034" />
+      <window_info anchor="right" id="PlantUML" order="10" weight="0.18154034" />
+      <window_info anchor="right" id="simpleUML" order="11" weight="0.3294621" />
+    </layout>
+    <layout-to-restore>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.28606358" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -935,41 +612,8 @@
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Theme Preview" order="8" />
       <window_info anchor="right" id="Coverage" order="9" side_tool="true" weight="0.32967034" />
-      <window_info anchor="right" id="PlantUML" order="10" />
+      <window_info active="true" anchor="right" id="PlantUML" order="10" visible="true" weight="0.18154034" />
       <window_info anchor="right" id="simpleUML" order="11" weight="0.3294621" />
-    </layout>
-    <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.2771673" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Designer" order="2" />
-      <window_info id="UI Designer" order="3" />
-      <window_info id="Favorites" order="4" side_tool="true" />
-      <window_info id="Capture Tool" order="5" />
-      <window_info id="Image Layers" order="6" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32959184" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4993895" visible="true" weight="0.32868758" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39953542" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Duplicate detector" order="7" visible="true" weight="0.3298731" />
-      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.4993895" weight="0.32868758" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50061053" side_tool="true" weight="0.32959184" />
-      <window_info anchor="bottom" id="Database Changes" order="10" />
-      <window_info anchor="bottom" id="Version Control" order="11" />
-      <window_info anchor="bottom" id="Docker" order="12" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Messages" order="13" weight="0.32959184" />
-      <window_info anchor="right" id="Coverage" order="0" side_tool="true" weight="0.32967034" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
-      <window_info anchor="right" id="Maven" order="4" />
-      <window_info anchor="right" id="Palette" order="5" />
-      <window_info anchor="right" id="Capture Analysis" order="6" />
-      <window_info anchor="right" id="Database" order="7" />
-      <window_info anchor="right" id="Palette&#9;" order="8" />
-      <window_info anchor="right" id="Theme Preview" order="9" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1467,559 +1111,218 @@
           <ID>JAVA</ID>
           <OriginalElement>driver.PetrinetMain</OriginalElement>
           <nodes>
-            <node x="1825.3333333333335" y="725.0">gui.PetrinetPanel</node>
-            <node x="2409.447635182543" y="0.0">logic.ArcInterface</node>
-            <node x="3038.75" y="616.0">gui.MenuBarListener</node>
-            <node x="2082.9791666666665" y="268.0">logic.AbstractArc</node>
-            <node x="389.0" y="437.0">gui.PetrinetSelectObjectListener</node>
-            <node x="2176.6884568121395" y="437.0">logic.PlaceToTransitionArc</node>
-            <node x="2514.0416666666665" y="437.0">logic.Place</node>
-            <node x="1507.6884568121395" y="437.0">gui.Transition2DObject</node>
-            <node x="1977.6884568121395" y="437.0">logic.TransitionToPlaceArc</node>
-            <node x="1852.6884568121395" y="268.0">logic.TransitionInterface</node>
-            <node x="842.0" y="437.0">gui.ArcSelectButton</node>
-            <node x="1862.5833333333335" y="844.0">gui.PetrinetGUI</node>
-            <node x="723.875" y="616.0">gui.PetrinetSelectObjectPanel</node>
-            <node x="1380.6565600247714" y="139.0">gui.SelectObject</node>
-            <node x="3081.375" y="725.0">gui.MenuBar</node>
-            <node x="218.0" y="616.0">storage.StorageInterface</node>
-            <node x="1204.0" y="268.0">gui.Petrinet2DObjectInterface</node>
-            <node x="632.0" y="437.0">gui.TransitionSelectButton</node>
-            <node x="2071.892136947848" y="139.0">logic.ArcEndpointInterface</node>
-            <node x="1361.6884568121395" y="437.0">gui.Arc2DObject</node>
-            <node x="159.5" y="725.0">storage.Storage</node>
-            <node x="2883.75" y="437.0">gui.CustomDialog</node>
-            <node x="2619.75" y="437.0">gui.LogListener</node>
-            <node x="2272.0416666666665" y="268.0">logic.PlaceInterface</node>
-            <node x="1861.8333333333335" y="616.0">gui.DrawPanel</node>
-            <node x="1694.6884568121395" y="437.0">gui.Place2DObject</node>
-            <node x="10.5" y="616.0">storage.ProjectModel</node>
-            <node x="1012.0" y="437.0">gui.PlaceSelectButton</node>
-            <node x="1859.5833333333335" y="923.0">driver.PetrinetMain</node>
-            <node x="130.375" y="437.0">storage.ProjectInterface</node>
-            <node x="2781.4059685158763" y="139.0">gui.LogType</node>
-            <node x="2383.0416666666665" y="437.0">logic.Transition</node>
-            <node x="2759.75" y="437.0">gui.LogPanel</node>
-            <node x="2801.6559685158763" y="268.0">gui.LogUIModel</node>
+            <node x="1779.0445211038955" y="11.0">logic.ArcInterface</node>
+            <node x="1470.7945211038957" y="796.0">logic.AbstractArc</node>
+            <node x="1113.7945211038957" y="1093.0">gui.Transition2DObject</node>
+            <node x="1644.7945211038957" y="1203.0">logic.PlaceToTransitionArc</node>
+            <node x="2351.2666666666664" y="1071.0">logic.Place</node>
+            <node x="1445.7945211038957" y="1203.0">logic.TransitionToPlaceArc</node>
+            <node x="1209.7945211038957" y="851.0">logic.TransitionInterface</node>
+            <node x="0.0" y="840.0">storage.StorageInterface</node>
+            <node x="1066.0732142857141" y="0.0">gui.Petrinet2DObjectInterface</node>
+            <node x="1203.7885446729194" y="327.0">gui.Arc2DObject</node>
+            <node x="1874.2458333333332" y="426.0">logic.ArcEndpointInterface</node>
+            <node x="178.75104467291953" y="1159.0">storage.Storage</node>
+            <node x="2057.2666666666664" y="1093.0">gui.Place2DObject</node>
+            <node x="2085.7666666666664" y="818.0">logic.PlaceInterface</node>
+            <node x="305.9999999999998" y="818.0">storage.ProjectModel</node>
+            <node x="83.0" y="426.0">storage.ProjectInterface</node>
+            <node x="800.7945211038957" y="1104.0">logic.Transition</node>
           </nodes>
           <notes />
           <edges>
             <edge source="logic.Place" target="logic.ArcInterface">
-              <point x="-10.0" y="-14.5" />
-              <point x="2544.0416666666665" y="417.0" />
-              <point x="2548.5416666666665" y="417.0" />
-              <point x="2548.5416666666665" y="109.0" />
-              <point x="2506.822635182543" y="109.0" />
-              <point x="35.875" y="14.5" />
-            </edge>
-            <edge source="gui.DrawPanel" target="gui.CustomDialog">
-              <point x="53.56521739130426" y="-14.5" />
-              <point x="1971.3985507246377" y="596.0" />
-              <point x="2934.0" y="596.0" />
-              <point x="-16.75" y="14.5" />
-            </edge>
-            <edge source="gui.LogUIModel" target="gui.LogType">
-              <point x="30.25" y="-14.5" />
-              <point x="2892.4059685158763" y="248.0" />
-              <point x="2865.5726351825433" y="248.0" />
-              <point x="33.66666666666663" y="14.5" />
-            </edge>
-            <edge source="gui.PetrinetPanel" target="gui.DrawPanel">
-              <point x="11.727272727272748" y="-14.5" />
-              <point x="1901.5606060606062" y="665.0" />
-              <point x="1945.8333333333335" y="665.0" />
-              <point x="28.0" y="14.5" />
+              <point x="-36.625" y="-146.5" />
+              <point x="2461.1416666666664" y="1041.0" />
+              <point x="2544.07604467292" y="1041.0" />
+              <point x="2544.07604467292" y="297.0" />
+              <point x="2032.499066558441" y="297.0" />
+              <point x="89.45454545454527" y="102.5" />
             </edge>
             <edge source="storage.Storage" target="storage.ProjectInterface">
-              <point x="0.0" y="-14.5" />
-              <point x="207.5" y="596.0" />
-              <point x="221.0" y="596.0" />
-              <point x="18.125" y="14.5" />
-            </edge>
-            <edge source="gui.PetrinetGUI" target="storage.ProjectModel">
-              <point x="-45.769230769230944" y="-14.5" />
-              <point x="1876.3141025641025" y="814.0" />
-              <point x="42.5" y="814.0" />
-              <point x="-32.0" y="14.5" />
-            </edge>
-            <edge source="gui.LogPanel" target="gui.LogUIModel">
-              <point x="7.105427357601002E-15" y="-14.5" />
-              <point x="2811.75" y="407.0" />
-              <point x="2852.0726351825433" y="407.0" />
-              <point x="-10.083333333333343" y="14.5" />
+              <point x="0.0" y="-58.5" />
+              <point x="321.25104467291953" y="1051.0" />
+              <point x="295.5" y="1051.0" />
+              <point x="0.0" y="80.5" />
             </edge>
             <edge source="logic.PlaceToTransitionArc" target="logic.TransitionInterface">
               <point x="-67.125" y="-14.5" />
-              <point x="2199.0634568121395" y="367.0" />
-              <point x="1975.6884568121395" y="367.0" />
-              <point x="41.0" y="14.5" />
-            </edge>
-            <edge source="gui.PetrinetGUI" target="storage.ProjectInterface">
-              <point x="-36.615384615384755" y="-14.5" />
-              <point x="1885.4679487179487" y="804.0" />
-              <point x="149.0" y="804.0" />
-              <point x="149.0" y="596.0" />
-              <point x="184.75" y="596.0" />
-              <point x="-18.125" y="14.5" />
+              <point x="1667.1695211038957" y="1031.0" />
+              <point x="1426.6945211038956" y="1031.0" />
+              <point x="96.39999999999986" y="47.5" />
             </edge>
             <edge source="logic.Transition" target="logic.ArcInterface">
-              <point x="13.75" y="-14.5" />
-              <point x="2451.7916666666665" y="417.0" />
-              <point x="2445.4384568121395" y="417.0" />
-              <point x="2445.4384568121395" y="109.0" />
-              <point x="2476.072635182543" y="109.0" />
-              <point x="5.125" y="14.5" />
-            </edge>
-            <edge source="gui.DrawPanel" target="logic.TransitionInterface">
-              <point x="0.0" y="-14.5" />
-              <point x="1917.8333333333335" y="486.0" />
-              <point x="1921.021790145473" y="486.0" />
-              <point x="-13.666666666666629" y="14.5" />
-            </edge>
-            <edge source="gui.PetrinetPanel" target="gui.Petrinet2DObjectInterface">
-              <point x="-11.727272727272748" y="-14.5" />
-              <point x="1878.1060606060607" y="665.0" />
-              <point x="1182.5" y="665.0" />
-              <point x="1182.5" y="417.0" />
-              <point x="1264.375" y="417.0" />
-              <point x="-43.125" y="14.5" />
+              <point x="-36.625" y="-113.5" />
+              <point x="910.6695211038957" y="1031.0" />
+              <point x="1072.190354437229" y="1031.0" />
+              <point x="1072.190354437229" y="726.0" />
+              <point x="1581.2885446729194" y="726.0" />
+              <point x="1581.2885446729194" y="277.0" />
+              <point x="1883.408157467532" y="277.0" />
+              <point x="-59.63636363636351" y="102.5" />
             </edge>
             <edge source="storage.Storage" target="storage.StorageInterface">
-              <point x="32.0" y="-14.5" />
-              <point x="239.5" y="705.0" />
-              <point x="255.5" y="705.0" />
-              <point x="-37.5" y="14.5" />
+              <point x="-95.0" y="-58.5" />
+              <point x="226.25104467291953" y="1051.0" />
+              <point x="142.5" y="1051.0" />
+              <point x="0.0" y="58.5" />
             </edge>
             <edge source="logic.TransitionToPlaceArc" target="logic.PlaceInterface">
               <point x="67.125" y="-14.5" />
-              <point x="2134.3134568121395" y="417.0" />
-              <point x="2327.875" y="417.0" />
-              <point x="-11.166666666666742" y="14.5" />
-            </edge>
-            <edge source="gui.DrawPanel" target="logic.PlaceToTransitionArc">
-              <point x="9.73913043478251" y="-14.5" />
-              <point x="1927.572463768116" y="506.0" />
-              <point x="2266.1884568121395" y="506.0" />
-              <point x="0.0" y="14.5" />
-            </edge>
-            <edge source="gui.DrawPanel" target="logic.TransitionToPlaceArc">
-              <point x="4.869565217391255" y="-14.5" />
-              <point x="1922.7028985507247" y="496.0" />
-              <point x="2067.1884568121395" y="496.0" />
-              <point x="0.0" y="14.5" />
-            </edge>
-            <edge source="gui.PetrinetSelectObjectPanel" target="gui.PetrinetSelectObjectListener">
-              <point x="-72.09999999999991" y="-14.5" />
-              <point x="754.7750000000001" y="586.0" />
-              <point x="574.0" y="586.0" />
-              <point x="74.0" y="14.5" />
-            </edge>
-            <edge source="gui.LogPanel" target="gui.LogType">
-              <point x="-34.66666666666663" y="-14.5" />
-              <point x="2777.0833333333335" y="377.0" />
-              <point x="2791.1559685158763" y="377.0" />
-              <point x="2791.1559685158763" y="248.0" />
-              <point x="2798.23930184921" y="248.0" />
-              <point x="-33.66666666666663" y="14.5" />
+              <point x="1602.4195211038957" y="1041.0" />
+              <point x="2107.4666666666662" y="1041.0" />
+              <point x="-86.80000000000018" y="80.5" />
             </edge>
             <edge source="gui.Place2DObject" target="gui.Petrinet2DObjectInterface">
-              <point x="-54.799999999999955" y="-14.5" />
-              <point x="1708.3884568121396" y="317.0" />
-              <point x="1402.375" y="317.0" />
-              <point x="94.875" y="14.5" />
-            </edge>
-            <edge source="gui.PetrinetGUI" target="gui.MenuBarListener">
-              <point x="9.153846153846189" y="-14.5" />
-              <point x="1931.2371794871797" y="774.0" />
-              <point x="3034.0796369478485" y="774.0" />
-              <point x="3034.0796369478485" y="705.0" />
-              <point x="3064.083333333334" y="705.0" />
-              <point x="-50.666666666666515" y="14.5" />
-            </edge>
-            <edge source="gui.DrawPanel" target="logic.Place">
-              <point x="29.217391304347757" y="-14.5" />
-              <point x="1947.0507246376812" y="546.0" />
-              <point x="2554.0416666666665" y="546.0" />
-              <point x="0.0" y="14.5" />
+              <point x="-91.33333333333348" y="-124.5" />
+              <point x="2102.933333333333" y="1031.0" />
+              <point x="1875.627854437229" y="1031.0" />
+              <point x="1875.627854437229" y="706.0" />
+              <point x="1193.2885446729194" y="706.0" />
+              <point x="1193.2885446729194" y="307.0" />
+              <point x="1203.0732142857141" y="307.0" />
+              <point x="0.0" y="113.5" />
             </edge>
             <edge source="logic.AbstractArc" target="logic.ArcInterface">
-              <point x="-40.66666666666663" y="-14.5" />
-              <point x="2103.3125" y="238.0" />
-              <point x="2061.392136947848" y="238.0" />
-              <point x="2061.392136947848" y="69.0" />
-              <point x="2435.072635182543" y="69.0" />
-              <point x="-35.875" y="14.5" />
+              <point x="-109.33333333333326" y="-102.5" />
+              <point x="1525.4611877705624" y="746.0" />
+              <point x="1863.7458333333332" y="746.0" />
+              <point x="1863.7458333333332" y="297.0" />
+              <point x="1943.0445211038955" y="297.0" />
+              <point x="0.0" y="102.5" />
             </edge>
             <edge source="storage.Storage" target="storage.ProjectModel">
-              <point x="-32.0" y="-14.5" />
-              <point x="175.5" y="705.0" />
-              <point x="106.5" y="705.0" />
-              <point x="32.0" y="14.5" />
+              <point x="95.0" y="-58.5" />
+              <point x="416.25104467291953" y="1051.0" />
+              <point x="518.4999999999998" y="1051.0" />
+              <point x="0.0" y="80.5" />
             </edge>
             <edge source="logic.ArcInterface" target="logic.ArcEndpointInterface">
-              <point x="-15.375" y="14.5" />
-              <point x="2455.572635182543" y="89.0" />
-              <point x="2206.142136947848" y="89.0" />
-              <point x="44.75" y="-14.5" />
+              <point x="59.63636363636374" y="102.5" />
+              <point x="2002.6808847402594" y="307.0" />
+              <point x="2093.9958333333334" y="307.0" />
+              <point x="73.25" y="-80.5" />
             </edge>
             <edge source="logic.TransitionToPlaceArc" target="logic.TransitionInterface">
               <point x="-67.125" y="-14.5" />
-              <point x="2000.0634568121395" y="387.0" />
-              <point x="1948.355123478806" y="387.0" />
-              <point x="13.666666666666629" y="14.5" />
-            </edge>
-            <edge source="gui.DrawPanel" target="logic.ArcInterface">
-              <point x="24.347826086956502" y="-14.5" />
-              <point x="1942.18115942029" y="536.0" />
-              <point x="2503.5416666666665" y="536.0" />
-              <point x="2503.5416666666665" y="119.0" />
-              <point x="2496.572635182543" y="119.0" />
-              <point x="25.625" y="14.5" />
-            </edge>
-            <edge source="gui.PetrinetPanel" target="gui.PetrinetSelectObjectListener">
-              <point x="-46.90909090909099" y="-14.5" />
-              <point x="1842.9242424242425" y="695.0" />
-              <point x="480.27560693034684" y="695.0" />
-              <point x="480.27560693034684" y="596.0" />
-              <point x="426.0" y="596.0" />
-              <point x="-74.0" y="14.5" />
-            </edge>
-            <edge source="gui.DrawPanel" target="logic.PlaceInterface">
-              <point x="14.608695652173992" y="-14.5" />
-              <point x="1932.4420289855075" y="516.0" />
-              <point x="2372.5416666666665" y="516.0" />
-              <point x="33.5" y="14.5" />
-            </edge>
-            <edge source="driver.PetrinetMain" target="gui.PetrinetGUI">
-              <point x="0.0" y="-14.5" />
-              <point x="0.0" y="14.5" />
-            </edge>
-            <edge source="gui.PetrinetSelectObjectPanel" target="gui.PlaceSelectButton">
-              <point x="72.09999999999991" y="-14.5" />
-              <point x="898.9749999999999" y="586.0" />
-              <point x="1052.0" y="586.0" />
-              <point x="-40.0" y="14.5" />
-            </edge>
-            <edge source="gui.Place2DObject" target="gui.SelectObject">
-              <point x="-27.40000000000009" y="-14.5" />
-              <point x="1735.7884568121394" y="367.0" />
-              <point x="1716.8296369478483" y="367.0" />
-              <point x="1716.8296369478483" y="218.0" />
-              <point x="1481.61809848631" y="218.0" />
-              <point x="38.46153846153857" y="14.5" />
+              <point x="1468.1695211038957" y="1051.0" />
+              <point x="1378.4945211038957" y="1051.0" />
+              <point x="48.200000000000045" y="47.5" />
             </edge>
             <edge source="gui.Transition2DObject" target="logic.TransitionInterface">
-              <point x="66.79999999999995" y="-14.5" />
-              <point x="1657.9884568121395" y="387.0" />
-              <point x="1893.6884568121395" y="387.0" />
-              <point x="-41.0" y="14.5" />
+              <point x="0.0" y="-124.5" />
+              <point x="1253.7945211038957" y="1051.0" />
+              <point x="1282.0945211038957" y="1051.0" />
+              <point x="-48.200000000000045" y="47.5" />
             </edge>
             <edge source="gui.Arc2DObject" target="gui.Petrinet2DObjectInterface">
-              <point x="-18.0" y="-14.5" />
-              <point x="1406.6884568121395" y="397.0" />
-              <point x="1367.875" y="397.0" />
-              <point x="60.375" y="14.5" />
+              <point x="-71.20000000000005" y="-179.5" />
+              <point x="1310.5885446729194" y="307.0" />
+              <point x="1281.3589285714284" y="307.0" />
+              <point x="78.28571428571422" y="113.5" />
             </edge>
             <edge source="storage.ProjectInterface" target="gui.Petrinet2DObjectInterface">
-              <point x="0.0" y="-14.5" />
-              <point x="202.875" y="407.0" />
-              <point x="1247.125" y="407.0" />
-              <point x="-60.375" y="14.5" />
-            </edge>
-            <edge source="gui.DrawPanel" target="gui.Arc2DObject">
-              <point x="-34.08695652173901" y="-14.5" />
-              <point x="1883.7463768115945" y="556.0" />
-              <point x="1393.1884568121395" y="556.0" />
-              <point x="-31.5" y="14.5" />
-            </edge>
-            <edge source="gui.MenuBar" target="gui.MenuBarListener">
-              <point x="-25.75" y="-14.5" />
-              <point x="3107.125" y="705.0" />
-              <point x="3114.75" y="705.0" />
-              <point x="0.0" y="14.5" />
-            </edge>
-            <edge source="gui.DrawPanel" target="gui.LogListener">
-              <point x="43.82608695652175" y="-14.5" />
-              <point x="1961.6594202898552" y="576.0" />
-              <point x="2679.75" y="576.0" />
-              <point x="0.0" y="14.5" />
-            </edge>
-            <edge source="gui.Arc2DObject" target="logic.ArcInterface">
-              <point x="36.0" y="-14.5" />
-              <point x="1460.6884568121395" y="357.0" />
-              <point x="1661.2929982346946" y="357.0" />
-              <point x="1661.2929982346946" y="49.0" />
-              <point x="2414.572635182543" y="49.0" />
-              <point x="-56.375" y="14.5" />
+              <point x="0.0" y="-80.5" />
+              <point x="295.5" y="287.0" />
+              <point x="1085.6446428571426" y="287.0" />
+              <point x="-117.42857142857156" y="113.5" />
             </edge>
             <edge source="storage.ProjectModel" target="storage.ProjectInterface">
-              <point x="32.0" y="-14.5" />
-              <point x="106.5" y="586.0" />
-              <point x="148.5" y="586.0" />
-              <point x="-54.375" y="14.5" />
+              <point x="-106.25" y="-80.5" />
+              <point x="412.2499999999998" y="776.0" />
+              <point x="437.16666666666674" y="776.0" />
+              <point x="141.66666666666663" y="80.5" />
             </edge>
-            <edge source="gui.Petrinet2DObjectInterface" target="gui.SelectObject">
-              <point x="0.0" y="-14.5" />
-              <point x="1307.5" y="238.0" />
-              <point x="1433.5411754093868" y="238.0" />
-              <point x="-9.615384615384528" y="14.5" />
-            </edge>
-            <edge source="gui.PetrinetGUI" target="storage.Storage">
-              <point x="-27.461538461538566" y="-14.5" />
-              <point x="1894.621794871795" y="794.0" />
-              <point x="207.5" y="794.0" />
-              <point x="0.0" y="14.5" />
-            </edge>
-            <edge source="gui.PetrinetSelectObjectListener" target="gui.SelectObject">
-              <point x="0.0" y="-14.5" />
-              <point x="500.0" y="198.0" />
-              <point x="1395.0796369478483" y="198.0" />
-              <point x="-48.076923076923094" y="14.5" />
+            <edge source="gui.Arc2DObject" target="logic.ArcInterface">
+              <point x="142.4000000000001" y="-179.5" />
+              <point x="1524.1885446729195" y="257.0" />
+              <point x="1823.7717938311685" y="257.0" />
+              <point x="-119.27272727272725" y="102.5" />
             </edge>
             <edge source="storage.ProjectModel" target="gui.Petrinet2DObjectInterface">
-              <point x="-32.0" y="-14.5" />
-              <point x="42.5" y="397.0" />
-              <point x="1229.875" y="397.0" />
-              <point x="-77.625" y="14.5" />
-            </edge>
-            <edge source="gui.PetrinetSelectObjectPanel" target="gui.ArcSelectButton">
-              <point x="10.300000000000182" y="-14.5" />
-              <point x="837.1750000000002" y="556.0" />
-              <point x="879.25" y="556.0" />
-              <point x="-37.25" y="14.5" />
+              <point x="106.25" y="-80.5" />
+              <point x="624.7499999999999" y="297.0" />
+              <point x="1124.7875" y="297.0" />
+              <point x="-78.28571428571422" y="113.5" />
             </edge>
             <edge source="logic.Place" target="logic.PlaceInterface">
-              <point x="-30.0" y="-14.5" />
-              <point x="2524.0416666666665" y="327.0" />
-              <point x="2394.875" y="327.0" />
-              <point x="55.83333333333326" y="14.5" />
-            </edge>
-            <edge source="gui.PetrinetGUI" target="gui.CustomDialog">
-              <point x="45.769230769230944" y="-14.5" />
-              <point x="1967.8525641025644" y="814.0" />
-              <point x="3210.6121794871797" y="814.0" />
-              <point x="3210.6121794871797" y="586.0" />
-              <point x="3001.0" y="586.0" />
-              <point x="50.25" y="14.5" />
+              <point x="-109.875" y="-146.5" />
+              <point x="2387.8916666666664" y="1041.0" />
+              <point x="2281.0666666666666" y="1041.0" />
+              <point x="86.80000000000018" y="80.5" />
             </edge>
             <edge source="logic.AbstractArc" target="logic.ArcEndpointInterface">
-              <point x="0.0" y="-14.5" />
-              <point x="2143.9791666666665" y="248.0" />
-              <point x="2139.017136947848" y="248.0" />
-              <point x="-22.375" y="14.5" />
-            </edge>
-            <edge source="gui.PetrinetPanel" target="gui.LogListener">
-              <point x="23.454545454545496" y="-14.5" />
-              <point x="1913.287878787879" y="675.0" />
-              <point x="2719.75" y="675.0" />
-              <point x="40.0" y="14.5" />
+              <point x="0.0" y="-102.5" />
+              <point x="1634.7945211038957" y="766.0" />
+              <point x="1984.1208333333332" y="766.0" />
+              <point x="-36.625" y="80.5" />
             </edge>
             <edge source="logic.TransitionInterface" target="logic.ArcEndpointInterface">
-              <point x="0.0" y="-14.5" />
-              <point x="1934.6884568121395" y="248.0" />
-              <point x="2094.267136947848" y="248.0" />
-              <point x="-67.125" y="14.5" />
+              <point x="0.0" y="-47.5" />
+              <point x="1330.2945211038957" y="756.0" />
+              <point x="1910.8708333333332" y="756.0" />
+              <point x="-109.875" y="80.5" />
             </edge>
             <edge source="storage.StorageInterface" target="storage.ProjectInterface">
-              <point x="0.0" y="-14.5" />
-              <point x="293.0" y="596.0" />
-              <point x="257.25" y="596.0" />
-              <point x="54.375" y="14.5" />
-            </edge>
-            <edge source="gui.PetrinetSelectObjectPanel" target="gui.SelectObject">
-              <point x="51.5" y="-14.5" />
-              <point x="878.375" y="576.0" />
-              <point x="1001.5" y="576.0" />
-              <point x="1001.5" y="218.0" />
-              <point x="1414.3104061786175" y="218.0" />
-              <point x="-28.84615384615381" y="14.5" />
-            </edge>
-            <edge source="gui.PetrinetSelectObjectPanel" target="gui.TransitionSelectButton">
-              <point x="-30.90000000000009" y="-14.5" />
-              <point x="795.9749999999999" y="566.0" />
-              <point x="679.5" y="566.0" />
-              <point x="-47.5" y="14.5" />
+              <point x="0.0" y="-58.5" />
+              <point x="142.5" y="776.0" />
+              <point x="153.83333333333326" y="776.0" />
+              <point x="-141.66666666666663" y="80.5" />
             </edge>
             <edge source="logic.PlaceToTransitionArc" target="logic.AbstractArc">
               <point x="22.375" y="-14.5" />
-              <point x="2288.5634568121395" y="347.0" />
-              <point x="2189.7291666666665" y="347.0" />
-              <point x="45.75" y="14.5" />
-            </edge>
-            <edge source="gui.PetrinetGUI" target="gui.LogUIModel">
-              <point x="54.92307692307713" y="-14.5" />
-              <point x="1977.0064102564106" y="824.0" />
-              <point x="3219.7660256410254" y="824.0" />
-              <point x="3219.7660256410254" y="407.0" />
-              <point x="2912.5726351825433" y="407.0" />
-              <point x="50.41666666666674" y="14.5" />
+              <point x="1756.6695211038957" y="1031.0" />
+              <point x="1757.7945211038957" y="1031.0" />
+              <point x="123.0" y="102.5" />
             </edge>
             <edge source="logic.TransitionToPlaceArc" target="logic.AbstractArc">
-              <point x="-22.375" y="-14.5" />
-              <point x="2044.8134568121395" y="377.0" />
-              <point x="2098.2291666666665" y="377.0" />
-              <point x="-45.75" y="14.5" />
-            </edge>
-            <edge source="gui.DrawPanel" target="gui.Transition2DObject">
-              <point x="-19.478260869565247" y="-14.5" />
-              <point x="1898.3550724637682" y="526.0" />
-              <point x="1632.9384568121395" y="526.0" />
-              <point x="41.75" y="14.5" />
-            </edge>
-            <edge source="gui.PetrinetGUI" target="gui.PetrinetPanel">
-              <point x="-9.153846153846189" y="-14.5" />
-              <point x="1912.9294871794873" y="774.0" />
-              <point x="1857.5833333333335" y="774.0" />
-              <point x="-32.25" y="14.5" />
-            </edge>
-            <edge source="gui.DrawPanel" target="gui.Petrinet2DObjectInterface">
-              <point x="-48.695652173913004" y="-14.5" />
-              <point x="1869.1376811594205" y="586.0" />
-              <point x="1290.5118957617078" y="586.0" />
-              <point x="1290.5118957617078" y="417.0" />
-              <point x="1281.625" y="417.0" />
-              <point x="-25.875" y="14.5" />
-            </edge>
-            <edge source="gui.PetrinetPanel" target="gui.SelectObject">
-              <point x="-58.63636363636351" y="-14.5" />
-              <point x="1831.19696969697" y="705.0" />
-              <point x="378.5" y="705.0" />
-              <point x="378.5" y="188.0" />
-              <point x="1385.4642523324637" y="188.0" />
-              <point x="-57.69230769230762" y="14.5" />
-            </edge>
-            <edge source="gui.PetrinetPanel" target="gui.PetrinetSelectObjectPanel">
-              <point x="-35.181818181818244" y="-14.5" />
-              <point x="1854.6515151515152" y="685.0" />
-              <point x="775.375" y="685.0" />
-              <point x="-51.5" y="14.5" />
+              <point x="22.375" y="-14.5" />
+              <point x="1557.6695211038957" y="1051.0" />
+              <point x="1593.7945211038957" y="1051.0" />
+              <point x="-41.0" y="102.5" />
             </edge>
             <edge source="gui.Transition2DObject" target="gui.Petrinet2DObjectInterface">
-              <point x="-66.79999999999995" y="-14.5" />
-              <point x="1524.3884568121396" y="337.0" />
-              <point x="1385.125" y="337.0" />
-              <point x="77.625" y="14.5" />
-            </edge>
-            <edge source="gui.LogListener" target="gui.LogUIModel">
-              <point x="0.0" y="-14.5" />
-              <point x="2679.75" y="397.0" />
-              <point x="2831.9059685158763" y="397.0" />
-              <point x="-30.25" y="14.5" />
-            </edge>
-            <edge source="gui.DrawPanel" target="logic.Transition">
-              <point x="19.478260869565247" y="-14.5" />
-              <point x="1937.3115942028987" y="526.0" />
-              <point x="2438.0416666666665" y="526.0" />
-              <point x="0.0" y="14.5" />
-            </edge>
-            <edge source="gui.DrawPanel" target="gui.SelectObject">
-              <point x="-53.56521739130426" y="-14.5" />
-              <point x="1864.2681159420292" y="596.0" />
-              <point x="1193.5" y="596.0" />
-              <point x="1193.5" y="228.0" />
-              <point x="1423.925790794002" y="228.0" />
-              <point x="-19.230769230769283" y="14.5" />
-            </edge>
-            <edge source="gui.Transition2DObject" target="gui.SelectObject">
-              <point x="-33.40000000000009" y="-14.5" />
-              <point x="1557.7884568121394" y="327.0" />
-              <point x="1509.5576923076924" y="327.0" />
-              <point x="1509.5576923076924" y="238.0" />
-              <point x="1462.3873292555406" y="238.0" />
-              <point x="19.230769230769283" y="14.5" />
+              <point x="-93.33333333333326" y="-124.5" />
+              <point x="1160.4611877705624" y="1021.0" />
+              <point x="818.6630426286672" y="1021.0" />
+              <point x="818.6630426286672" y="307.0" />
+              <point x="1163.9303571428572" y="307.0" />
+              <point x="-39.14285714285711" y="113.5" />
             </edge>
             <edge source="gui.Place2DObject" target="logic.PlaceInterface">
-              <point x="54.799999999999955" y="-14.5" />
-              <point x="1817.9884568121395" y="407.0" />
-              <point x="2305.5416666666665" y="407.0" />
-              <point x="-33.5" y="14.5" />
-            </edge>
-            <edge source="logic.Transition" target="logic.TransitionInterface">
-              <point x="-41.25" y="-14.5" />
-              <point x="2396.7916666666665" y="337.0" />
-              <point x="2003.0217901454728" y="337.0" />
-              <point x="68.33333333333326" y="14.5" />
+              <point x="0.0" y="-124.5" />
+              <point x="0.0" y="80.5" />
             </edge>
             <edge source="logic.ArcEndpointInterface" target="logic.ArcInterface">
-              <point x="-44.75" y="-14.5" />
-              <point x="2116.642136947848" y="79.0" />
-              <point x="2445.322635182543" y="79.0" />
-              <point x="-25.625" y="14.5" />
+              <point x="-73.25" y="-80.5" />
+              <point x="1947.4958333333332" y="307.0" />
+              <point x="1972.8627029220775" y="307.0" />
+              <point x="29.818181818181756" y="102.5" />
             </edge>
-            <edge source="gui.DrawPanel" target="gui.Place2DObject">
-              <point x="-9.73913043478251" y="-14.5" />
-              <point x="1908.094202898551" y="506.0" />
-              <point x="1797.4384568121395" y="506.0" />
-              <point x="34.25" y="14.5" />
-            </edge>
-            <edge source="gui.PetrinetPanel" target="gui.LogPanel">
-              <point x="35.181818181818244" y="-14.5" />
-              <point x="1925.0151515151517" y="685.0" />
-              <point x="2849.701331568028" y="685.0" />
-              <point x="2849.701331568028" y="576.0" />
-              <point x="2785.75" y="576.0" />
-              <point x="-26.0" y="14.5" />
-            </edge>
-            <edge source="gui.PetrinetGUI" target="storage.StorageInterface">
-              <point x="-18.307692307692378" y="-14.5" />
-              <point x="1903.775641025641" y="784.0" />
-              <point x="330.5" y="784.0" />
-              <point x="37.5" y="14.5" />
-            </edge>
-            <edge source="gui.PetrinetGUI" target="gui.MenuBar">
-              <point x="27.461538461538566" y="-14.5" />
-              <point x="1949.544871794872" y="794.0" />
-              <point x="3158.625" y="794.0" />
-              <point x="25.75" y="14.5" />
-            </edge>
-            <edge source="gui.DrawPanel" target="gui.LogUIModel">
-              <point x="34.08695652173924" y="-14.5" />
-              <point x="1951.9202898550727" y="556.0" />
-              <point x="2609.25" y="556.0" />
-              <point x="2609.25" y="387.0" />
-              <point x="2811.7393018492094" y="387.0" />
-              <point x="-50.41666666666674" y="14.5" />
-            </edge>
-            <edge source="gui.Arc2DObject" target="gui.SelectObject">
-              <point x="0.0" y="-14.5" />
-              <point x="1424.6884568121395" y="417.0" />
-              <point x="1421.5" y="417.0" />
-              <point x="1421.5" y="248.0" />
-              <point x="1443.1565600247714" y="248.0" />
-              <point x="0.0" y="14.5" />
-            </edge>
-            <edge source="gui.PetrinetGUI" target="gui.Petrinet2DObjectInterface">
-              <point x="-54.92307692307713" y="-14.5" />
-              <point x="1867.1602564102564" y="824.0" />
-              <point x="0.0" y="824.0" />
-              <point x="0.0" y="387.0" />
-              <point x="1212.625" y="387.0" />
-              <point x="-94.875" y="14.5" />
+            <edge source="logic.Transition" target="logic.TransitionInterface">
+              <point x="109.875" y="-113.5" />
+              <point x="1057.1695211038957" y="1051.0" />
+              <point x="1233.8945211038956" y="1051.0" />
+              <point x="-96.40000000000009" y="47.5" />
             </edge>
             <edge source="logic.PlaceToTransitionArc" target="logic.PlaceInterface">
               <point x="67.125" y="-14.5" />
-              <point x="2333.3134568121395" y="417.0" />
-              <point x="2350.2083333333335" y="417.0" />
-              <point x="11.166666666666742" y="14.5" />
+              <point x="1801.4195211038957" y="1051.0" />
+              <point x="2150.8666666666663" y="1051.0" />
+              <point x="-43.40000000000009" y="80.5" />
             </edge>
             <edge source="logic.PlaceInterface" target="logic.ArcEndpointInterface">
-              <point x="0.0" y="-14.5" />
-              <point x="2339.0416666666665" y="248.0" />
-              <point x="2228.517136947848" y="248.0" />
-              <point x="67.125" y="14.5" />
-            </edge>
-            <edge source="gui.PetrinetPanel" target="gui.LogUIModel">
-              <point x="58.63636363636374" y="-14.5" />
-              <point x="1948.4696969696972" y="705.0" />
-              <point x="3028.25" y="705.0" />
-              <point x="3028.25" y="417.0" />
-              <point x="2892.4059685158763" y="417.0" />
-              <point x="30.25" y="14.5" />
+              <point x="0.0" y="-80.5" />
+              <point x="2194.2666666666664" y="776.0" />
+              <point x="2130.6208333333334" y="776.0" />
+              <point x="109.875" y="80.5" />
             </edge>
           </edges>
-          <settings layout="Hierarchic Group" zoom="0.36082792709298733" x="1608.5" y="466.0" />
+          <settings layout="Hierarchic Group" zoom="0.8608279270929873" x="1551.247981338597" y="939.4713798672169" />
           <SelectedNodes />
-          <Categories />
+          <Categories>
+            <Category>Methods</Category>
+          </Categories>
           <SCOPE>All</SCOPE>
           <VISIBILITY>private</VISIBILITY>
         </state>
