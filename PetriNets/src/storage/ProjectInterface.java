@@ -46,4 +46,7 @@ public interface ProjectInterface {
       * @param guiObjects
       */
      void setGuiObjects(ArrayList<Petrinet2DObjectInterface> guiObjects);
+
+
+
 }

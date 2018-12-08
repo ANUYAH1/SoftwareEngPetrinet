@@ -18,7 +18,7 @@ public class Transition2DObject implements Petrinet2DObjectInterface {
     private final Color TRANSITIONCOLOR = Color.black;
     private final Color TEXTCOLOR = Color.BLACK;
     private String Id;
-    private SelectObject selectObject;
+
 
     //TODO change this name back to the back end's
     private String Name;
@@ -34,15 +34,6 @@ public class Transition2DObject implements Petrinet2DObjectInterface {
         return point;
     }
 
-    @Override
-    public SelectObject getObjectType() {
-        return selectObject;
-    }
-
-    @Override
-    public void setObjectType(SelectObject selectObject) {
-        this.selectObject = selectObject;
-    }
 
     @Override
     public void draw(Graphics graphics) {

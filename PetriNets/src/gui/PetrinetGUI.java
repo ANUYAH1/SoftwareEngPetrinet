@@ -91,18 +91,19 @@ public class PetrinetGUI extends JFrame implements MenuBarListener {
             // get plast accessed folder
             // from storage
 
-            fileChooser.showOpenDialog(this);
-            fileChooser.setDialogType(JFileChooser.OPEN_DIALOG);
-            File file = fileChooser.getSelectedFile();
-            fileChooser.setFileFilter(fileFilter);
-            petrinetProject =storage.loadProject(file.getPath());
-            if(petrinetProject!=null){
-                this.setTitle("Petrinet- "+petrinetProject.getName());
+            int res =fileChooser.showOpenDialog(this);
+            if (res == JFileChooser.APPROVE_OPTION) {
+                fileChooser.setDialogType(JFileChooser.OPEN_DIALOG);
+                File file = fileChooser.getSelectedFile();
+                fileChooser.setFileFilter(fileFilter);
+                petrinetProject = storage.loadProject(file.getPath());
+                this.setTitle("Petrinet- " + petrinetProject.getName());
+
+                String message = "Project " + petrinetProject.getName() + " Loaded!!";
+                LogUIModel log = LogUIModel.createErrorLog(message);
+                petrinetPanel.log(log);
+                enablePanel(petrinetPanel, true);
             }
-            String message ="Project " + petrinetProject.getName() + " Loaded!!";
-            LogUIModel log =LogUIModel.createErrorLog(message);
-            petrinetPanel.log(log);
-            enablePanel(petrinetPanel,true);
             // send this file path to storage
         }catch (Exception ex){
             String message = "Failed to open Project";
@@ -124,17 +125,14 @@ public class PetrinetGUI extends JFrame implements MenuBarListener {
             }
 
 
-            fileChooser.showSaveDialog(this);
-            fileChooser.setDialogType(JFileChooser.SAVE_DIALOG);
-            fileChooser.setFileFilter(fileFilter);
+            int res =fileChooser.showSaveDialog(this);
+            if (res == JFileChooser.APPROVE_OPTION) {
+                fileChooser.setDialogType(JFileChooser.SAVE_DIALOG);
+                fileChooser.setFileFilter(fileFilter);
 
 
+                File file = fileChooser.getSelectedFile();
 
-            File file = fileChooser.getSelectedFile();
-            if(file  != null &&!file.getPath().isEmpty()) {
-                if (!file.exists()) {
-                    file.createNewFile();
-                }
 
                 ArrayList<Petrinet2DObjectInterface> objectCopy =
                         petrinetPanel.getGuiObjects();
@@ -142,13 +140,14 @@ public class PetrinetGUI extends JFrame implements MenuBarListener {
 
                 petrinetProject.setFilePath(file.getPath());
                 storage.saveProject(petrinetProject);
-                String message = "Info: Project " + petrinetProject.getName() + " Saved!!";
-                LogUIModel log =LogUIModel.createErrorLog(message);
+                String message = "Project " + petrinetProject.getName() + " Saved!!";
+                LogUIModel log = LogUIModel.createErrorLog(message);
                 petrinetPanel.log(log);
+
             }
             // send this file path to storage
         }catch (Exception ex){
-            String message = "Error: Could not save project!!";
+            String message = "Could not save project!!";
             LogUIModel log =LogUIModel.createErrorLog(message);
             petrinetPanel.log(log);
         }
@@ -176,7 +175,7 @@ public class PetrinetGUI extends JFrame implements MenuBarListener {
             String about = storage.getAbout();
             JOptionPane.showMessageDialog(this,about,"About",JOptionPane.PLAIN_MESSAGE);
         }catch (Exception ex){
-            String message = "Error: Could not load About!!";
+            String message = "Could not load About!!";
             LogUIModel log =LogUIModel.createErrorLog(message);
             petrinetPanel.log(log);
         }

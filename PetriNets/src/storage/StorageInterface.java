@@ -16,15 +16,18 @@ public interface StorageInterface {
      * on the GUI data
      * @param project
      */
-    void saveProject(ProjectInterface project);
+    void saveProject(ProjectInterface project) throws Exception;
 
     /**
-     * Takes in the path and
-     * returns the project object
+     * * Takes in the path and
+     *      * returns the project object
+     *      * expects not null string
      * @param path
      * @return
+     * @throws IllegalArgumentException throws exception for illegal argument
+     * @throws FileNotFoundException throws when file is not found
      */
-    ProjectInterface loadProject(String path);
+    ProjectInterface loadProject(String path) throws Exception;
 
     /**
      * Get extension type from

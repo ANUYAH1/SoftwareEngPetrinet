@@ -1,11 +1,33 @@
 package storage;
 
+import gui.Arc2DObject;
+import gui.Petrinet2DObjectInterface;
+import gui.Place2DObject;
+import gui.Transition2DObject;
+import logic.*;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
+import java.awt.*;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Storage implements StorageInterface {
     private final String EXTENSION =".petri";
+    private final String PETRINETNODE = "petrinet";
+    private final String TRANSITIONNODE = "transition";
+    private final String ARCNODE = "arc";
+    private final String PLACENODE = "place";
     public Storage(){
 
     }
@@ -30,14 +52,381 @@ public class Storage implements StorageInterface {
     }
 
     @Override
-    public void saveProject(ProjectInterface project) {
+    public void saveProject(ProjectInterface project) throws Exception {
         //Save to xml file here
+
+        try{
+            File file = new File(project.getFilePath());
+
+            if (!file.exists()) {
+                file.createNewFile();
+            }
+            DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
+
+            // root elements
+            Document doc = docBuilder.newDocument();
+
+           Element petrinetNode = doc.createElement(PETRINETNODE);
+           Element name  =doc.createElement("name");
+           name.
+            appendChild(doc.createTextNode(project.getName()));
+           petrinetNode.appendChild(petrinetNode);
+
+            Element transitions  =doc.createElement("transitions");
+            Element places  =doc.createElement("places");
+            Element arcs=doc.createElement("arcs");
+            
+            
+            // go through the gui objects
+            
+            ArrayList<Petrinet2DObjectInterface> objects =project.getGuiObjects();
+            
+            for(Petrinet2DObjectInterface o :objects){
+                if (o instanceof  Transition2DObject){
+                    Element transition = doc.createElement("transition");
+
+                    Element transition_name  =doc.createElement("name");
+                    transition_name.
+                            appendChild(doc.createTextNode(o.getName()));
+                    Element transition_Id  =doc.createElement("id");
+                    transition_Id.
+                            appendChild(doc.createTextNode(o.getID()));
+
+                    Element transition_x  =doc.createElement("x");
+                    transition_x.
+                            appendChild(doc.createTextNode(String.valueOf((int)o.getPoint().getX())));
+                    Element transition_y  =doc.createElement("y");
+                    transition_y.
+                            appendChild(doc.createTextNode(String.valueOf((int)o.getPoint().getY())));
+                    transition.appendChild(transition_name);
+                    transition.appendChild(transition_Id);
+                    transition.appendChild(transition_x);
+                    transition.appendChild(transition_y);
+                    transitions.appendChild(transition);
+                }else if (o instanceof Place2DObject){
+                    Place2DObject placeObject = (Place2DObject) o; 
+                    Element place = doc.createElement("place");
+
+                    Element place_name  =doc.createElement("name");
+                    place_name.
+                            appendChild(doc.createTextNode(placeObject.getName()));
+                    Element place_Id  =doc.createElement("id");
+                    place_Id.
+                            appendChild(doc.createTextNode(placeObject.getID()));
+
+                    Element place_x  =doc.createElement("x");
+                    place_x.
+                            appendChild(doc.createTextNode(String.valueOf((int)placeObject.getPoint().getX())));
+
+                    Element place_token  =doc.createElement("tokens");
+                    place_token.
+                            appendChild(doc.createTextNode(String.valueOf(placeObject.getPlace().getNumTokens())));
+                    Element place_y  =doc.createElement("y");
+                    place_y.
+                            appendChild(doc.createTextNode(String.valueOf((int)o.getPoint().getY())));
+                    place.appendChild(place_name);
+                    place.appendChild(place_Id);
+                    place.appendChild(place_x);
+                    place.appendChild(place_y);
+                    place.appendChild(place_token);
+
+                    places.appendChild(place);
+                }else if (o instanceof Arc2DObject){
+                    Arc2DObject arcObject = (Arc2DObject) o;
+                    Element arc = doc.createElement("arc");
+
+                    Element arc_name  =doc.createElement("name");
+                    arc_name.
+                            appendChild(doc.createTextNode(arcObject.getName()));
+                    Element arc_Id  =doc.createElement("id");
+                    arc_Id.
+                            appendChild(doc.createTextNode(arcObject.getID()));
+
+                    Element arc_origin_x  =doc.createElement("origin_x");
+                    arc_origin_x.
+                            appendChild(doc.createTextNode(String.valueOf((int)arcObject.getPoint().getX())));
+
+
+                    Element arc_origin_y  =doc.createElement("origin_y");
+                    arc_origin_y.
+                            appendChild(doc.createTextNode(String.valueOf((int)o.getPoint().getY())));
+
+
+                    Element arc_destination_x  =doc.createElement("destination_x");
+                    arc_destination_x.
+                            appendChild(doc.createTextNode(String.valueOf((int)arcObject.getPoint().getX())));
+
+
+                    Element arc_destination_y  =doc.createElement("destination_y");
+                    arc_destination_y.
+                            appendChild(doc.createTextNode(String.valueOf((int)o.getPoint().getY())));
+
+                    Element arc_weight  =doc.createElement("weight");
+                    arc_weight.
+                            appendChild(doc.createTextNode(String.valueOf(arcObject.getArc().
+                                    getWeight())));
+
+
+
+                    Element origin_Id  =doc.createElement("origin_id");
+                    origin_Id.
+                            appendChild(doc.createTextNode(arcObject.getOrigin().getID()));
+                    Element destination_Id  =doc.createElement("destination_id");
+                    destination_Id.
+                            appendChild(doc.createTextNode(arcObject.getDestination().getID()));
+                    arc.appendChild(arc_name);
+                    arc.appendChild(arc_Id);
+                    arc.appendChild(origin_Id);
+                    arc.appendChild(destination_Id);
+                    arc.appendChild(arc_destination_x);
+                    arc.appendChild(arc_destination_y);
+
+                    arc.appendChild(arc_origin_x);
+                    arc.appendChild(arc_origin_y);
+
+                    arc.appendChild(arc_weight);
+
+
+                    arcs.appendChild(arc);
+                }
+            }
+
+            petrinetNode.appendChild(transitions);
+            petrinetNode.appendChild(places);
+            petrinetNode.appendChild(arcs);
+
+
+            // write the content into xml file
+            TransformerFactory transformerFactory = TransformerFactory.newInstance();
+            Transformer transformer = transformerFactory.newTransformer();
+            DOMSource source = new DOMSource(doc);
+            StreamResult result = new StreamResult(file);
+
+            // Output to console for testing
+            // StreamResult result = new StreamResult(System.out);
+
+            transformer.transform(source, result);
+
+
+        }catch (Exception ex){
+            throw new Exception();
+        }
+
     }
 
     @Override
-    public ProjectInterface loadProject(String path) {
+    public ProjectInterface loadProject(String path) throws Exception {
         // read from XML file here
-        return new ProjectModel();
+        if (path == null){
+            throw new IllegalArgumentException("Requires path parameter to be non null");
+        }
+
+        File petrinetFile = new File(path);
+        if(!petrinetFile.exists()){
+            throw new FileNotFoundException("File not found");
+        }
+        try{
+            DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+            Document doc = dBuilder.parse(petrinetFile);
+            doc.getDocumentElement().normalize();
+            Node  petrinetNode = doc.
+                    getElementsByTagName(PETRINETNODE).item(0);
+            String name = "";
+            ArrayList<Petrinet2DObjectInterface> guiObjects = new ArrayList<>();
+
+            Element  petrinetRootElement = (Element) petrinetNode;
+            name =petrinetRootElement.getElementsByTagName("name")
+                       .item(0).getNodeValue();
+            // read transitions from data base
+            NodeList transitionList = petrinetRootElement.getElementsByTagName("transitions");
+            for(int i = 0; i <transitionList.getLength();i++){
+                   Element transitionItem = (Element)transitionList.item(i) ;
+                   String transitionId = transitionItem.getElementsByTagName
+                           ("id").item(0).getNodeValue();
+                   String transitionName = transitionItem.getElementsByTagName
+                           ("name").item(0).getNodeValue();
+
+                   int xCoordinate = Integer.parseInt( transitionItem.getElementsByTagName("x").
+                           item(0).getNodeValue());
+
+                   int yCoordinate = Integer.parseInt( transitionItem.getElementsByTagName("y").
+                           item(0).getNodeValue());
+                   TransitionInterface transition = new Transition();
+                   transition.setName(transitionName);
+
+                   Petrinet2DObjectInterface transtionGui = new Transition2DObject(transition);
+                   transtionGui.setID(transitionId);
+                   transtionGui.setName(transitionName);
+                   transtionGui.setPoint(new Point(xCoordinate,yCoordinate));
+                   guiObjects.add(transtionGui);
+
+
+            }
+            
+            // read places from XML file
+
+            NodeList placeList = petrinetRootElement.getElementsByTagName("places");
+            for(int i = 0; i <placeList.getLength();i++){
+                Element placeItem = (Element)placeList.item(i) ;
+                String placeId = placeItem.getElementsByTagName
+                        ("id").item(0).getNodeValue();
+                String placeName = placeItem.getElementsByTagName
+                        ("name").item(0).getNodeValue();
+
+                int xCoordinate = Integer.parseInt( placeItem.getElementsByTagName("x").
+                        item(0).getNodeValue());
+
+                int yCoordinate = Integer.parseInt( placeItem.getElementsByTagName("y").
+                        item(0).getNodeValue());
+                int tokens = Integer.parseInt( placeItem.getElementsByTagName("tokens").
+                        item(0).getNodeValue());
+                PlaceInterface place = new Place();
+                place.setName(placeName);
+                place.setNumTokens(tokens);
+
+
+                Petrinet2DObjectInterface placeGui = new Place2DObject(place);
+                placeGui.setID(placeId);
+                placeGui.setName(placeName);
+                placeGui.setPoint(new Point(xCoordinate,yCoordinate));
+                guiObjects.add(placeGui);
+
+
+            }
+
+
+
+            // read arcs from XML file
+
+            NodeList arcList = petrinetRootElement.getElementsByTagName("arcs");
+            for(int i = 0; i <arcList.getLength();i++){
+                Element arcItem = (Element)arcList.item(i) ;
+                String arcId = arcItem.getElementsByTagName
+                        ("id").item(0).getNodeValue();
+                String arcName = arcItem.getElementsByTagName
+                        ("name").item(0).getNodeValue();
+
+                int originXCoordinate = Integer.parseInt( arcItem.getElementsByTagName("origin_x").
+                        item(0).getNodeValue());
+
+                int originYCoordinate = Integer.parseInt( arcItem.getElementsByTagName("origin_y").
+                        item(0).getNodeValue());
+
+
+                int destinationXCoordinate = Integer.parseInt( arcItem.getElementsByTagName("destination_x").
+                        item(0).getNodeValue());
+
+                int destinationYCoordinate = Integer.parseInt( arcItem.getElementsByTagName("destination_y").
+                        item(0).getNodeValue());
+
+
+
+                int weight = Integer.parseInt( arcItem.getElementsByTagName("weight").
+                        item(0).getNodeValue());
+
+                String originId = arcItem.getElementsByTagName
+                        ("origin_id").item(0).getNodeValue();
+
+                String destinationId = arcItem.getElementsByTagName
+                        ("destination_id").item(0).getNodeValue();
+
+                Point destinationPoint =  new Point(destinationXCoordinate,destinationYCoordinate);
+                Point originPoint = new Point(originXCoordinate,originYCoordinate);
+                // search the loaded place and transitions 
+                // for the following Ids
+                Petrinet2DObjectInterface destination  = null;
+                Petrinet2DObjectInterface origin  = null;
+                for(Petrinet2DObjectInterface obj : guiObjects) {
+                    if (obj.getID() == destinationId){
+                        destination = obj;
+                    }
+                    if(obj.getID().equals(originId)){
+                        origin = obj;
+                    }
+                    if (origin !=null && destination!=null)
+                    {
+                        break;
+                    }
+                        
+                }
+
+                ArcInterface arc =  null;
+
+                if (origin instanceof  Transition2DObject
+                        && destination instanceof Place2DObject) {
+                    Transition2DObject transition2DObject = (Transition2DObject) origin;
+                    TransitionInterface transition = transition2DObject.getTransition();
+
+                    Place2DObject place2DObject = (Place2DObject) destination;
+                    PlaceInterface place = place2DObject.getPlace();
+
+                    arc = new TransitionToPlaceArc
+                            (transition, place);
+                    arc.setWeight(weight);
+                    arc.setName(arcName);
+
+                    // now add this arc instance to the back end
+                    // for the coverability tree
+                    // TODO ask for explanation
+                    transition.addArcOutput(arc);
+                    place.addArcInput(arc);
+
+
+
+                } else if (origin instanceof  Place2DObject
+                        && destination instanceof Transition2DObject) {
+                    Transition2DObject transition2DObject = (Transition2DObject) destination;
+                    TransitionInterface transition = transition2DObject.
+                            getTransition();
+
+                    Place2DObject place2DObject = (Place2DObject) origin;
+                    PlaceInterface place = place2DObject.getPlace();
+
+                    arc = new PlaceToTransitionArc
+                            (place, transition);
+                    arc.setWeight
+                            (weight);
+                    arc.setName(name);
+
+
+                    transition.addArcInput(arc);
+                    place.addArcOutput(arc);
+
+                }
+
+                if(arc!=null) {
+                    Arc2DObject arc2DObject = new Arc2DObject(arc);
+                    arc2DObject.setName(arcName);
+                    arc2DObject.setDestinationPoint(destinationPoint);
+                    arc2DObject.setPoint(originPoint);
+                    arc2DObject.setDestination(destination);
+                    arc2DObject.setOrigin(origin);
+                    arc2DObject.setID(arcId);
+
+
+                    Petrinet2DObjectInterface arcObject = arc2DObject;
+
+
+                    guiObjects.add(arcObject);
+                }
+
+
+            }
+            ProjectInterface project = new ProjectModel();
+            project.setGuiObjects(guiObjects);
+            project.setFilePath(path);
+            project.setName(name);
+            return project;
+
+
+
+        }catch (Exception ex) {
+            throw new Exception();
+        }
+
+
     }
 
     @Override

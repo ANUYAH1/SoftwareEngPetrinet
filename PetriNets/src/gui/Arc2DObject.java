@@ -22,7 +22,7 @@ public class Arc2DObject implements Petrinet2DObjectInterface {
     private final int TEXTPADDING =15;
     private String Id;
     private String Name;
-    private SelectObject selectObject;
+
     private Petrinet2DObjectInterface origin;
     private Petrinet2DObjectInterface destination;
 
@@ -79,15 +79,6 @@ public class Arc2DObject implements Petrinet2DObjectInterface {
     }
 
 
-    @Override
-    public SelectObject getObjectType() {
-        return selectObject;
-    }
-
-    @Override
-    public void setObjectType(SelectObject selectObject) {
-        this.selectObject = selectObject;
-    }
 
     /**
      * Get the destination point
@@ -176,4 +167,10 @@ public class Arc2DObject implements Petrinet2DObjectInterface {
     public String getName() {
         return Name;
     }
+
+    public ArcInterface getArc() {
+        return arc;
+    }
+
+
 }

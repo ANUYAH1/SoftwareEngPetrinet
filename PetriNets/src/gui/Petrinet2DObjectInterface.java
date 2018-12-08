@@ -14,14 +14,7 @@ public interface Petrinet2DObjectInterface {
 
 
 
-    /**
-     * Returns the identity of the petrinet2d
-     * gui model
-     *
-     */
-    SelectObject getObjectType();
 
-    void setObjectType(SelectObject selectObject);
     /**
      * this takes in the 2d graphics and
      * draws the petrinet object

@@ -37,15 +37,6 @@ public class Place2DObject implements  Petrinet2DObjectInterface{
         return point;
     }
 
-    @Override
-    public SelectObject getObjectType() {
-        return objectType;
-    }
-
-    @Override
-    public void setObjectType(SelectObject selectObject) {
-        this.objectType = selectObject;
-    }
 
     @Override
     public void draw(Graphics graphics) {

@@ -59,8 +59,8 @@ public class DrawPanel extends JPanel implements MouseListener {
         for(Petrinet2DObjectInterface object:objects){
 
                 if (Math.abs(object.getPoint().getY() - y) <= tolerance &&
-                        Math.abs(object.getPoint().getX() - x) <= tolerance &&
-                object.getObjectType()!=SelectObject.ARC
+                        Math.abs(object.getPoint().getX() - x) <= tolerance
+
                 ) {
                     return object;
                 }
@@ -100,7 +100,7 @@ public class DrawPanel extends JPanel implements MouseListener {
 
                     transitionObject.setID(UUID.randomUUID().toString());
                     transitionObject.setName(name);
-                    transitionObject.setObjectType(currentPetrinetObject);
+
                     transitionObject.setPoint(new Point(positionX, positionY));
                     objects.add(transitionObject);
                     redoHistory.clear();
@@ -137,7 +137,7 @@ public class DrawPanel extends JPanel implements MouseListener {
                          place2DObject.setID
                                  (UUID.randomUUID().toString());
                          place2DObject.setName(name);
-                         place2DObject.setObjectType(currentPetrinetObject);
+
                          place2DObject.setPoint
                                  (new Point(positionX, positionY));
                          objects.add(place2DObject);
@@ -169,7 +169,8 @@ public class DrawPanel extends JPanel implements MouseListener {
             originObject = getClosestObject(x,y);
 
 
-            if(originObject!=null) {
+            if(originObject!=null &&
+                    !(originObject instanceof Arc2DObject)) {
                 logListener.log(LogUIModel.createInfoLog("drawing arc from origin: " + originObject.getName()));
                 originPoint  = new Point(x,y);
             }
@@ -189,7 +190,7 @@ public class DrawPanel extends JPanel implements MouseListener {
             if(destinationObject!=null && originObject != null) {
                 logListener.log(LogUIModel.createInfoLog("drawing arc to: " + destinationObject.getName()));
                 destinationPoint = new Point(x,y);
-                if(destinationObject.getObjectType()!= originObject.getObjectType()) {
+                if(destinationObject.getClass() != originObject.getClass()) {
                     CustomDialog dialog = new CustomDialog(this, "Enter Arc " +
                             "in format: Arc Name<Weight>", "Add Arc");
                     if (dialog.isPostiveSelection()) {
@@ -204,8 +205,8 @@ public class DrawPanel extends JPanel implements MouseListener {
                                 // TODO someone has to compromise polymorphism
                                 ArcInterface arc = null;
                                 try {
-                                    if (originObject.getObjectType() == SelectObject.TRANSITION
-                                            && destinationObject.getObjectType() == SelectObject.PLACE) {
+                                    if (originObject instanceof  Transition2DObject
+                                            && destinationObject instanceof Place2DObject) {
                                         Transition2DObject transition2DObject = (Transition2DObject) originObject;
                                         TransitionInterface transition = transition2DObject.getTransition();
 
@@ -227,8 +228,8 @@ public class DrawPanel extends JPanel implements MouseListener {
                                                 originObject.getName() + " to" + destinationObject.getName()));
 
 
-                                    } else if (originObject.getObjectType() == SelectObject.PLACE
-                                            && destinationObject.getObjectType() == SelectObject.TRANSITION) {
+                                    } else if (originObject instanceof  Place2DObject
+                                            && destinationObject instanceof Transition2DObject) {
                                         Transition2DObject transition2DObject = (Transition2DObject) destinationObject;
                                         TransitionInterface transition = transition2DObject.getTransition();
 
@@ -259,7 +260,8 @@ public class DrawPanel extends JPanel implements MouseListener {
                                     arc2DObject.setPoint(originPoint);
                                     arc2DObject.setDestination(destinationObject);
                                     arc2DObject.setOrigin(originObject);
-                                    arc2DObject.setObjectType(SelectObject.ARC);
+                                    arc2DObject.setID(UUID.randomUUID().toString());
+
                                     Petrinet2DObjectInterface arcObject= arc2DObject;
 
 
