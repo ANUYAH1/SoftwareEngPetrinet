@@ -69,9 +69,8 @@ public class Storage implements StorageInterface {
 
            Element petrinetNode = doc.createElement(PETRINETNODE);
            Element name  =doc.createElement("name");
-           name.
-            appendChild(doc.createTextNode(project.getName()));
-           petrinetNode.appendChild(petrinetNode);
+           name.setTextContent(project.getName());
+           petrinetNode.appendChild(name);
 
             Element transitions  =doc.createElement("transitions");
             Element places  =doc.createElement("places");
@@ -87,18 +86,14 @@ public class Storage implements StorageInterface {
                     Element transition = doc.createElement("transition");
 
                     Element transition_name  =doc.createElement("name");
-                    transition_name.
-                            appendChild(doc.createTextNode(o.getName()));
+                    transition_name.setTextContent(o.getName());
                     Element transition_Id  =doc.createElement("id");
-                    transition_Id.
-                            appendChild(doc.createTextNode(o.getID()));
+                    transition_Id.setTextContent(o.getID());
 
                     Element transition_x  =doc.createElement("x");
-                    transition_x.
-                            appendChild(doc.createTextNode(String.valueOf((int)o.getPoint().getX())));
+                    transition_x.setTextContent(String.valueOf((int)o.getPoint().getX()));
                     Element transition_y  =doc.createElement("y");
-                    transition_y.
-                            appendChild(doc.createTextNode(String.valueOf((int)o.getPoint().getY())));
+                    transition_y.setTextContent(String.valueOf((int)o.getPoint().getY()));
                     transition.appendChild(transition_name);
                     transition.appendChild(transition_Id);
                     transition.appendChild(transition_x);
@@ -109,22 +104,17 @@ public class Storage implements StorageInterface {
                     Element place = doc.createElement("place");
 
                     Element place_name  =doc.createElement("name");
-                    place_name.
-                            appendChild(doc.createTextNode(placeObject.getName()));
+                    place_name.setTextContent(placeObject.getName());
                     Element place_Id  =doc.createElement("id");
-                    place_Id.
-                            appendChild(doc.createTextNode(placeObject.getID()));
+                    place_Id.setTextContent(placeObject.getID());
 
                     Element place_x  =doc.createElement("x");
-                    place_x.
-                            appendChild(doc.createTextNode(String.valueOf((int)placeObject.getPoint().getX())));
+                    place_x.setTextContent(String.valueOf((int)placeObject.getPoint().getX()));
 
                     Element place_token  =doc.createElement("tokens");
-                    place_token.
-                            appendChild(doc.createTextNode(String.valueOf(placeObject.getPlace().getNumTokens())));
+                    place_token.setTextContent(String.valueOf(placeObject.getPlace().getNumTokens()));
                     Element place_y  =doc.createElement("y");
-                    place_y.
-                            appendChild(doc.createTextNode(String.valueOf((int)o.getPoint().getY())));
+                    place_y.setTextContent(String.valueOf((int)o.getPoint().getY()));
                     place.appendChild(place_name);
                     place.appendChild(place_Id);
                     place.appendChild(place_x);
@@ -137,44 +127,35 @@ public class Storage implements StorageInterface {
                     Element arc = doc.createElement("arc");
 
                     Element arc_name  =doc.createElement("name");
-                    arc_name.
-                            appendChild(doc.createTextNode(arcObject.getName()));
+                    arc_name.setTextContent(arcObject.getName());
                     Element arc_Id  =doc.createElement("id");
-                    arc_Id.
-                            appendChild(doc.createTextNode(arcObject.getID()));
+                    arc_Id.setTextContent(arcObject.getID());
 
                     Element arc_origin_x  =doc.createElement("origin_x");
-                    arc_origin_x.
-                            appendChild(doc.createTextNode(String.valueOf((int)arcObject.getPoint().getX())));
+                    arc_origin_x.setTextContent(String.valueOf((int)arcObject.getPoint().getX()));
 
 
                     Element arc_origin_y  =doc.createElement("origin_y");
-                    arc_origin_y.
-                            appendChild(doc.createTextNode(String.valueOf((int)o.getPoint().getY())));
+                    arc_origin_y.setTextContent(String.valueOf((int)o.getPoint().getY()));
 
 
                     Element arc_destination_x  =doc.createElement("destination_x");
-                    arc_destination_x.
-                            appendChild(doc.createTextNode(String.valueOf((int)arcObject.getPoint().getX())));
+                    arc_destination_x.setTextContent(String.valueOf((int)arcObject.getPoint().getX()));
 
 
                     Element arc_destination_y  =doc.createElement("destination_y");
-                    arc_destination_y.
-                            appendChild(doc.createTextNode(String.valueOf((int)o.getPoint().getY())));
+                    arc_destination_y.setTextContent(String.valueOf((int)o.getPoint().getY()));
 
                     Element arc_weight  =doc.createElement("weight");
-                    arc_weight.
-                            appendChild(doc.createTextNode(String.valueOf(arcObject.getArc().
-                                    getWeight())));
+                    arc_weight.setTextContent(String.valueOf(arcObject.getArc().
+                                    getWeight()));
 
 
 
                     Element origin_Id  =doc.createElement("origin_id");
-                    origin_Id.
-                            appendChild(doc.createTextNode(arcObject.getOrigin().getID()));
+                    origin_Id.setTextContent(arcObject.getOrigin().getID());
                     Element destination_Id  =doc.createElement("destination_id");
-                    destination_Id.
-                            appendChild(doc.createTextNode(arcObject.getDestination().getID()));
+                    destination_Id.setTextContent(arcObject.getDestination().getID());
                     arc.appendChild(arc_name);
                     arc.appendChild(arc_Id);
                     arc.appendChild(origin_Id);
@@ -195,7 +176,7 @@ public class Storage implements StorageInterface {
             petrinetNode.appendChild(transitions);
             petrinetNode.appendChild(places);
             petrinetNode.appendChild(arcs);
-
+            doc.appendChild(petrinetNode);
 
             // write the content into xml file
             TransformerFactory transformerFactory = TransformerFactory.newInstance();
@@ -210,6 +191,7 @@ public class Storage implements StorageInterface {
 
 
         }catch (Exception ex){
+            ex.printStackTrace();
             throw new Exception();
         }
 
@@ -240,14 +222,17 @@ public class Storage implements StorageInterface {
             name =petrinetRootElement.getElementsByTagName("name")
                        .item(0).getNodeValue();
             // read transitions from data base
-            NodeList transitionList = petrinetRootElement.getElementsByTagName("transitions");
+
+            Element  transitionRootElement = (Element)
+                    petrinetRootElement.getElementsByTagName("transitions").item(0);
+            NodeList transitionList = transitionRootElement.getElementsByTagName("transition");
             for(int i = 0; i <transitionList.getLength();i++){
                    Element transitionItem = (Element)transitionList.item(i) ;
+
                    String transitionId = transitionItem.getElementsByTagName
                            ("id").item(0).getNodeValue();
                    String transitionName = transitionItem.getElementsByTagName
                            ("name").item(0).getNodeValue();
-
                    int xCoordinate = Integer.parseInt( transitionItem.getElementsByTagName("x").
                            item(0).getNodeValue());
 
@@ -267,7 +252,9 @@ public class Storage implements StorageInterface {
             
             // read places from XML file
 
-            NodeList placeList = petrinetRootElement.getElementsByTagName("places");
+            Element  placeRootElement = (Element)
+                    petrinetRootElement.getElementsByTagName("places").item(0);
+            NodeList placeList = placeRootElement.getElementsByTagName("place");
             for(int i = 0; i <placeList.getLength();i++){
                 Element placeItem = (Element)placeList.item(i) ;
                 String placeId = placeItem.getElementsByTagName
@@ -300,7 +287,9 @@ public class Storage implements StorageInterface {
 
             // read arcs from XML file
 
-            NodeList arcList = petrinetRootElement.getElementsByTagName("arcs");
+            Element  arcRootElement = (Element)
+                    petrinetRootElement.getElementsByTagName("arcs").item(0);
+            NodeList arcList = arcRootElement.getElementsByTagName("arc");;
             for(int i = 0; i <arcList.getLength();i++){
                 Element arcItem = (Element)arcList.item(i) ;
                 String arcId = arcItem.getElementsByTagName
@@ -423,6 +412,7 @@ public class Storage implements StorageInterface {
 
 
         }catch (Exception ex) {
+            ex.printStackTrace();
             throw new Exception();
         }
 

@@ -39,7 +39,7 @@ public class PetrinetGUI extends JFrame implements MenuBarListener {
         fileFilter = new FileFilter() {
             @Override
             public boolean accept(File f) {
-
+                System.out.println(f.getPath());
                 return f.getPath().endsWith("."+storage.getExtension());
             }
 
@@ -98,7 +98,7 @@ public class PetrinetGUI extends JFrame implements MenuBarListener {
                 fileChooser.setFileFilter(fileFilter);
                 petrinetProject = storage.loadProject(file.getPath());
                 this.setTitle("Petrinet- " + petrinetProject.getName());
-
+                petrinetPanel.loadObjects(petrinetProject.getGuiObjects());
                 String message = "Project " + petrinetProject.getName() + " Loaded!!";
                 LogUIModel log = LogUIModel.createErrorLog(message);
                 petrinetPanel.log(log);
@@ -128,7 +128,8 @@ public class PetrinetGUI extends JFrame implements MenuBarListener {
             int res =fileChooser.showSaveDialog(this);
             if (res == JFileChooser.APPROVE_OPTION) {
                 fileChooser.setDialogType(JFileChooser.SAVE_DIALOG);
-                fileChooser.setFileFilter(fileFilter);
+
+               // fileChooser.setFileFilter(fileFilter);
 
 
                 File file = fileChooser.getSelectedFile();
@@ -141,13 +142,13 @@ public class PetrinetGUI extends JFrame implements MenuBarListener {
                 petrinetProject.setFilePath(file.getPath());
                 storage.saveProject(petrinetProject);
                 String message = "Project " + petrinetProject.getName() + " Saved!!";
-                LogUIModel log = LogUIModel.createErrorLog(message);
+                LogUIModel log = LogUIModel.createInfoLog(message);
                 petrinetPanel.log(log);
 
             }
             // send this file path to storage
         }catch (Exception ex){
-            String message = "Could not save project!!";
+            String message = "Could not save project!!:"+ex.getMessage();
             LogUIModel log =LogUIModel.createErrorLog(message);
             petrinetPanel.log(log);
         }

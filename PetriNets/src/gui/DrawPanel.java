@@ -359,6 +359,11 @@ public class DrawPanel extends JPanel implements MouseListener {
         return new ArrayList<>(objects);
     }
 
+    public void loadElements(ArrayList<Petrinet2DObjectInterface> guiObjects) {
+        this.objects = guiObjects;
+        canvas.repaint();
+    }
+
     class DrawCanvas extends JPanel {
         @Override
         public void paintComponent(Graphics g) {  // invoke via repaint()

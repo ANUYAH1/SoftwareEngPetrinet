@@ -7,6 +7,7 @@ import java.util.ArrayList;
 public class ProjectModel implements ProjectInterface {
     private String Name;
     private String filePath;
+    private ArrayList<Petrinet2DObjectInterface> GuiObjects;
     @Override
     public String getName() {
         return Name;
@@ -23,17 +24,17 @@ public class ProjectModel implements ProjectInterface {
     }
 
     @Override
-    public void setFilePath(String FilePath) {
+    public void setFilePath(String filePath) {
         this.filePath = filePath;
     }
 
     @Override
     public ArrayList<Petrinet2DObjectInterface> getGuiObjects() {
-        return null;
+        return GuiObjects;
     }
 
     @Override
     public void setGuiObjects(ArrayList<Petrinet2DObjectInterface>  guiObjects) {
-
+        this.GuiObjects = guiObjects;
     }
 }
