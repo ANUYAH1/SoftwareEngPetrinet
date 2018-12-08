@@ -38,7 +38,7 @@ public class LogPanel extends JPanel {
     public void log(LogUIModel log) {
         //only log data when
         // the panel is enabled
-        if (this.isEnabled()) {
+        if (true) {
 
            JLabel label = new JLabel(log.toString());
            // paints the label based on the

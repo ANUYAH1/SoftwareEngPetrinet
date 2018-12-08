@@ -74,6 +74,8 @@ public class DrawPanel extends JPanel implements MouseListener {
     }
     @Override
     public void mouseClicked(MouseEvent e) {
+        if(!this.isEnabled())
+            return;
         int positionX =e.getX();
         int positionY = e.getY();
         // check if there is an object closeby
@@ -161,7 +163,8 @@ public class DrawPanel extends JPanel implements MouseListener {
 
     @Override
     public void mousePressed(MouseEvent e) {
-
+        if(!this.isEnabled())
+            return;
         if(currentPetrinetObject ==SelectObject.ARC){
             int x = e.getX();
             int y = e.getY();
@@ -184,7 +187,8 @@ public class DrawPanel extends JPanel implements MouseListener {
         if(currentPetrinetObject ==SelectObject.ARC){
             int x = e.getX();
             int y = e.getY();
-
+            if(!this.isEnabled())
+                return;
 
             destinationObject = getClosestObject(x,y);
             if(destinationObject!=null && originObject != null) {

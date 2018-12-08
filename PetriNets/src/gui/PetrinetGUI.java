@@ -39,16 +39,16 @@ public class PetrinetGUI extends JFrame implements MenuBarListener {
         fileFilter = new FileFilter() {
             @Override
             public boolean accept(File f) {
-                System.out.println(f.getPath());
-                return f.getPath().endsWith("."+storage.getExtension());
+
+                return f.getPath().endsWith(storage.getExtension());
             }
 
             @Override
             public String getDescription() {
-                return "Petri Project";
+                return "Petri Project (.petri)";
             }
         };
-
+        fileChooser.setFileFilter(fileFilter);
         enablePanel(petrinetPanel,false);
         this.getContentPane().add(petrinetPanel);
         this.setJMenuBar(menuBar);
@@ -127,11 +127,6 @@ public class PetrinetGUI extends JFrame implements MenuBarListener {
 
             int res =fileChooser.showSaveDialog(this);
             if (res == JFileChooser.APPROVE_OPTION) {
-                fileChooser.setDialogType(JFileChooser.SAVE_DIALOG);
-
-               // fileChooser.setFileFilter(fileFilter);
-
-
                 File file = fileChooser.getSelectedFile();
 
 
@@ -194,9 +189,11 @@ public class PetrinetGUI extends JFrame implements MenuBarListener {
                 this.setTitle("Petrinet- "+projectName);
                 petrinetProject = new ProjectModel();
                 petrinetProject.setName(projectName);
+
+                petrinetPanel.clearProject();
+
                 enablePanel(petrinetPanel,true);
                 //clear the gui
-                petrinetPanel.clearProject();
                 String message =" New Project " + petrinetProject.getName() + " Starte!!: Dont forget to save " +
                 ":)";
                 LogUIModel log =LogUIModel.createInfoLog(message);
