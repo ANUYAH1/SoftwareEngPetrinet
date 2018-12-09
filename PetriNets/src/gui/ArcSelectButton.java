@@ -13,6 +13,7 @@ public class ArcSelectButton extends JButton {
             Image img = ImageIO.read(getClass().getResource("/icons/arc_logo.png"));
             this.setIcon(new ImageIcon(img));
             this.setToolTipText("Arc");
+            this.setOpaque(true);
 
 
         }catch (Exception ex){

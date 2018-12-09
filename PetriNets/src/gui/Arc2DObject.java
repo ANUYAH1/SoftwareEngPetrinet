@@ -20,6 +20,7 @@ public class Arc2DObject implements Petrinet2DObjectInterface {
     private final int ARCTHICKNESS = 4;
     private final int ARROWHEAD = 6;
     private final int TEXTPADDING =15;
+    private final int TOLERANCE = 30;
     private String Id;
     private String Name;
 
@@ -166,6 +167,11 @@ public class Arc2DObject implements Petrinet2DObjectInterface {
     @Override
     public String getName() {
         return Name;
+    }
+
+    @Override
+    public int getTolerance() {
+        return TOLERANCE;
     }
 
     public ArcInterface getArc() {

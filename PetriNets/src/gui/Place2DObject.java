@@ -16,7 +16,7 @@ public class Place2DObject implements  Petrinet2DObjectInterface{
     private final int PLACE_RADIUS =40;
     private final int TOKEN_RADIUS =5;
     private SelectObject objectType;
-
+    private final int TOLERANCE =70;
     private final int TEXTPADDING =40;
     private final Color TRANSITIONCOLOR = Color.black;
     private final Color TEXTCOLOR = Color.BLACK;
@@ -53,6 +53,7 @@ public class Place2DObject implements  Petrinet2DObjectInterface{
 
         int randPadding=12;
         graphics.setColor(TOKENCOLOR);
+
         for(int i = 0; i <place.getNumTokens();i++){
              randX = ran.nextInt(PLACE_RADIUS-randPadding)+(int)point.getX() +(i==0?randPadding:0);
              randY = ran.nextInt(PLACE_RADIUS-randPadding)+(int)point.getY()+(i==0?randPadding:0);
@@ -85,6 +86,11 @@ public class Place2DObject implements  Petrinet2DObjectInterface{
     @Override
     public String getName() {
         return Name;
+    }
+
+    @Override
+    public int getTolerance() {
+        return TOLERANCE;
     }
 
 

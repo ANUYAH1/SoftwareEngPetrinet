@@ -23,8 +23,9 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Storage implements StorageInterface {
-    private final String EXTENSION =".petri";
+    private final String EXTENSION =".xml";
     private final String PETRINETNODE = "petrinet";
+    private final String FILEDESCRIPTIONNAME = "Petrinet Project";
     private final String TRANSITIONNODE = "transition";
     private final String ARCNODE = "arc";
     private final String PLACENODE = "place";
@@ -434,5 +435,11 @@ public class Storage implements StorageInterface {
     @Override
     public String getExtension() {
         return EXTENSION;
+    }
+
+    @Override
+    public String getSupportedFileDescription() {
+        return FILEDESCRIPTIONNAME + " ("+EXTENSION+")";
+
     }
 }

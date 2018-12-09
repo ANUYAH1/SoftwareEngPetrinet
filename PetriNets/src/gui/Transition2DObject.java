@@ -17,6 +17,7 @@ public class Transition2DObject implements Petrinet2DObjectInterface {
     private final int TEXTPADDING =15;
     private final Color TRANSITIONCOLOR = Color.black;
     private final Color TEXTCOLOR = Color.BLACK;
+    private final int TOLERANCE = 30;
     private String Id;
 
 
@@ -68,6 +69,11 @@ public class Transition2DObject implements Petrinet2DObjectInterface {
     @Override
     public String getName() {
         return Name;
+    }
+
+    @Override
+    public int getTolerance() {
+        return  TOLERANCE;
     }
 
     /**

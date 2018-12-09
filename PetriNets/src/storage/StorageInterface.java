@@ -37,5 +37,9 @@ public interface StorageInterface {
      */
     String getExtension ();
 
-
+    /**
+     * returns supported file description
+     * @return
+     */
+    String getSupportedFileDescription();
 }

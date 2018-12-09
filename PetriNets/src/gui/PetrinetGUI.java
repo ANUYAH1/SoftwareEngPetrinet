@@ -45,7 +45,7 @@ public class PetrinetGUI extends JFrame implements MenuBarListener {
 
             @Override
             public String getDescription() {
-                return "Petri Project (.petri)";
+                return storage.getSupportedFileDescription();
             }
         };
         fileChooser.setFileFilter(fileFilter);

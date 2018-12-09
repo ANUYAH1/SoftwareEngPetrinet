@@ -18,18 +18,18 @@ public class MenuBar extends JMenuBar implements ActionListener {
         JMenuItem newFile = new JMenuItem("New");
 
         newFile.setName("file_menu_new");
-        newFile.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_N,KeyEvent.VK_CONTROL));
+        newFile.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_N,KeyEvent.VK_ALT));
         newFile.addActionListener(this);
 
         JMenuItem openFile = new JMenuItem("Open");
 
         openFile.setName("file_menu_open");
-        openFile.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_O,KeyEvent.VK_CONTROL));
+        openFile.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_O,KeyEvent.VK_ALT));
         openFile.addActionListener(this);
 
         JMenuItem saveFile = new JMenuItem("Save");
         saveFile.setName("file_menu_save");
-        saveFile.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S,KeyEvent.VK_CONTROL));
+        saveFile.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S,KeyEvent.VK_ALT));
         saveFile.addActionListener(this);
 
         JMenuItem exit = new JMenuItem("Exit");
@@ -51,12 +51,12 @@ public class MenuBar extends JMenuBar implements ActionListener {
         editMenu.setName("edit_menu");
         JMenuItem undo = new JMenuItem("Undo");
         undo.setName("edit_menu_undo");
-        undo.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_U,KeyEvent.VK_CONTROL));
+        undo.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_U,KeyEvent.VK_ALT));
         undo.addActionListener(this);
 
         JMenuItem redo = new JMenuItem("Redo");
         redo.setName("edit_menu_redo");
-        redo.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_R,KeyEvent.VK_CONTROL));
+        redo.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_R,KeyEvent.VK_ALT));
         redo.addActionListener(this);
         editMenu.add(undo);
         editMenu.add(redo);

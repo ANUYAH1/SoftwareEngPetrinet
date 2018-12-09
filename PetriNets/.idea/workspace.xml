@@ -3,10 +3,30 @@
   <component name="ChangeListManager">
     <list default="true" id="009330af-c4b0-4fbe-bf41-4236a0234001" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PetriNets/gui/Arc2DObject.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PetriNets/gui/Arc2DObject.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PetriNets/gui/ArcSelectButton.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PetriNets/gui/ArcSelectButton.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PetriNets/gui/DrawPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PetriNets/gui/DrawPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PetriNets/gui/MenuBar.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PetriNets/gui/MenuBar.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PetriNets/gui/Petrinet2DObjectInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PetriNets/gui/Petrinet2DObjectInterface.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PetriNets/gui/PetrinetGUI$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PetriNets/gui/PetrinetGUI$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PetriNets/gui/Place2DObject.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PetriNets/gui/Place2DObject.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PetriNets/gui/PlaceSelectButton.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PetriNets/gui/PlaceSelectButton.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PetriNets/gui/Transition2DObject.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PetriNets/gui/Transition2DObject.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PetriNets/gui/TransitionSelectButton.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PetriNets/gui/TransitionSelectButton.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PetriNets/storage/Storage.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PetriNets/storage/Storage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PetriNets/storage/StorageInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PetriNets/storage/StorageInterface.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/Arc2DObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/Arc2DObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/ArcSelectButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/ArcSelectButton.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/DrawPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/DrawPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/LogPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/LogPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/MenuBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/MenuBar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/Petrinet2DObjectInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/Petrinet2DObjectInterface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/PetrinetGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/PetrinetGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/Place2DObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/Place2DObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/PlaceSelectButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/PlaceSelectButton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/Transition2DObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/Transition2DObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/TransitionSelectButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/TransitionSelectButton.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/storage/Storage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/storage/Storage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/storage/StorageInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/storage/StorageInterface.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -34,178 +54,81 @@
     <expand />
     <select />
   </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="1362789146">
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="java" value="597" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="JAVA" value="597" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="java" value="6" />
+          <entry key="xml" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="JAVA" value="6" />
+          <entry key="XML" value="1" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="uml://JAVA/driver.PetrinetMain">
-          <provider selected="true" editor-type-id="UmlEditorProvider">
-            <state>
-              <ID>JAVA</ID>
-              <OriginalElement>driver.PetrinetMain</OriginalElement>
-              <nodes>
-                <node x="336.421684102934" y="159.0">logic.ArcEndpointInterface</node>
-                <node x="904.787212902838" y="159.0">gui.Arc2DObject</node>
-                <node x="464.421684102934" y="0.0">logic.ArcInterface</node>
-                <node x="1133.213138828764" y="367.0">storage.Storage</node>
-                <node x="390.1971906565658" y="238.0">logic.AbstractArc</node>
-                <node x="474.734184102934" y="367.0">logic.PlaceToTransitionArc</node>
-                <node x="685.6974025974026" y="367.0">gui.Transition2DObject</node>
-                <node x="4.0" y="367.0">logic.Place</node>
-                <node x="275.734184102934" y="367.0">logic.TransitionToPlaceArc</node>
-                <node x="613.5883507696008" y="238.0">logic.TransitionInterface</node>
-                <node x="158.98418410293402" y="238.0">logic.PlaceInterface</node>
-                <node x="118.73418410293402" y="367.0">gui.Place2DObject</node>
-                <node x="1051.7872129028378" y="238.0">storage.ProjectModel</node>
-                <node x="1136.3705462361713" y="159.0">storage.ProjectInterface</node>
-                <node x="1200.7872129028378" y="238.0">storage.StorageInterface</node>
-                <node x="872.6974025974026" y="367.0">logic.Transition</node>
-                <node x="884.446684102934" y="0.0">gui.Petrinet2DObjectInterface</node>
-              </nodes>
-              <notes />
-              <edges>
-                <edge source="gui.Arc2DObject" target="gui.Petrinet2DObjectInterface">
-                  <point x="25.200000000000045" y="-14.5" />
-                  <point x="992.987212902838" y="69.0" />
-                  <point x="958.3752555315054" y="69.0" />
-                  <point x="-29.571428571428555" y="14.5" />
-                </edge>
-                <edge source="storage.ProjectModel" target="storage.ProjectInterface">
-                  <point x="32.0" y="-14.5" />
-                  <point x="1147.7872129028378" y="218.0" />
-                  <point x="1160.537212902838" y="218.0" />
-                  <point x="-48.33333333333326" y="14.5" />
-                </edge>
-                <edge source="logic.Place" target="logic.PlaceInterface">
-                  <point x="30.0" y="-14.5" />
-                  <point x="74.0" y="347.0" />
-                  <point x="172.384184102934" y="347.0" />
-                  <point x="-53.60000000000002" y="14.5" />
-                </edge>
-                <edge source="logic.TransitionInterface" target="logic.ArcEndpointInterface">
-                  <point x="0.0" y="-14.5" />
-                  <point x="695.5883507696008" y="208.0" />
-                  <point x="493.046684102934" y="208.0" />
-                  <point x="67.125" y="14.5" />
-                </edge>
-                <edge source="logic.PlaceToTransitionArc" target="logic.AbstractArc">
-                  <point x="-22.375" y="-14.5" />
-                  <point x="541.859184102934" y="297.0" />
-                  <point x="466.4471906565658" y="297.0" />
-                  <point x="15.25" y="14.5" />
-                </edge>
-                <edge source="logic.TransitionToPlaceArc" target="logic.AbstractArc">
-                  <point x="-22.375" y="-14.5" />
-                  <point x="342.859184102934" y="317.0" />
-                  <point x="405.4471906565658" y="317.0" />
-                  <point x="-45.75" y="14.5" />
-                </edge>
-                <edge source="storage.Storage" target="storage.StorageInterface">
-                  <point x="32.0" y="-14.5" />
-                  <point x="1213.213138828764" y="347.0" />
-                  <point x="1275.7872129028378" y="347.0" />
-                  <point x="0.0" y="14.5" />
-                </edge>
-                <edge source="gui.Place2DObject" target="gui.Petrinet2DObjectInterface">
-                  <point x="-45.66666666666663" y="-14.5" />
-                  <point x="141.5675174362674" y="337.0" />
-                  <point x="148.48418410293402" y="337.0" />
-                  <point x="148.48418410293402" y="139.0" />
-                  <point x="899.2323983886483" y="139.0" />
-                  <point x="-88.71428571428567" y="14.5" />
-                </edge>
-                <edge source="gui.Transition2DObject" target="gui.Petrinet2DObjectInterface">
-                  <point x="55.66666666666663" y="-14.5" />
-                  <point x="824.8640692640693" y="347.0" />
-                  <point x="1041.2872129028378" y="347.0" />
-                  <point x="1041.2872129028378" y="49.0" />
-                  <point x="1017.5181126743626" y="49.0" />
-                  <point x="29.571428571428555" y="14.5" />
-                </edge>
-                <edge source="logic.AbstractArc" target="logic.ArcInterface">
-                  <point x="40.666666666666686" y="-14.5" />
-                  <point x="491.8638573232325" y="218.0" />
-                  <point x="525.921684102934" y="218.0" />
-                  <point x="0.0" y="14.5" />
-                </edge>
-                <edge source="logic.Transition" target="logic.TransitionInterface">
-                  <point x="-41.25" y="-14.5" />
-                  <point x="886.4474025974026" y="337.0" />
-                  <point x="761.1883507696007" y="337.0" />
-                  <point x="65.60000000000002" y="14.5" />
-                </edge>
-                <edge source="logic.PlaceInterface" target="logic.ArcEndpointInterface">
-                  <point x="0.0" y="-14.5" />
-                  <point x="225.98418410293402" y="218.0" />
-                  <point x="358.796684102934" y="218.0" />
-                  <point x="-67.125" y="14.5" />
-                </edge>
-              </edges>
-              <settings layout="Hierarchic Group" zoom="0.3511338697878566" x="677.5" y="198.0" />
-              <SelectedNodes>
-                <node>logic.ArcEndpointInterface</node>
-              </SelectedNodes>
-              <Categories>
-                <Category>Inner Classes</Category>
-              </Categories>
-              <SCOPE>All</SCOPE>
-              <VISIBILITY>private</VISIBILITY>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/gui/DrawPanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1744">
-              <caret line="190" column="23" selection-start-line="190" selection-start-column="23" selection-end-line="190" selection-end-column="23" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/storage/StorageInterface.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="37" column="23" selection-start-line="37" selection-start-column="23" selection-end-line="37" selection-end-column="23" />
+            <state relative-caret-position="258">
+              <caret line="61" column="79" lean-forward="true" selection-start-line="61" selection-start-column="79" selection-end-line="61" selection-end-column="79" />
               <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/storage/Storage.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="778">
-              <caret line="226" column="47" lean-forward="true" selection-start-line="226" selection-start-column="47" selection-end-line="226" selection-end-column="47" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#17956#17957#0" expanded="true" />
+                <element signature="e#14340#14341#0" expanded="true" />
+                <element signature="e#14370#14371#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/gui/PetrinetGUI.java">
+        <entry file="file://$PROJECT_DIR$/src/gui/Petrinet2DObjectInterface.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="98" selection-start-line="98" selection-end-line="98" />
+            <state relative-caret-position="517">
+              <caret line="58" column="6" lean-forward="true" selection-start-line="58" selection-start-column="6" selection-end-line="58" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/gui/Transition2DObject.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="262">
+              <caret line="75" column="25" selection-start-line="75" selection-start-column="25" selection-end-line="75" selection-end-column="25" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#1630#1631#0" expanded="true" />
+                <element signature="e#1654#1655#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/storage/ProjectInterface.java">
+        <entry file="file://$PROJECT_DIR$/src/gui/Arc2DObject.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="555">
-              <caret line="39" column="40" selection-start-line="39" selection-start-column="40" selection-end-line="39" selection-end-column="40" />
+            <state relative-caret-position="517">
+              <caret line="173" column="24" selection-start-line="173" selection-start-column="24" selection-end-line="173" selection-end-column="24" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#4284#4285#0" expanded="true" />
+                <element signature="e#4308#4309#0" expanded="true" />
+                <element signature="e#4235#4236#0" expanded="true" />
+                <element signature="e#4261#4262#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -214,8 +137,49 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/gui/Place2DObject.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1095">
-              <caret line="79" column="13" selection-start-line="79" selection-start-column="13" selection-end-line="79" selection-end-column="13" />
+            <state relative-caret-position="765">
+              <caret line="55" selection-start-line="55" selection-end-line="55" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#2247#2248#0" expanded="true" />
+                <element signature="e#2270#2271#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/gui/PetrinetGUI.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="375">
+              <caret line="51" column="41" lean-forward="true" selection-start-line="51" selection-start-column="41" selection-end-line="51" selection-end-column="41" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1255#1256#0" expanded="true" />
+                <element signature="e#1329#1330#0" expanded="true" />
+                <element signature="e#4709#4710#0" expanded="true" />
+                <element signature="e#4745#4746#0" expanded="true" />
+                <element signature="e#4796#4797#0" expanded="true" />
+                <element signature="e#4832#4833#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/../Petrinet Projects/VendingMachine.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="117" lean-forward="true" selection-end-column="1184" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/gui/MenuBar.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="780">
+              <caret line="52" column="39" lean-forward="true" selection-start-line="52" selection-start-column="39" selection-end-line="52" selection-end-column="39" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -224,10 +188,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/gui/LogPanel.java">
+        <entry file="file://$PROJECT_DIR$/src/storage/StorageInterface.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="381">
-              <caret line="57" lean-forward="true" selection-start-line="57" selection-end-line="57" />
+            <state relative-caret-position="427">
+              <caret line="40" column="41" selection-start-line="40" selection-start-column="41" selection-end-line="40" selection-end-column="41" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -236,19 +200,15 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/gui/MenuBarListener.java">
+        <entry file="file://$PROJECT_DIR$/src/storage/Storage.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="15" selection-start-line="5" selection-start-column="15" selection-end-line="5" selection-end-column="15" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/gui/PetrinetSelectObjectListener.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="18" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
+            <state relative-caret-position="5940">
+              <caret line="396" lean-forward="true" selection-start-line="396" selection-end-line="396" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#17433#17434#0" expanded="true" />
+                <element signature="e#17465#17466#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -280,6 +240,7 @@
       <find>transition</find>
       <find>destinationObject</find>
       <find>&quot;Id&quot;</find>
+      <find>.VK_CONTROL</find>
       <find>place</find>
     </findStrings>
     <replaceStrings>
@@ -288,6 +249,7 @@
       <replace>place</replace>
       <replace>destination</replace>
       <replace>&quot;id&quot;</replace>
+      <replace>.VK_ALT</replace>
       <replace>arc</replace>
     </replaceStrings>
   </component>
@@ -307,7 +269,6 @@
         <option value="$PROJECT_DIR$/src/gui/PlaceToTransitionArc2DObjectInterface.java" />
         <option value="$PROJECT_DIR$/src/gui/TransitionToPlaceArc2DObjectInterface.java" />
         <option value="$PROJECT_DIR$/src/gui/Point.java" />
-        <option value="$PROJECT_DIR$/src/gui/MenuBar.java" />
         <option value="$PROJECT_DIR$/src/gui/Place2DObjectInterface.java" />
         <option value="$PROJECT_DIR$/src/gui/Transition2DObjectInterface.java" />
         <option value="$PROJECT_DIR$/src/gui/Arc2DEndPointInterface.java" />
@@ -320,32 +281,39 @@
         <option value="$PROJECT_DIR$/src/gui/LogListener.java" />
         <option value="$PROJECT_DIR$/src/gui/LogUIModel.java" />
         <option value="$PROJECT_DIR$/src/gui/CustomDialog.java" />
-        <option value="$PROJECT_DIR$/src/gui/TransitionSelectButton.java" />
         <option value="$PROJECT_DIR$/src/gui/SelectObject.java" />
-        <option value="$PROJECT_DIR$/src/gui/PlaceSelectButton.java" />
         <option value="$PROJECT_DIR$/src/gui/PetrinetSelectObjectPanel.java" />
         <option value="$PROJECT_DIR$/src/gui/PetrinetSelectObjectListener.java" />
-        <option value="$PROJECT_DIR$/src/gui/ArcSelectButton.java" />
-        <option value="$PROJECT_DIR$/src/storage/StorageInterface.java" />
         <option value="$PROJECT_DIR$/src/storage/ProjectInterface.java" />
         <option value="$PROJECT_DIR$/src/test/StorageUnitTests.java" />
-        <option value="$PROJECT_DIR$/src/gui/Petrinet2DObjectInterface.java" />
-        <option value="$PROJECT_DIR$/src/gui/Place2DObject.java" />
-        <option value="$PROJECT_DIR$/src/gui/Transition2DObject.java" />
-        <option value="$PROJECT_DIR$/src/gui/Arc2DObject.java" />
         <option value="$PROJECT_DIR$/src/storage/ProjectModel.java" />
         <option value="$PROJECT_DIR$/src/gui/PetrinetPanel.java" />
-        <option value="$PROJECT_DIR$/src/gui/PetrinetGUI.java" />
         <option value="$PROJECT_DIR$/src/gui/LogPanel.java" />
-        <option value="$PROJECT_DIR$/src/gui/DrawPanel.java" />
+        <option value="$PROJECT_DIR$/src/gui/TransitionSelectButton.java" />
+        <option value="$PROJECT_DIR$/src/gui/PlaceSelectButton.java" />
+        <option value="$PROJECT_DIR$/src/gui/ArcSelectButton.java" />
+        <option value="$PROJECT_DIR$/src/gui/MenuBar.java" />
+        <option value="$PROJECT_DIR$/src/gui/PetrinetGUI.java" />
+        <option value="$PROJECT_DIR$/src/storage/StorageInterface.java" />
         <option value="$PROJECT_DIR$/src/storage/Storage.java" />
+        <option value="$PROJECT_DIR$/src/gui/Petrinet2DObjectInterface.java" />
+        <option value="$PROJECT_DIR$/src/gui/Transition2DObject.java" />
+        <option value="$PROJECT_DIR$/src/gui/Arc2DObject.java" />
+        <option value="$PROJECT_DIR$/src/gui/Place2DObject.java" />
+        <option value="$PROJECT_DIR$/src/gui/DrawPanel.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="y" value="23" />
     <option name="width" value="1680" />
-    <option name="height" value="951" />
+    <option name="height" value="972" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -399,7 +367,7 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544256579795" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544330854532" />
     <property name="jdk.selected.JAVA_MODULE" value="1.11" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -474,13 +442,12 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="84927000" />
+    <option name="totallyTimeSpent" value="87214000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1680" height="951" extended-state="0" />
-    <editor active="true" />
+    <frame x="0" y="23" width="1680" height="976" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.28606358" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2857143" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -489,13 +456,13 @@
       <window_info id="Image Layers" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32945284" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4993895" weight="0.32858837" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.3985765" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4993895" weight="0.3280543" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39819005" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Duplicate detector" order="7" visible="true" weight="0.3298731" />
-      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.4993895" weight="0.32712457" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.4993895" visible="true" weight="0.32692307" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50061053" side_tool="true" weight="0.32959184" />
       <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="11" />
@@ -560,31 +527,31 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/storage/Storage.java</url>
-          <line>198</line>
+          <line>199</line>
           <properties />
           <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/storage/Storage.java</url>
-          <line>241</line>
+          <line>242</line>
           <properties />
           <option name="timeStamp" value="10" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/storage/Storage.java</url>
-          <line>240</line>
+          <line>241</line>
           <properties />
           <option name="timeStamp" value="11" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/storage/Storage.java</url>
-          <line>239</line>
+          <line>240</line>
           <properties />
           <option name="timeStamp" value="13" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/storage/Storage.java</url>
-          <line>244</line>
+          <line>245</line>
           <properties />
           <option name="timeStamp" value="15" />
         </line-breakpoint>
@@ -592,13 +559,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/resources/text/about.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="5" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/Point.java" />
     <entry file="file://$USER_HOME$/Downloads/TTTGraphics2P.java" />
     <entry file="file://$PROJECT_DIR$/src/logic/TransitionInterface.java">
@@ -683,11 +643,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="675">
           <caret line="53" selection-start-line="53" selection-end-line="53" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#213#227#0" expanded="true" />
-            <element signature="e#293#307#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -719,24 +674,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/TransitionSelectButton.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="8" column="24" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/SelectObject.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="25" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/PlaceSelectButton.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="7" column="39" selection-start-line="7" selection-start-column="39" selection-end-line="7" selection-end-column="39" />
         </state>
       </provider>
     </entry>
@@ -859,35 +800,11 @@
               <point x="958.3752555315054" y="69.0" />
               <point x="-29.571428571428555" y="14.5" />
             </edge>
-            <edge source="storage.ProjectModel" target="storage.ProjectInterface">
-              <point x="32.0" y="-14.5" />
-              <point x="1147.7872129028378" y="218.0" />
-              <point x="1160.537212902838" y="218.0" />
-              <point x="-48.33333333333326" y="14.5" />
-            </edge>
-            <edge source="logic.Place" target="logic.PlaceInterface">
-              <point x="30.0" y="-14.5" />
-              <point x="74.0" y="347.0" />
-              <point x="172.384184102934" y="347.0" />
-              <point x="-53.60000000000002" y="14.5" />
-            </edge>
-            <edge source="logic.TransitionInterface" target="logic.ArcEndpointInterface">
-              <point x="0.0" y="-14.5" />
-              <point x="695.5883507696008" y="208.0" />
-              <point x="493.046684102934" y="208.0" />
-              <point x="67.125" y="14.5" />
-            </edge>
-            <edge source="logic.PlaceToTransitionArc" target="logic.AbstractArc">
-              <point x="-22.375" y="-14.5" />
-              <point x="541.859184102934" y="297.0" />
-              <point x="466.4471906565658" y="297.0" />
-              <point x="15.25" y="14.5" />
-            </edge>
-            <edge source="logic.TransitionToPlaceArc" target="logic.AbstractArc">
-              <point x="-22.375" y="-14.5" />
-              <point x="342.859184102934" y="317.0" />
-              <point x="405.4471906565658" y="317.0" />
-              <point x="-45.75" y="14.5" />
+            <edge source="logic.Transition" target="logic.TransitionInterface">
+              <point x="-41.25" y="-14.5" />
+              <point x="886.4474025974026" y="337.0" />
+              <point x="761.1883507696007" y="337.0" />
+              <point x="65.60000000000002" y="14.5" />
             </edge>
             <edge source="storage.Storage" target="storage.StorageInterface">
               <point x="32.0" y="-14.5" />
@@ -911,17 +828,35 @@
               <point x="1017.5181126743626" y="49.0" />
               <point x="29.571428571428555" y="14.5" />
             </edge>
+            <edge source="storage.ProjectModel" target="storage.ProjectInterface">
+              <point x="32.0" y="-14.5" />
+              <point x="1147.7872129028378" y="218.0" />
+              <point x="1160.537212902838" y="218.0" />
+              <point x="-48.33333333333326" y="14.5" />
+            </edge>
+            <edge source="logic.PlaceToTransitionArc" target="logic.AbstractArc">
+              <point x="-22.375" y="-14.5" />
+              <point x="541.859184102934" y="297.0" />
+              <point x="466.4471906565658" y="297.0" />
+              <point x="15.25" y="14.5" />
+            </edge>
             <edge source="logic.AbstractArc" target="logic.ArcInterface">
               <point x="40.666666666666686" y="-14.5" />
               <point x="491.8638573232325" y="218.0" />
               <point x="525.921684102934" y="218.0" />
               <point x="0.0" y="14.5" />
             </edge>
-            <edge source="logic.Transition" target="logic.TransitionInterface">
-              <point x="-41.25" y="-14.5" />
-              <point x="886.4474025974026" y="337.0" />
-              <point x="761.1883507696007" y="337.0" />
-              <point x="65.60000000000002" y="14.5" />
+            <edge source="logic.Place" target="logic.PlaceInterface">
+              <point x="30.0" y="-14.5" />
+              <point x="74.0" y="347.0" />
+              <point x="172.384184102934" y="347.0" />
+              <point x="-53.60000000000002" y="14.5" />
+            </edge>
+            <edge source="logic.TransitionInterface" target="logic.ArcEndpointInterface">
+              <point x="0.0" y="-14.5" />
+              <point x="695.5883507696008" y="208.0" />
+              <point x="493.046684102934" y="208.0" />
+              <point x="67.125" y="14.5" />
             </edge>
             <edge source="logic.PlaceInterface" target="logic.ArcEndpointInterface">
               <point x="0.0" y="-14.5" />
@@ -929,8 +864,14 @@
               <point x="358.796684102934" y="218.0" />
               <point x="-67.125" y="14.5" />
             </edge>
+            <edge source="logic.TransitionToPlaceArc" target="logic.AbstractArc">
+              <point x="-22.375" y="-14.5" />
+              <point x="342.859184102934" y="317.0" />
+              <point x="405.4471906565658" y="317.0" />
+              <point x="-45.75" y="14.5" />
+            </edge>
           </edges>
-          <settings layout="Hierarchic Group" zoom="0.3511338697878566" x="677.5" y="198.0" />
+          <settings layout="Hierarchic Group" zoom="0.3511338697878566" x="678.0" y="198.0" />
           <SelectedNodes>
             <node>logic.ArcEndpointInterface</node>
           </SelectedNodes>
@@ -939,16 +880,6 @@
           </Categories>
           <SCOPE>All</SCOPE>
           <VISIBILITY>private</VISIBILITY>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/MenuBar.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="870">
-          <caret line="58" column="84" selection-start-line="58" selection-start-column="84" selection-end-line="58" selection-end-column="84" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -966,13 +897,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/Petrinet2DObjectInterface.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
-          <caret line="16" selection-start-line="16" selection-end-line="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/StorageUnitTests.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
@@ -983,37 +907,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/ArcSelectButton.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="7" column="33" selection-start-line="7" selection-start-column="33" selection-end-line="7" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/CustomDialog.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="118">
           <caret line="13" column="33" selection-start-line="13" selection-start-column="33" selection-end-line="13" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/Place2DObject.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1095">
-          <caret line="79" column="13" selection-start-line="79" selection-start-column="13" selection-end-line="79" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/Transition2DObject.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="237">
-          <caret line="20" selection-start-line="20" selection-end-line="20" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1038,32 +935,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/Arc2DObject.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="625">
-          <caret line="174" selection-start-line="174" selection-end-line="174" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#4235#4236#0" expanded="true" />
-            <element signature="e#4261#4262#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/storage/StorageInterface.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="37" column="23" selection-start-line="37" selection-start-column="23" selection-end-line="37" selection-end-column="23" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/storage/ProjectInterface.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="555">
-          <caret line="39" column="40" selection-start-line="39" selection-start-column="40" selection-end-line="39" selection-end-column="40" />
+        <state relative-caret-position="364">
+          <caret line="47" column="10" selection-start-line="47" selection-start-column="10" selection-end-line="47" selection-end-column="10" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1116,23 +991,44 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="381">
           <caret line="57" lean-forward="true" selection-start-line="57" selection-end-line="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/TransitionSelectButton.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="17" column="31" selection-start-line="17" selection-start-column="31" selection-end-line="17" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/PlaceSelectButton.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="15" column="31" selection-start-line="15" selection-start-column="31" selection-end-line="15" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/ArcSelectButton.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="18" column="30" lean-forward="true" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/MenuBar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="780">
+          <caret line="52" column="39" lean-forward="true" selection-start-line="52" selection-start-column="39" selection-end-line="52" selection-end-column="39" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/DrawPanel.java">
+    <entry file="file://$PROJECT_DIR$/src/storage/StorageInterface.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1744">
-          <caret line="190" column="23" selection-start-line="190" selection-start-column="23" selection-end-line="190" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/PetrinetGUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="98" selection-start-line="98" selection-end-line="98" />
+        <state relative-caret-position="427">
+          <caret line="40" column="41" selection-start-line="40" selection-start-column="41" selection-end-line="40" selection-end-column="41" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1141,12 +1037,92 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/storage/Storage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="778">
-          <caret line="226" column="47" lean-forward="true" selection-start-line="226" selection-start-column="47" selection-end-line="226" selection-end-column="47" />
+        <state relative-caret-position="5940">
+          <caret line="396" lean-forward="true" selection-start-line="396" selection-end-line="396" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#17956#17957#0" expanded="true" />
+            <element signature="e#17433#17434#0" expanded="true" />
+            <element signature="e#17465#17466#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/Petrinet2DObjectInterface.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="517">
+          <caret line="58" column="6" lean-forward="true" selection-start-line="58" selection-start-column="6" selection-end-line="58" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/Transition2DObject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="262">
+          <caret line="75" column="25" selection-start-line="75" selection-start-column="25" selection-end-line="75" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1630#1631#0" expanded="true" />
+            <element signature="e#1654#1655#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/Arc2DObject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="517">
+          <caret line="173" column="24" selection-start-line="173" selection-start-column="24" selection-end-line="173" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#4284#4285#0" expanded="true" />
+            <element signature="e#4308#4309#0" expanded="true" />
+            <element signature="e#4235#4236#0" expanded="true" />
+            <element signature="e#4261#4262#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/Place2DObject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="765">
+          <caret line="55" selection-start-line="55" selection-end-line="55" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2247#2248#0" expanded="true" />
+            <element signature="e#2270#2271#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/DrawPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="258">
+          <caret line="61" column="79" lean-forward="true" selection-start-line="61" selection-start-column="79" selection-end-line="61" selection-end-column="79" />
+          <folding>
+            <element signature="e#14340#14341#0" expanded="true" />
+            <element signature="e#14370#14371#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/PetrinetGUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="51" column="41" lean-forward="true" selection-start-line="51" selection-start-column="41" selection-end-line="51" selection-end-column="41" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1255#1256#0" expanded="true" />
+            <element signature="e#1329#1330#0" expanded="true" />
+            <element signature="e#4709#4710#0" expanded="true" />
+            <element signature="e#4745#4746#0" expanded="true" />
+            <element signature="e#4796#4797#0" expanded="true" />
+            <element signature="e#4832#4833#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Petrinet Projects/VendingMachine.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="117" lean-forward="true" selection-end-column="1184" />
         </state>
       </provider>
     </entry>

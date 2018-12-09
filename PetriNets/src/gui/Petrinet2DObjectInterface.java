@@ -50,4 +50,15 @@ public interface Petrinet2DObjectInterface {
      */
     String getName();
 
+    /**
+     *  this returns the
+     *  proximity that
+     *  determines the region
+     *  or grid an element
+     *  occupies in the gui
+     *
+     * @return
+     */
+    int getTolerance ();
+
 }

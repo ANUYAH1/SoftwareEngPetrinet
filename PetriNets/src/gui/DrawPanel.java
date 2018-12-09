@@ -34,7 +34,7 @@ public class DrawPanel extends JPanel implements MouseListener {
     private Point destinationPoint ;
     private Petrinet2DObjectInterface destinationObject;
 
-    private final int tolerance = 30;
+
 
     public DrawPanel(LogListener logListener){
         this.logListener = logListener;
@@ -58,8 +58,8 @@ public class DrawPanel extends JPanel implements MouseListener {
 
         for(Petrinet2DObjectInterface object:objects){
 
-                if (Math.abs(object.getPoint().getY() - y) <= tolerance &&
-                        Math.abs(object.getPoint().getX() - x) <= tolerance
+                if (Math.abs(object.getPoint().getY() - y) <= object.getTolerance() &&
+                        Math.abs(object.getPoint().getX() - x) <= object.getTolerance()
 
                 ) {
                     return object;
