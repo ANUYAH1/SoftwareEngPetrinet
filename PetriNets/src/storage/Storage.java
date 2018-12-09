@@ -141,15 +141,15 @@ public class Storage implements StorageInterface {
 
 
                     Element arc_origin_y  =doc.createElement("origin_y");
-                    arc_origin_y.setTextContent(String.valueOf((int)o.getPoint().getY()));
+                    arc_origin_y.setTextContent(String.valueOf((int)arcObject.getPoint().getY()));
 
 
                     Element arc_destination_x  =doc.createElement("destination_x");
-                    arc_destination_x.setTextContent(String.valueOf((int)arcObject.getPoint().getX()));
+                    arc_destination_x.setTextContent(String.valueOf((int)arcObject.getDestinationPoint().getX()));
 
 
                     Element arc_destination_y  =doc.createElement("destination_y");
-                    arc_destination_y.setTextContent(String.valueOf((int)o.getPoint().getY()));
+                    arc_destination_y.setTextContent(String.valueOf((int)arcObject.getDestinationPoint().getY()));
 
                     Element arc_weight  =doc.createElement("weight");
                     arc_weight.setTextContent(String.valueOf(arcObject.getArc().
@@ -224,27 +224,22 @@ public class Storage implements StorageInterface {
             ArrayList<Petrinet2DObjectInterface> guiObjects = new ArrayList<>();
 
             Element  petrinetRootElement = (Element) petrinetNode;
-            name =petrinetRootElement.getElementsByTagName("name")
-                       .item(0).getNodeValue();
+            name =getTagValue("name",petrinetRootElement);
             // read transitions from data base
 
-            Element  transitionRootElement = (Element)
-                    petrinetRootElement.getElementsByTagName("transitions").item(0);
-            NodeList transitionList = transitionRootElement.getElementsByTagName("transition");
+              NodeList transitionList = 
+                    petrinetRootElement.getElementsByTagName("transitions").item(0).getChildNodes();
+            
             for(int i = 0; i <transitionList.getLength();i++){
                 Node node  = transitionList.item(i);
                 if(node.getNodeType() == Node.ELEMENT_NODE) {
                     Element transitionItem = (Element) node;
 
-                    String transitionId = transitionItem.getElementsByTagName
-                            ("id").item(0).getNodeValue();
-                    String transitionName = transitionItem.getElementsByTagName
-                            ("name").item(0).getNodeValue();
-                    int xCoordinate = Integer.parseInt(transitionItem.getElementsByTagName("x").
-                            item(0).getNodeValue());
+                    String transitionId =getTagValue("id",transitionItem);
+                    String transitionName = getTagValue("name",transitionItem);
+                    int xCoordinate = Integer.parseInt(getTagValue("x",transitionItem));
 
-                    int yCoordinate = Integer.parseInt(transitionItem.getElementsByTagName("y").
-                            item(0).getNodeValue());
+                    int yCoordinate = Integer.parseInt(getTagValue("y",transitionItem));
                     TransitionInterface transition = new Transition();
                     transition.setName(transitionName);
 
@@ -259,26 +254,19 @@ public class Storage implements StorageInterface {
             
             // read places from XML file
 
-            Element  placeRootElement = (Element)
-                    petrinetRootElement.getElementsByTagName("places").item(0);
-            NodeList placeList = placeRootElement.getElementsByTagName("place");
+            NodeList  placeList =
+                    petrinetRootElement.getElementsByTagName("places").item(0).getChildNodes();
+          
             for(int i = 0; i <placeList.getLength();i++){
                 Node node  = placeList.item(i);
                 if(node.getNodeType() == Node.ELEMENT_NODE) {
                     Element placeItem = (Element) node;
+                    String placeId =getTagValue("id",placeItem);
+                    String placeName = getTagValue("name",placeItem);
+                    int xCoordinate = Integer.parseInt(getTagValue("x",placeItem));
 
-                    String placeId = placeItem.getElementsByTagName
-                            ("id").item(0).getNodeValue();
-                    String placeName = placeItem.getElementsByTagName
-                            ("name").item(0).getNodeValue();
-
-                    int xCoordinate = Integer.parseInt(placeItem.getElementsByTagName("x").
-                            item(0).getNodeValue());
-
-                    int yCoordinate = Integer.parseInt(placeItem.getElementsByTagName("y").
-                            item(0).getNodeValue());
-                    int tokens = Integer.parseInt(placeItem.getElementsByTagName("tokens").
-                            item(0).getNodeValue());
+                    int yCoordinate = Integer.parseInt(getTagValue("y",placeItem));
+                    int tokens = Integer.parseInt(getTagValue("tokens",placeItem));
                     PlaceInterface place = new Place();
                     place.setName(placeName);
                     place.setNumTokens(tokens);
@@ -298,42 +286,39 @@ public class Storage implements StorageInterface {
 
             // read arcs from XML file
 
-            Element  arcRootElement = (Element)
-                    petrinetRootElement.getElementsByTagName("arcs").item(0);
-            NodeList arcList = arcRootElement.getElementsByTagName("arc");;
+            
+            NodeList arcList =
+                    petrinetRootElement.getElementsByTagName("arcs").
+                            item(0).getChildNodes();
+
             for(int i = 0; i <arcList.getLength();i++){
 
-                Node node  = transitionList.item(i);
+                Node node  = arcList.item(i);
                 if(node.getNodeType() == Node.ELEMENT_NODE) {
                     Element arcItem = (Element) node;
 
-                    String arcId = arcItem.getElementsByTagName
-                            ("id").item(0).getNodeValue();
-                    String arcName = arcItem.getElementsByTagName
-                            ("name").item(0).getNodeValue();
-
-                    int originXCoordinate = Integer.parseInt(arcItem.getElementsByTagName("origin_x").
-                            item(0).getNodeValue());
-
-                    int originYCoordinate = Integer.parseInt(arcItem.getElementsByTagName("origin_y").
-                            item(0).getNodeValue());
 
 
-                    int destinationXCoordinate = Integer.parseInt(arcItem.getElementsByTagName("destination_x").
-                            item(0).getNodeValue());
+                    String arcId =getTagValue("id",arcItem);
+                    String arcName = getTagValue("name",arcItem);
+                    int originXCoordinate = Integer.parseInt(getTagValue("origin_x",arcItem));
 
-                    int destinationYCoordinate = Integer.parseInt(arcItem.getElementsByTagName("destination_y").
-                            item(0).getNodeValue());
+                    int originYCoordinate = Integer.parseInt(getTagValue("origin_y",arcItem));
+
+                    int destinationXCoordinate = Integer.parseInt(getTagValue("destination_x",arcItem));
+
+                    int destinationYCoordinate = Integer.parseInt(getTagValue("destination_y",arcItem));
 
 
-                    int weight = Integer.parseInt(arcItem.getElementsByTagName("weight").
-                            item(0).getNodeValue());
+                    int weight = Integer.parseInt(getTagValue("weight",arcItem));
+                   
 
-                    String originId = arcItem.getElementsByTagName
-                            ("origin_id").item(0).getNodeValue();
 
-                    String destinationId = arcItem.getElementsByTagName
-                            ("destination_id").item(0).getNodeValue();
+
+
+                    String originId = getTagValue("origin_id",arcItem);
+
+                    String destinationId = getTagValue("destination_id",arcItem);
 
                     Point destinationPoint = new Point(destinationXCoordinate, destinationYCoordinate);
                     Point originPoint = new Point(originXCoordinate, originYCoordinate);
@@ -342,7 +327,7 @@ public class Storage implements StorageInterface {
                     Petrinet2DObjectInterface destination = null;
                     Petrinet2DObjectInterface origin = null;
                     for (Petrinet2DObjectInterface obj : guiObjects) {
-                        if (obj.getID() == destinationId) {
+                        if (obj.getID().equals(destinationId)) {
                             destination = obj;
                         }
                         if (obj.getID().equals(originId)) {
@@ -430,6 +415,13 @@ public class Storage implements StorageInterface {
         }
 
 
+    }
+    
+    
+    private String getTagValue(String tag, Element element) {
+        NodeList nodeList = element.getElementsByTagName(tag).item(0).getChildNodes();
+        Node node = (Node) nodeList.item(0);
+        return node.getNodeValue();
     }
 
     @Override

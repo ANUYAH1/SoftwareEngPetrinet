@@ -98,9 +98,10 @@ public class PetrinetGUI extends JFrame implements MenuBarListener {
                 fileChooser.setFileFilter(fileFilter);
                 petrinetProject = storage.loadProject(file.getPath());
                 this.setTitle("Petrinet- " + petrinetProject.getName());
+                petrinetPanel.clearProject();
                 petrinetPanel.loadObjects(petrinetProject.getGuiObjects());
                 String message = "Project " + petrinetProject.getName() + " Loaded!!";
-                LogUIModel log = LogUIModel.createErrorLog(message);
+                LogUIModel log = LogUIModel.createInfoLog(message);
                 petrinetPanel.log(log);
                 enablePanel(petrinetPanel, true);
             }
