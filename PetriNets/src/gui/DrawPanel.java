@@ -44,10 +44,10 @@ public class DrawPanel extends JPanel implements MouseListener, ActionListener {
 
     // back end logic that houses
     // the algorithms
-    private PetriNet petriNet ;
+    private PetriNetInterface petrinetLogic ;
 
 
-    public DrawPanel(LogListener logListener){
+    public DrawPanel(LogListener logListener,PetriNetInterface petrinetLogic){
         this.logListener = logListener;
 
         canvas = new DrawCanvas();
@@ -63,7 +63,7 @@ public class DrawPanel extends JPanel implements MouseListener, ActionListener {
 
 
 
-        petriNet = new PetriNet();
+        this.petrinetLogic = petrinetLogic;
         this.add(coverabilityTreePanel,BorderLayout.EAST);
         this.add(canvas,BorderLayout.CENTER);
         this.currentPetrinetObject = Element.NONE;
@@ -117,7 +117,7 @@ public class DrawPanel extends JPanel implements MouseListener, ActionListener {
                         TransitionInterface transition = new Transition();
                         transition.setName(name);
                         // add transition instance in the back end as well
-                        petriNet.addTransition(transition);
+                        petrinetLogic.addTransition(transition);
 
                         //if (transitionInterface.attemptTransition())
                         Petrinet2DObjectInterface transitionObject =
@@ -131,7 +131,7 @@ public class DrawPanel extends JPanel implements MouseListener, ActionListener {
                         redoHistory.clear();
 
                         log(LogUIModel.createInfoLog("Added Transition: " + name));
-                        canvas.repaint();
+                        refresh();
                     } else {
 
                         log(LogUIModel.createErrorLog("Transition name cannot be empty: :("));
@@ -155,7 +155,7 @@ public class DrawPanel extends JPanel implements MouseListener, ActionListener {
                             place.setName(name);
                             place.setNumTokens(numTokens);
                             // add in the back end as well
-                            petriNet.addPlace(place);
+                            petrinetLogic.addPlace(place);
 
                             //if (transitionInterface.attemptTransition())
                             Petrinet2DObjectInterface place2DObject =
@@ -171,7 +171,7 @@ public class DrawPanel extends JPanel implements MouseListener, ActionListener {
                             redoHistory.clear();
 
                             log(LogUIModel.createInfoLog("Added Place: " + value));
-                            canvas.repaint();
+                            refresh();
                         } else {
                             log(LogUIModel.createErrorLog("Unable to parse place, follow this placename<tokens>"));
                         }
@@ -265,7 +265,7 @@ public class DrawPanel extends JPanel implements MouseListener, ActionListener {
                                         // TODO ask for explanation
                                         //transition.addArcOutput(arc);
                                         //place.addArcInput(arc);
-                                        canvas.repaint();
+                                        refresh();
                                         logListener.log(LogUIModel.createInfoLog("Arc Drawn from : " +
                                                 originObject.getName() + " to" + destinationObject.getName()));
 
@@ -309,7 +309,7 @@ public class DrawPanel extends JPanel implements MouseListener, ActionListener {
 
                                     objects.add(arcObject);
 
-                                    canvas.repaint();
+                                    refresh();
                                     logListener.log(LogUIModel.createInfoLog("Arc Drawn from : " +
                                             originObject.getName() + " to" + destinationObject.getName()));
                                 }
@@ -358,7 +358,7 @@ public class DrawPanel extends JPanel implements MouseListener, ActionListener {
             //also remove the instance contained in that
             //object model from the beck end interface
             redoHistory.add(object);
-            canvas.repaint();
+            refresh();
             logListener.log(LogUIModel.createInfoLog("Undo last operation!!"));
         }
 
@@ -366,7 +366,7 @@ public class DrawPanel extends JPanel implements MouseListener, ActionListener {
 
     public void clearAll(){
         objects.clear();
-        canvas.repaint();
+        refresh();
     }
 
     /**
@@ -395,7 +395,7 @@ public class DrawPanel extends JPanel implements MouseListener, ActionListener {
             Petrinet2DObjectInterface object =
                     redoHistory.remove(redoHistory.size() - 1);
             objects.add(object);
-            canvas.repaint();
+            refresh();
             logListener.log(LogUIModel.createInfoLog("Redo last operation!!"));
         }
     }
@@ -406,7 +406,8 @@ public class DrawPanel extends JPanel implements MouseListener, ActionListener {
 
     public void loadElements(ArrayList<Petrinet2DObjectInterface> guiObjects) {
         this.objects = guiObjects;
-        canvas.repaint();
+
+        refresh();
     }
 
     @Override
@@ -418,6 +419,14 @@ public class DrawPanel extends JPanel implements MouseListener, ActionListener {
             redoHistory.add(currentSelectedObject);
         }
 
+    }
+
+    public void refresh() {
+        canvas.repaint();
+        if (petrinetLogic.getCoverabilityTreeRoot()!=null) {
+            coverabilityTreePanel.
+                    loadTree(petrinetLogic.getCoverabilityTreeRoot());
+        }
     }
 
     class DrawCanvas extends JPanel {

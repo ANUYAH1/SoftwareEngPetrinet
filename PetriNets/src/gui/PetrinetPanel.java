@@ -1,5 +1,8 @@
 package gui;
 
+import logic.PetriNet;
+import logic.PetriNetInterface;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -14,12 +17,12 @@ public class PetrinetPanel extends JPanel implements ElementSelectListener,LogLi
     private DrawPanel drawPanel;
     private ControlPanel controlPanel;
     private LogPanel logPanel;
-
+    private PetriNetInterface petrinetLogic;
 
     public PetrinetPanel(){
-
-        drawPanel = new DrawPanel(this);
-        controlPanel = new ControlPanel(this);
+        petrinetLogic = new PetriNet();
+        drawPanel = new DrawPanel(this,petrinetLogic);
+        controlPanel = new ControlPanel(this,this);
         logPanel = new LogPanel();
 
         this.setLayout(new BorderLayout());
@@ -78,12 +81,32 @@ public class PetrinetPanel extends JPanel implements ElementSelectListener,LogLi
         drawPanel.clearAll();
     }
 
-    public void loadObjects(ArrayList<Petrinet2DObjectInterface> guiObjects) {
+    public void loadProject(ArrayList<Petrinet2DObjectInterface> guiObjects) {
+        for(Petrinet2DObjectInterface obj : guiObjects)
+        {
+            if (obj instanceof  Transition2DObject){
+                Transition2DObject transObject =(Transition2DObject)obj;
+                petrinetLogic.addTransition(
+                        transObject.getTransition()
+                );
+            }else  if (obj instanceof  Place2DObject){
+                Place2DObject placeObject =(Place2DObject)obj;
+                petrinetLogic.addPlace(
+                        placeObject.getPlace()
+                );
+            }
+        }
+
         drawPanel.loadElements(guiObjects);
     }
 
     @Override
     public void actionPerformed(ActionEvent actionEvent) {
-
+       JButton button = ((JButton)actionEvent.getSource());
+       if(button.getName().equals("control_step_play")){
+           boolean canDo = petrinetLogic.next();
+           button.setEnabled(canDo);
+           drawPanel.refresh();
+       }
     }
 }

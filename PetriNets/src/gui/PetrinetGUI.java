@@ -29,6 +29,7 @@ public class PetrinetGUI extends JFrame implements MenuBarListener {
     private FileFilter fileFilter ;
 
 
+
     public PetrinetGUI(){
         menuBar = new MenuBar(this);
         petrinetPanel = new PetrinetPanel();
@@ -99,7 +100,7 @@ public class PetrinetGUI extends JFrame implements MenuBarListener {
                 petrinetProject = storage.loadProject(file.getPath());
                 this.setTitle("Petrinet- " + petrinetProject.getName());
                 petrinetPanel.clearProject();
-                petrinetPanel.loadObjects(petrinetProject.getGuiObjects());
+                petrinetPanel.loadProject(petrinetProject.getGuiObjects());
                 String message = "Project " + petrinetProject.getName() + " Loaded!!";
                 LogUIModel log = LogUIModel.createInfoLog(message);
                 petrinetPanel.log(log);
@@ -111,6 +112,7 @@ public class PetrinetGUI extends JFrame implements MenuBarListener {
 
             LogUIModel log =LogUIModel.createErrorLog(message);
             petrinetPanel.log(log);
+            ex.printStackTrace();
         }
 
     }

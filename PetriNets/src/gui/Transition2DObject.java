@@ -17,6 +17,7 @@ public class Transition2DObject implements Petrinet2DObjectInterface {
     private final int TEXTPADDING =15;
     private final Color TRANSITIONCOLOR = Color.black;
     private final Color TEXTCOLOR = Color.BLACK;
+    private final Color TRANSITIONFIREDCOLOR = Color.green;
     private final int TOLERANCE = 30;
     private String Id;
 
@@ -40,6 +41,7 @@ public class Transition2DObject implements Petrinet2DObjectInterface {
     public void draw(Graphics graphics) {
         graphics.setColor(TRANSITIONCOLOR);
         graphics.fillRect((int)point.getX(),(int)point.getY(),TRANSITION_WIDTH,TRANSITION_HEIGHT);
+
         graphics.setColor(TEXTCOLOR);
         graphics.drawString(getName(),(int)point.getX(),(int)point.getY()+TRANSITION_HEIGHT+TEXTPADDING);
 

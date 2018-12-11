@@ -17,9 +17,12 @@ public class ControlPanel extends JPanel implements  ActionListener {
     private ArcSelectButton arcSelectButton;
     private TransitionSelectButton transitionSelectButton;
     private ElementSelectListener listener;
+
+
     private CompletePlayButton completPlayButton;
 
     private StepPlayButton stepPlayButton;
+    private RefreshPlayButton refreshPlayButton ;
 
 
     /**
@@ -27,10 +30,13 @@ public class ControlPanel extends JPanel implements  ActionListener {
      * listen for changes in this panel
      * @param listener
      */
-    public ControlPanel(ElementSelectListener listener){
+    public ControlPanel(ElementSelectListener listener,ActionListener playListener){
         this.listener = listener;
         this.completPlayButton = new CompletePlayButton();
         this.stepPlayButton = new StepPlayButton();
+        refreshPlayButton= new RefreshPlayButton();
+
+
         placeSelectButton = new PlaceSelectButton();
         arcSelectButton = new ArcSelectButton();
         transitionSelectButton = new TransitionSelectButton();
@@ -46,8 +52,17 @@ public class ControlPanel extends JPanel implements  ActionListener {
         arcSelectButton.setBackground(Color.GRAY);
         completPlayButton.setBackground(Color.GRAY);
         stepPlayButton.setBackground(Color.GRAY);
+        refreshPlayButton.setBackground(Color.GRAY);
+        stepPlayButton.setName("control_step_play");
+        completPlayButton.setName("control_complete_play");
+        refreshPlayButton.setName("control_refresh_play");
+        stepPlayButton.addActionListener(playListener);
+        refreshPlayButton.addActionListener(playListener);
+        completPlayButton.addActionListener(playListener);
+
         this.add(stepPlayButton);
         this.add(completPlayButton);
+        this.add(refreshPlayButton);
         this.add(transitionSelectButton);
         this.add(arcSelectButton);
         this.add(placeSelectButton);
@@ -91,4 +106,6 @@ public class ControlPanel extends JPanel implements  ActionListener {
         listener.selectedPetrinetObject(selection);
 
     }
+
+
 }

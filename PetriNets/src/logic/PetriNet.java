@@ -17,9 +17,9 @@ public class PetriNet implements PetriNetInterface {
     }
     @Override
     public void addPlace(PlaceInterface newPlace){
-        if(newPlace.getArcInputs().size() != 0 || newPlace.getArcOutputs().size() != 0){
-            throw new IllegalArgumentException("Place has Arcs in PetriNet");
-        }
+//        if(newPlace.getArcInputs().size() != 0 || newPlace.getArcOutputs().size() != 0){
+//            throw new IllegalArgumentException("Place has Arcs in PetriNet");
+//        }
         if(!places.contains(newPlace)) {
             places.add(newPlace);
         }
@@ -28,9 +28,9 @@ public class PetriNet implements PetriNetInterface {
 
     @Override
     public void addTransition(TransitionInterface newTransition){
-        if(newTransition.getArcInputs().size() != 0 || newTransition.getArcOutputs().size() != 0){
-            throw new IllegalArgumentException("Transition has Arcs");
-        }
+//        if(newTransition.getArcInputs().size() != 0 || newTransition.getArcOutputs().size() != 0){
+//            throw new IllegalArgumentException("Transition has Arcs");
+//        }
         if(!transitions.contains(newTransition)) {
             transitions.add(newTransition);
         }
@@ -266,7 +266,9 @@ public class PetriNet implements PetriNetInterface {
 
     @Override
     public boolean next(){
-        startTreeTraversal();
+        if(root == null) {
+            startTreeTraversal();
+        }
         if(currentNode == null)
         {
             treeComplete = true;
