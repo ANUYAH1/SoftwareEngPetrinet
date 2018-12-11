@@ -357,8 +357,8 @@ public class Storage implements StorageInterface {
                         // now add this arc instance to the back end
                         // for the coverability tree
                         // TODO ask for explanation
-                        transition.addArcOutput(arc);
-                        place.addArcInput(arc);
+                       // transition.addArcOutput(arc);
+                        //place.addArcInput(arc);
 
 
                     } else if (origin instanceof Place2DObject
@@ -377,8 +377,8 @@ public class Storage implements StorageInterface {
                         arc.setName(name);
 
 
-                        transition.addArcInput(arc);
-                        place.addArcOutput(arc);
+                        //transition.addArcInput(arc);
+                        //place.addArcOutput(arc);
 
                     }
 

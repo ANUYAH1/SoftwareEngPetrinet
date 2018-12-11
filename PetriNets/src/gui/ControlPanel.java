@@ -1,7 +1,6 @@
 package gui;
 
 import javax.swing.*;
-import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -12,12 +11,15 @@ import java.awt.event.ActionListener;
  * know what has been selected to
  * draw on the canvas
  */
-public class PetrinetSelectObjectPanel extends JPanel implements  ActionListener {
-    private SelectObject selection;
+public class ControlPanel extends JPanel implements  ActionListener {
+    private Element selection;
     private PlaceSelectButton placeSelectButton;
     private ArcSelectButton arcSelectButton;
     private TransitionSelectButton transitionSelectButton;
-    private PetrinetSelectObjectListener listener;
+    private ElementSelectListener listener;
+    private CompletePlayButton completPlayButton;
+
+    private StepPlayButton stepPlayButton;
 
 
     /**
@@ -25,9 +27,10 @@ public class PetrinetSelectObjectPanel extends JPanel implements  ActionListener
      * listen for changes in this panel
      * @param listener
      */
-    public PetrinetSelectObjectPanel(PetrinetSelectObjectListener listener){
+    public ControlPanel(ElementSelectListener listener){
         this.listener = listener;
-
+        this.completPlayButton = new CompletePlayButton();
+        this.stepPlayButton = new StepPlayButton();
         placeSelectButton = new PlaceSelectButton();
         arcSelectButton = new ArcSelectButton();
         transitionSelectButton = new TransitionSelectButton();
@@ -41,32 +44,46 @@ public class PetrinetSelectObjectPanel extends JPanel implements  ActionListener
         placeSelectButton.setBackground(Color.GRAY);
         transitionSelectButton.setBackground(Color.GRAY);
         arcSelectButton.setBackground(Color.GRAY);
+        completPlayButton.setBackground(Color.GRAY);
+        stepPlayButton.setBackground(Color.GRAY);
+        this.add(stepPlayButton);
+        this.add(completPlayButton);
         this.add(transitionSelectButton);
         this.add(arcSelectButton);
         this.add(placeSelectButton);
+
         this.setRequestFocusEnabled(false);
-        this.setBorder(BorderFactory.createTitledBorder("Select Petrinet Model"));
-        selection = SelectObject.NONE;
+        this.setBorder(BorderFactory.createTitledBorder("Controls"));
+        selection = Element.NONE;
+
+
+
+
+
+        stepPlayButton.addActionListener(this);
+        completPlayButton.addActionListener(this);
+
+
     }
 
-    public SelectObject getSelection(){
+    public Element getSelection(){
         return selection;
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         if (((JButton)e.getSource()).getName().equals("place")){
-            selection =  SelectObject.PLACE;
+            selection =  Element.PLACE;
             placeSelectButton.setBackground(Color.LIGHT_GRAY);
             transitionSelectButton.setBackground(Color.GRAY);
             arcSelectButton.setBackground(Color.GRAY);
         }else  if (((JButton)e.getSource()).getName().equals("arc")){
-            selection =  SelectObject.ARC;
+            selection =  Element.ARC;
             placeSelectButton.setBackground(Color.GRAY);
             transitionSelectButton.setBackground(Color.GRAY);
             arcSelectButton.setBackground(Color.LIGHT_GRAY);
         }else  if (((JButton)e.getSource()).getName().equals("trans")){
-            selection =  SelectObject.TRANSITION;
+            selection =  Element.TRANSITION;
             placeSelectButton.setBackground(Color.GRAY);
             transitionSelectButton.setBackground(Color.LIGHT_GRAY);
             arcSelectButton.setBackground(Color.GRAY);

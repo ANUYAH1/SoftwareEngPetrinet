@@ -5,6 +5,6 @@ package gui;
  * for keeping track of the
  * various PetrinetModels
  */
-public enum SelectObject {
+public enum Element {
     PLACE,TRANSITION,ARC,NONE
 }

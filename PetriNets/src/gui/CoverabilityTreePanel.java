@@ -1,7 +1,7 @@
 package gui;
 
 
-import logic.CoverabilityTree;
+
 
 import javax.swing.*;
 import java.awt.*;

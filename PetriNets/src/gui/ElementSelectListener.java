@@ -5,11 +5,11 @@ package gui;
  * listen for when a petrinet object is
  * selected
  */
-public interface PetrinetSelectObjectListener {
+public interface ElementSelectListener {
     /**
      * fired when an object
      * is selected
-     * @param selectObject
+     * @param element
      */
-    void selectedPetrinetObject(SelectObject selectObject);
+    void selectedPetrinetObject(Element element);
 }

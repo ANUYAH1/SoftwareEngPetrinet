@@ -4,12 +4,13 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 
-public class ElementSelectButton  extends JButton {
-    public ElementSelectButton(){
+public class StepPlayButton extends JButton {
+    public StepPlayButton(){
         try {
-            Image img = ImageIO.read(getClass().getResource("/icons/select_logo.png"));
+            Image img = ImageIO.read(getClass().getResource("/icons/pla_logo.png"));
             this.setIcon(new ImageIcon(img));
-            this.setToolTipText("Arc");
+            this.setToolTipText("Step Play");
+            this.setBackground(Color.GREEN);
             this.setOpaque(true);
 
 

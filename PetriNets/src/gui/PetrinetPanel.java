@@ -1,28 +1,30 @@
 package gui;
 
-import logic.PetriNet;
-
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 /**
  * This houses the whole main
  * petrinet structure
  */
-public class PetrinetPanel extends JPanel implements PetrinetSelectObjectListener,LogListener {
+public class PetrinetPanel extends JPanel implements ElementSelectListener,LogListener, ActionListener {
     private DrawPanel drawPanel;
-    private PetrinetSelectObjectPanel selectObjectPanel;
+    private ControlPanel controlPanel;
     private LogPanel logPanel;
+
 
     public PetrinetPanel(){
 
         drawPanel = new DrawPanel(this);
-        selectObjectPanel = new PetrinetSelectObjectPanel(this);
+        controlPanel = new ControlPanel(this);
         logPanel = new LogPanel();
 
         this.setLayout(new BorderLayout());
-        this.add(selectObjectPanel,BorderLayout.NORTH);
+        this.add(controlPanel,BorderLayout.NORTH);
+
         this.add(drawPanel,BorderLayout.CENTER);
         this.add(logPanel,BorderLayout.SOUTH);
         this.setEnabled(false);
@@ -34,8 +36,8 @@ public class PetrinetPanel extends JPanel implements PetrinetSelectObjectListene
 
 
     @Override
-    public void selectedPetrinetObject(SelectObject selectObject) {
-        drawPanel.setCurrentPetrinetObject(selectObject);
+    public void selectedPetrinetObject(Element element) {
+        drawPanel.setCurrentPetrinetObject(element);
     }
 
     @Override
@@ -78,5 +80,10 @@ public class PetrinetPanel extends JPanel implements PetrinetSelectObjectListene
 
     public void loadObjects(ArrayList<Petrinet2DObjectInterface> guiObjects) {
         drawPanel.loadElements(guiObjects);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent actionEvent) {
+
     }
 }

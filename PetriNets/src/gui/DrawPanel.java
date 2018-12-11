@@ -26,7 +26,7 @@ public class DrawPanel extends JPanel implements MouseListener, ActionListener {
     // Grid dimensions
     private final int  rows  = 20;
     private final int columns =20;
-    private SelectObject currentPetrinetObject;
+    private Element currentPetrinetObject;
     private LogListener  logListener;
 
 
@@ -66,11 +66,11 @@ public class DrawPanel extends JPanel implements MouseListener, ActionListener {
         petriNet = new PetriNet();
         this.add(coverabilityTreePanel,BorderLayout.EAST);
         this.add(canvas,BorderLayout.CENTER);
-        this.currentPetrinetObject = SelectObject.NONE;
+        this.currentPetrinetObject = Element.NONE;
     }
 
-    public void setCurrentPetrinetObject(SelectObject selectObject) {
-        currentPetrinetObject = selectObject;
+    public void setCurrentPetrinetObject(Element element) {
+        currentPetrinetObject = element;
     }
 
     private Petrinet2DObjectInterface getClosestObject(int x, int y){
@@ -106,7 +106,7 @@ public class DrawPanel extends JPanel implements MouseListener, ActionListener {
                 logListener.log(LogUIModel.createErrorLog("Please select another location, " + closeBy.getName() + " has close proximity!!"));
                 return;
             }
-            if (currentPetrinetObject == SelectObject.TRANSITION) {
+            if (currentPetrinetObject == Element.TRANSITION) {
 
                 // at this point a transition was selected
                 // create a dialog asking for transition name
@@ -138,7 +138,7 @@ public class DrawPanel extends JPanel implements MouseListener, ActionListener {
                     }
                 }
 
-            } else if (currentPetrinetObject == SelectObject.PLACE) {
+            } else if (currentPetrinetObject == Element.PLACE) {
                 // at this point a transition was selected
                 // create a dialog asking for transition name
                 CustomDialog dialog = new CustomDialog(this, "Enter Place " +
@@ -180,7 +180,7 @@ public class DrawPanel extends JPanel implements MouseListener, ActionListener {
                     }
                 }
 
-            } else if (currentPetrinetObject == SelectObject.NONE) {
+            } else if (currentPetrinetObject == Element.NONE) {
                 logListener.log(LogUIModel.createErrorLog("Choose a petrinet model"));
             }
         }
@@ -204,7 +204,7 @@ public class DrawPanel extends JPanel implements MouseListener, ActionListener {
             }
         }else
         if (e.getButton() == MouseEvent.BUTTON1) {
-            if (currentPetrinetObject == SelectObject.ARC) {
+            if (currentPetrinetObject == Element.ARC) {
 
 
                 originObject = closeBy;
@@ -222,7 +222,7 @@ public class DrawPanel extends JPanel implements MouseListener, ActionListener {
 
     @Override
     public void mouseReleased(MouseEvent e) {
-        if(currentPetrinetObject ==SelectObject.ARC){
+        if(currentPetrinetObject == Element.ARC){
             int x = e.getX();
             int y = e.getY();
             if(!this.isEnabled())
@@ -263,8 +263,8 @@ public class DrawPanel extends JPanel implements MouseListener, ActionListener {
                                         // now add this arc instance to the back end
                                         // for the coverability tree
                                         // TODO ask for explanation
-                                        transition.addArcOutput(arc);
-                                        place.addArcInput(arc);
+                                        //transition.addArcOutput(arc);
+                                        //place.addArcInput(arc);
                                         canvas.repaint();
                                         logListener.log(LogUIModel.createInfoLog("Arc Drawn from : " +
                                                 originObject.getName() + " to" + destinationObject.getName()));
@@ -286,8 +286,8 @@ public class DrawPanel extends JPanel implements MouseListener, ActionListener {
                                         // now add this arc instance to the back end
                                         // for the coverability tree
                                         // TODO ASK FOR EXPLANATION
-                                        transition.addArcInput(arc);
-                                        place.addArcOutput(arc);
+                                       // transition.addArcInput(arc);
+                                        //place.addArcOutput(arc);
 
                                     } else {
                                         logListener.log(LogUIModel.createErrorLog("The above case should not occur"));
