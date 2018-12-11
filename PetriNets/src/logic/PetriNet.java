@@ -4,10 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PetriNet implements PetriNetInterface {
-    private ArrayList<PlaceInterface> places = new ArrayList<PlaceInterface>();
-    private ArrayList<TransitionInterface> transitions = new ArrayList<TransitionInterface>();
+    private List<PlaceInterface> places = new ArrayList<PlaceInterface>();
+    private List<TransitionInterface> transitions = new ArrayList<TransitionInterface>();
     private CoverabilityNodeInterface currentNode = null;
     private CoverabilityNodeInterface root = null;
+    private List<CoverabilityNodeInterface> leaves = null;
 
     public PetriNet(){
 
@@ -61,13 +62,105 @@ public class PetriNet implements PetriNetInterface {
     }
 
     @Override
-    public List<TransitionInterface> liveList(int liveNum){
-        return null;
+    public List<TransitionInterface> liveList(){
+        if(root == null) return null;
+        List<CoverabilityNodeInterface> leaves = getLeaves();
+        List<CoverabilityNodeInterface> assessedPoints = new ArrayList<CoverabilityNodeInterface>();
+
+        boolean[] netResult = new boolean[transitions.size()];
+        for(int i = 0; i < netResult.length; i++){
+            netResult[i] = true;
+        }
+        for(CoverabilityNodeInterface node : leaves) {
+            boolean[] localResult = new boolean[transitions.size()];
+            for(int i = 0; i < localResult.length; i++){
+                localResult[i] = false;
+            }
+            CoverabilityNodeInterface miniRoot = node.getEqualAncestor();
+            if (miniRoot == null) {
+                netResult = localResult;
+                break;
+            }
+            if(assessedPoints.contains(miniRoot)){
+                continue;
+            }
+            assessedPoints.add(miniRoot);
+            recursiveLiveHelper(miniRoot, localResult);
+            for (int i = 0; i < netResult.length; i++) {
+                netResult[i] = netResult[i] && localResult[i];
+            }
+        }
+        List<TransitionInterface> toReturn = new ArrayList<TransitionInterface>();
+        for(int i = 0; i < netResult.length; i++){
+            if(netResult[i]){
+                toReturn.add(transitions.get(i));
+            }
+        }
+        return toReturn;
     }
 
     @Override
-    public List<TransitionInterface> notLiveList(int liveNum) {
-        return null;
+    public List<TransitionInterface> notLiveList() {
+        if(root == null) return null;
+        List<CoverabilityNodeInterface> leaves = getLeaves();
+        List<CoverabilityNodeInterface> assessedPoints = new ArrayList<CoverabilityNodeInterface>();
+
+        boolean[] netResult = new boolean[transitions.size()];
+        for(int i = 0; i < netResult.length; i++){
+            netResult[i] = true;
+        }
+        for(CoverabilityNodeInterface node : leaves) {
+            boolean[] localResult = new boolean[transitions.size()];
+            for(int i = 0; i < localResult.length; i++){
+                localResult[i] = false;
+            }
+            CoverabilityNodeInterface miniRoot = node.getEqualAncestor();
+            if (miniRoot == null) {
+                netResult = localResult;
+                break;
+            }
+            if(assessedPoints.contains(miniRoot)){
+                continue;
+            }
+            assessedPoints.add(miniRoot);
+            recursiveLiveHelper(miniRoot, localResult);
+            for (int i = 0; i < netResult.length; i++) {
+                netResult[i] = netResult[i] && localResult[i];
+            }
+        }
+        List<TransitionInterface> toReturn = new ArrayList<TransitionInterface>();
+        for(int i = 0; i < netResult.length; i++){
+            if(!netResult[i]){
+                toReturn.add(transitions.get(i));
+            }
+        }
+        return toReturn;
+    }
+    private List<CoverabilityNodeInterface> getLeaves(){
+        if(leaves != null) return leaves;
+        if(root == null) return null;
+        leaves = new ArrayList<CoverabilityNodeInterface>();
+        recursiveLeafFinder(root, leaves);
+        return leaves;
+    }
+    private void recursiveLeafFinder(CoverabilityNodeInterface node, List<CoverabilityNodeInterface> leaves){
+        if(node.getChildren().size() == 0){
+            leaves.add(node);
+            return;
+        }
+        for(CoverabilityNodeInterface n : node.getChildren()){
+            recursiveLeafFinder(n, leaves);
+        }
+
+    }
+    private void recursiveLiveHelper(CoverabilityNodeInterface node, boolean[] live){
+        for(CoverabilityNodeInterface n : node.getChildren()){
+            TransitionInterface t = n.usedTransition();
+            if(t != null){
+                live[transitions.indexOf(t)] = true;
+            }
+            recursiveLiveHelper(n, live);
+        }
     }
 
     @Override
@@ -155,52 +248,15 @@ public class PetriNet implements PetriNetInterface {
 
         root = new CoverabilityNode(null, null, startState);
         currentNode = root;
+        leaves = null;
     }
-
-//    @Override
-//    public boolean hasNext(){
-//        //Determine if there is a transition that can be used
-//        CoverabilityNodeInterface nextNode
-//        if(currentNode.isTerminal()){
-//
-//        }
-//
-//        List<CoverabilityNodeInterface> children = currentNode.getChildren();
-//
-//        CoverabilityNodeInterface lastNode = null;
-//        TransitionInterface lastTransition = null;
-//        if(children.size() != 0) {
-//            children.get(children.size() - 1);
-//            lastTransition = lastNode.usedTransition();
-//        }
-//
-//        int index;
-//        if(lastTransition == null){
-//            index = 0;
-//        }
-//        else{
-//            index = transitions.indexOf(lastTransition);
-//        }
-//
-//        for(int i = index + 1; i < transitions.size(); i++){
-//            TransitionInterface transition = transitions.get(i);
-//            if(transition.checkTransition()){
-//                transition.executeTransition();
-//                int[] newPlaceState = new int[places.size()];
-//                for(int j = 0; j < newPlaceState.length; j++){
-//                    newPlaceState[j] = places.get(j).getNumTokens();
-//                }
-//                CoverabilityNodeInterface newNode = new CoverabilityNode(currentNode);
-//            }
-//        }
-//        return false;
-//    }
 
     @Override
     public boolean next(){
         if(currentNode == null){
             return false;
         }
+        leaves = null;
         if(currentNode.hasPropagatableAncestors())
         {
             if(currentNode.getChildren().size() == 0)
@@ -271,6 +327,7 @@ public class PetriNet implements PetriNetInterface {
 
     @Override
     public void abortTreeTraversal(){
+        leaves = null;
         root = null;
         currentNode = null;
     }

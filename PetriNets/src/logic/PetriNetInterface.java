@@ -10,8 +10,8 @@ public interface PetriNetInterface {
     List<TransitionInterface> getTransitions();
     List<ArcInterface> getArcs();
 
-    List<TransitionInterface> liveList(int liveNum);
-    List<TransitionInterface> notLiveList(int liveNum);
+    List<TransitionInterface> liveList();
+    List<TransitionInterface> notLiveList();
 
     List<PlaceInterface> unboundedPlaces();
     List<PlaceInterface> boundedPlaces();
