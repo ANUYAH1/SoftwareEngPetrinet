@@ -1,6 +1,7 @@
 package test;
 
 import gui.Petrinet2DObjectInterface;
+import junit.framework.Assert;
 import junit.framework.TestCase;
 import org.junit.After;
 import org.junit.Before;
@@ -22,7 +23,6 @@ public class StorageUnitTests extends TestCase {
     }
 
     @Test
-    public void testScalene() {
-
+    public void testRead() {
     }
 }

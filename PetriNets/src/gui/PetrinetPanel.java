@@ -1,5 +1,7 @@
 package gui;
 
+import logic.PetriNet;
+
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
@@ -12,7 +14,9 @@ public class PetrinetPanel extends JPanel implements PetrinetSelectObjectListene
     private DrawPanel drawPanel;
     private PetrinetSelectObjectPanel selectObjectPanel;
     private LogPanel logPanel;
+
     public PetrinetPanel(){
+
         drawPanel = new DrawPanel(this);
         selectObjectPanel = new PetrinetSelectObjectPanel(this);
         logPanel = new LogPanel();

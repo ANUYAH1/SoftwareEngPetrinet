@@ -4,6 +4,8 @@ import logic.*;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
@@ -13,9 +15,10 @@ import java.util.UUID;
  * This houses the core part of
  * the GUI it is responsible
  * for all drawings and majority
- * of the user interactions
+ * of the user interactions as well
+ * ass the coverability tree panel
  */
-public class DrawPanel extends JPanel implements MouseListener {
+public class DrawPanel extends JPanel implements MouseListener, ActionListener {
     // this stores all to be drawn on the
     // gui
     private ArrayList<Petrinet2DObjectInterface> objects;
@@ -34,18 +37,34 @@ public class DrawPanel extends JPanel implements MouseListener {
     private Point destinationPoint ;
     private Petrinet2DObjectInterface destinationObject;
 
+    private Petrinet2DObjectInterface currentSelectedObject ;
+    private ElementOptionMenu elementOptionMenu;
+
+    private CoverabilityTreePanel coverabilityTreePanel;
+
+    // back end logic that houses
+    // the algorithms
+    private PetriNet petriNet ;
 
 
     public DrawPanel(LogListener logListener){
         this.logListener = logListener;
-        this.setBorder(BorderFactory.createTitledBorder("Draw Canvas"));
+
         canvas = new DrawCanvas();
         canvas.addMouseListener(this);
         objects =new ArrayList<>();
         redoHistory = new ArrayList<>();
+        coverabilityTreePanel = new CoverabilityTreePanel();
+        this.elementOptionMenu = new ElementOptionMenu(this);
+        elementOptionMenu.enablePaste(false);
         this.setLayout(new BorderLayout());
+        //keep the coverability tree panel about 1/4 of the
+        // width of the screen
 
 
+
+        petriNet = new PetriNet();
+        this.add(coverabilityTreePanel,BorderLayout.EAST);
         this.add(canvas,BorderLayout.CENTER);
         this.currentPetrinetObject = SelectObject.NONE;
     }
@@ -82,103 +101,122 @@ public class DrawPanel extends JPanel implements MouseListener {
         // around the tolerance of the GUI
         Petrinet2DObjectInterface closeBy =
                 getClosestObject(positionX,positionY);
-        if(closeBy!=null){
-            logListener.log(LogUIModel.createErrorLog("Please select another location, "+closeBy.getName() +" has close proximity!!"));
-            return;
-        }
-
-        if(currentPetrinetObject ==SelectObject.TRANSITION ){
-            // at this point a transition was selected
-            // create a dialog asking for transition name
-            CustomDialog dialog =new CustomDialog(this,"Enter Transition name","Add Transition");
-            if(dialog.isPostiveSelection()){
-                String name = dialog.getValidatedText();
-                if (!name.isEmpty()) {
-                    TransitionInterface transition = new Transition();
-                    transition.setName(name);
-                    //if (transitionInterface.attemptTransition())
-                    Petrinet2DObjectInterface transitionObject =
-                            new Transition2DObject(transition);
-
-                    transitionObject.setID(UUID.randomUUID().toString());
-                    transitionObject.setName(name);
-
-                    transitionObject.setPoint(new Point(positionX, positionY));
-                    objects.add(transitionObject);
-                    redoHistory.clear();
-                    
-                    log(LogUIModel.createInfoLog("Added Transition: " + name));
-                    canvas.repaint();
-                }else{
-                    
-                    log(LogUIModel.createErrorLog("Transition name cannot be empty: :("));
-                }
+          if (e.getButton() == MouseEvent.BUTTON1) {
+            if (closeBy != null) {
+                logListener.log(LogUIModel.createErrorLog("Please select another location, " + closeBy.getName() + " has close proximity!!"));
+                return;
             }
+            if (currentPetrinetObject == SelectObject.TRANSITION) {
 
-        }else   if(currentPetrinetObject ==SelectObject.PLACE ){
-            // at this point a transition was selected
-            // create a dialog asking for transition name
-            CustomDialog dialog =new CustomDialog(this,"Enter Place " +
-                    "in format: name<tokens>","Add place");
-            if(dialog.isPostiveSelection()){
-                String value = dialog.getValidatedText();
-                if (!value.isEmpty()) {
-                    // parse value
-                    String[] parsedContent = parsePlaceString(value);
-                     if (parsedContent!=null) {
-                         String name = parsedContent[0];
-                         int numTokens = Integer.parseInt(parsedContent[1]);
-                         PlaceInterface place = new Place();
-                         place.setName(name);
-                         place.setNumTokens(numTokens);
+                // at this point a transition was selected
+                // create a dialog asking for transition name
+                CustomDialog dialog = new CustomDialog(this, "Enter Transition name", "Add Transition");
+                if (dialog.isPostiveSelection()) {
+                    String name = dialog.getValidatedText();
+                    if (!name.isEmpty()) {
+                        TransitionInterface transition = new Transition();
+                        transition.setName(name);
+                        // add transition instance in the back end as well
+                        petriNet.addTransition(transition);
 
-                         //if (transitionInterface.attemptTransition())
-                         Petrinet2DObjectInterface place2DObject =
-                                 new Place2DObject(place);
+                        //if (transitionInterface.attemptTransition())
+                        Petrinet2DObjectInterface transitionObject =
+                                new Transition2DObject(transition);
 
-                         place2DObject.setID
-                                 (UUID.randomUUID().toString());
-                         place2DObject.setName(name);
+                        transitionObject.setID(UUID.randomUUID().toString());
+                        transitionObject.setName(name);
 
-                         place2DObject.setPoint
-                                 (new Point(positionX, positionY));
-                         objects.add(place2DObject);
-                         redoHistory.clear();
+                        transitionObject.setPoint(new Point(positionX, positionY));
+                        objects.add(transitionObject);
+                        redoHistory.clear();
 
-                         log(LogUIModel.createInfoLog("Added Place: " + value));
-                         canvas.repaint();
-                     }else{
-                         log(LogUIModel.createErrorLog("Unable to parse place, follow this placename<tokens>"));
-                     }
-                }else{
-                    logListener.log(LogUIModel.createErrorLog("Transition name cannot be empty: :("));
+                        log(LogUIModel.createInfoLog("Added Transition: " + name));
+                        canvas.repaint();
+                    } else {
+
+                        log(LogUIModel.createErrorLog("Transition name cannot be empty: :("));
+                    }
                 }
-            }
 
-        }else if(currentPetrinetObject == SelectObject.NONE){
-            logListener.log(LogUIModel.createErrorLog("Choose a petrinet model"));
+            } else if (currentPetrinetObject == SelectObject.PLACE) {
+                // at this point a transition was selected
+                // create a dialog asking for transition name
+                CustomDialog dialog = new CustomDialog(this, "Enter Place " +
+                        "in format: name<tokens>", "Add place");
+                if (dialog.isPostiveSelection()) {
+                    String value = dialog.getValidatedText();
+                    if (!value.isEmpty()) {
+                        // parse value
+                        String[] parsedContent = parsePlaceString(value);
+                        if (parsedContent != null) {
+                            String name = parsedContent[0];
+                            int numTokens = Integer.parseInt(parsedContent[1]);
+                            PlaceInterface place = new Place();
+                            place.setName(name);
+                            place.setNumTokens(numTokens);
+                            // add in the back end as well
+                            petriNet.addPlace(place);
+
+                            //if (transitionInterface.attemptTransition())
+                            Petrinet2DObjectInterface place2DObject =
+                                    new Place2DObject(place);
+
+                            place2DObject.setID
+                                    (UUID.randomUUID().toString());
+                            place2DObject.setName(name);
+
+                            place2DObject.setPoint
+                                    (new Point(positionX, positionY));
+                            objects.add(place2DObject);
+                            redoHistory.clear();
+
+                            log(LogUIModel.createInfoLog("Added Place: " + value));
+                            canvas.repaint();
+                        } else {
+                            log(LogUIModel.createErrorLog("Unable to parse place, follow this placename<tokens>"));
+                        }
+                    } else {
+                        logListener.log(LogUIModel.createErrorLog("Transition name cannot be empty: :("));
+                    }
+                }
+
+            } else if (currentPetrinetObject == SelectObject.NONE) {
+                logListener.log(LogUIModel.createErrorLog("Choose a petrinet model"));
+            }
         }
 
     }
 
     @Override
     public void mousePressed(MouseEvent e) {
+        int x = e.getX();
+        int y = e.getY();
         if(!this.isEnabled())
             return;
-        if(currentPetrinetObject ==SelectObject.ARC){
-            int x = e.getX();
-            int y = e.getY();
-
-            originObject = getClosestObject(x,y);
-
-
-            if(originObject!=null &&
-                    !(originObject instanceof Arc2DObject)) {
-                logListener.log(LogUIModel.createInfoLog("drawing arc from origin: " + originObject.getName()));
-                originPoint  = new Point(x,y);
+        Petrinet2DObjectInterface closeBy =
+                getClosestObject(x, y);
+        if (e.getButton() == MouseEvent.BUTTON2){
+            currentSelectedObject = closeBy;
+            if (currentSelectedObject!=null){
+                elementOptionMenu.setLocation(x,y);
+                elementOptionMenu.setInvoker(canvas);
+                elementOptionMenu.setVisible(true);
             }
-            else
-                logListener.log(LogUIModel.createErrorLog("error starting arc: No transition or place"));
+        }else
+        if (e.getButton() == MouseEvent.BUTTON1) {
+            if (currentPetrinetObject == SelectObject.ARC) {
+
+
+                originObject = closeBy;
+
+
+                if (originObject != null &&
+                        !(originObject instanceof Arc2DObject)) {
+                    logListener.log(LogUIModel.createInfoLog("drawing arc from origin: " + originObject.getName()));
+                    originPoint = new Point(x, y);
+                } else
+                    logListener.log(LogUIModel.createErrorLog("error starting arc: No transition or place"));
+            }
         }
     }
 
@@ -316,6 +354,9 @@ public class DrawPanel extends JPanel implements MouseListener {
         if (objects.size()!=0) {
             Petrinet2DObjectInterface object =
                     objects.remove(objects.size() - 1);
+
+            //also remove the instance contained in that
+            //object model from the beck end interface
             redoHistory.add(object);
             canvas.repaint();
             logListener.log(LogUIModel.createInfoLog("Undo last operation!!"));
@@ -368,7 +409,20 @@ public class DrawPanel extends JPanel implements MouseListener {
         canvas.repaint();
     }
 
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (currentSelectedObject!=null) {
+
+            objects.remove(currentSelectedObject);
+
+            redoHistory.add(currentSelectedObject);
+        }
+
+    }
+
     class DrawCanvas extends JPanel {
+
+
         @Override
         public void paintComponent(Graphics g) {  // invoke via repaint()
             super.paintComponent(g);    // fill background
