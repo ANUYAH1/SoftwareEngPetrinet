@@ -10,6 +10,8 @@ public class PetriNet implements PetriNetInterface {
     private CoverabilityNodeInterface root = null;
     private List<CoverabilityNodeInterface> leaves = null;
 
+    private boolean treeComplete = false;
+
     public PetriNet(){
 
     }
@@ -178,7 +180,7 @@ public class PetriNet implements PetriNetInterface {
 
     @Override
     public List<PlaceInterface> boundedPlaces() {
-
+        if(!treeComplete) return null;
         boolean[] boundedPlaces = new boolean[places.size()];
         ArrayList<PlaceInterface> toReturn = new ArrayList<PlaceInterface>();
         unboundedPlacesRecursiveHelper(root, boundedPlaces);
@@ -192,6 +194,7 @@ public class PetriNet implements PetriNetInterface {
 
     @Override
     public List<PlaceInterface> reachablePlaces(){
+        if(!treeComplete) return null;
         boolean[] reachablePlaces = new boolean[places.size()];
         ArrayList<PlaceInterface> toReturn = new ArrayList<PlaceInterface>();
         reachablePlacesRecursiveHelper(root, reachablePlaces);
@@ -201,6 +204,11 @@ public class PetriNet implements PetriNetInterface {
             }
         }
         return toReturn;
+    }
+
+    @Override
+    public boolean isReachable(int[] destinationState) {
+        return false;
     }
 
     @Override
@@ -252,8 +260,16 @@ public class PetriNet implements PetriNetInterface {
     }
 
     @Override
+    public boolean treeTraversalCompleted() {
+        return treeComplete;
+    }
+
+    @Override
     public boolean next(){
-        if(currentNode == null){
+        startTreeTraversal();
+        if(currentNode == null)
+        {
+            treeComplete = true;
             return false;
         }
         leaves = null;
@@ -330,6 +346,7 @@ public class PetriNet implements PetriNetInterface {
         leaves = null;
         root = null;
         currentNode = null;
+        treeComplete = false;
     }
 
 }

@@ -39,6 +39,7 @@ public class Transition implements TransitionInterface{
     @Override
     public void executeTransition()
     {
+        if(checkTransition() == false) return;
         for(ArcInterface a : arcInputs)
         {
             PlaceInterface place = ((PlaceInterface)a.getOrigin());
