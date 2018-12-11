@@ -1,4 +1,3 @@
-
 package logic;
 
 import java.util.ArrayList;
@@ -27,27 +26,33 @@ public class Place implements PlaceInterface {
 
     @Override
     public void setNumTokens(int tokens) {
-        numTokens = tokens;
+        if(tokens >= -1){
+            numTokens = tokens;
+        }
+        else throw new IllegalArgumentException("tokens is less than 0.  tokens = " + tokens);
     }
 
     @Override
     public void addTokens(int tokens) {
         if(tokens >= 0){
-            numTokens += tokens;
+            if(numTokens != -1){
+                numTokens += tokens;
+            }
         }
         else throw new IllegalArgumentException("tokens is less than 0.  tokens = " + tokens);
     }
 
     @Override
     public void removeTokens(int tokens) {
-        if(tokens >= 0 && numTokens - tokens >= 0){
+        if(tokens < 0){
+            throw new IllegalArgumentException("tokens is less than 0.  tokens = " + tokens);
+        }
+        if(numTokens == -1) return;
+        if(numTokens - tokens >= 0) {
             numTokens -= tokens;
         }
         else {
-            if(tokens < 0){
-                throw new IllegalArgumentException("tokens is less than 0.  tokens = " + tokens);
-            }
-            else throw new NumberFormatException("removing more tokens than exist.  tokens = " + tokens + ".  numTokens = " + numTokens);
+            throw new NumberFormatException("removing more tokens than exist.  tokens = " + tokens + ".  numTokens = " + numTokens);
         }
 
     }
@@ -55,6 +60,11 @@ public class Place implements PlaceInterface {
     @Override
     public int getNumTokens() {
         return numTokens;
+    }
+
+    @Override
+    public boolean hasTokens(int tokens) {
+        return numTokens == -1 || numTokens >= tokens;
     }
 
     @Override

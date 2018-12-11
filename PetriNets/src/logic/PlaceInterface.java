@@ -8,5 +8,6 @@ public interface PlaceInterface extends ArcEndpointInterface {
 	void addTokens(int tokens);
 	void removeTokens(int tokens);
 	int getNumTokens();
-	
+
+	boolean hasTokens(int tokens);
 }

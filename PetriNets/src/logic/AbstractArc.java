@@ -10,10 +10,8 @@ public abstract class AbstractArc implements ArcInterface{
     public AbstractArc(ArcEndpointInterface origin, ArcEndpointInterface destination){
         this.origin = origin;
         this.destination = destination;
-        //TODO hey i edited this cos it was giving
-        // my gui bugs
-//        origin.addArcOutput(this);
-//        destination.addArcOutput(this);
+        origin.addArcOutput(this);
+        destination.addArcInput(this);
         weight = 1;
         name = "";
     }
@@ -33,7 +31,7 @@ public abstract class AbstractArc implements ArcInterface{
     public void setWeight(int weight) {
         if(weight >= 0)
             this.weight = weight;
-        else throw new IllegalArgumentException("weight is negative:  " + weight);
+        else throw new IllegalArgumentException("weight can not be negative:  weight = " + weight);
     }
 
     @Override
@@ -62,5 +60,17 @@ public abstract class AbstractArc implements ArcInterface{
     @Override
     public ArcEndpointInterface getDestination() {
         return destination;
+    }
+
+    @Override
+    public boolean equals(Object other){
+        if(other == this) return true;
+        if (!(other instanceof ArcEndpointInterface)) {
+            return false;
+        }
+        ArcInterface arc = (ArcInterface) other;
+        if(arc.getOrigin() == origin && arc.getDestination() == destination)
+            return true;
+        return false;
     }
 }

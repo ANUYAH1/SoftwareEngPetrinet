@@ -1,4 +1,3 @@
-
 package logic;
 
 
@@ -12,32 +11,67 @@ public class Transition implements TransitionInterface{
     private ArrayList<ArcInterface> arcOutputs = new ArrayList<ArcInterface>();
 
     @Override
-    public void setName(String name) {
-
+    public void setName(String name)
+    {
+        this.name = name;
     }
 
     @Override
-    public String getName() {
-        return null;
+    public String getName()
+    {
+        return name;
     }
 
     @Override
-    public boolean attemptTransition() {
-        return false;
+    public boolean checkTransition()
+    {
+        for(ArcInterface a : arcInputs)
+        {
+            PlaceInterface place = ((PlaceInterface)a.getOrigin());
+            if(!place.hasTokens(a.getWeight())){
+
+                return false;
+            }
+        }
+        return true;
     }
 
     @Override
-    public List<ArcInterface> getArcInputs() {
+    public void executeTransition()
+    {
+        for(ArcInterface a : arcInputs)
+        {
+            PlaceInterface place = ((PlaceInterface)a.getOrigin());
+            if(!place.hasTokens(a.getWeight())){
+                throw new IllegalStateException("Transition can not be executed.");
+            }
+            else {
+                place.removeTokens(a.getWeight());
+            }
+        }
+        for(ArcInterface a : arcOutputs)
+        {
+            PlaceInterface place = ((PlaceInterface)a.getDestination());
+            place.addTokens(a.getWeight());
+        }
+    }
+
+
+    @Override
+    public List<ArcInterface> getArcInputs()
+    {
         return new ArrayList<ArcInterface>(arcInputs);
     }
 
     @Override
-    public List<ArcInterface> getArcOutputs() {
+    public List<ArcInterface> getArcOutputs()
+    {
         return new ArrayList<ArcInterface>(arcOutputs);
     }
 
     @Override
-    public void addArcInput(ArcInterface a) {
+    public void addArcInput(ArcInterface a)
+    {
         if(a.getDestination() != this) {
             throw new IllegalArgumentException("Illegal logic.AbstractArc for this logic.Transition");
         }
@@ -48,8 +82,8 @@ public class Transition implements TransitionInterface{
     }
 
     @Override
-    public void addArcOutput(ArcInterface a) {
-
+    public void addArcOutput(ArcInterface a)
+    {
         if(a.getOrigin() != this) {
             throw new IllegalArgumentException("Illegal logic.AbstractArc for this logic.Transition");
         }
@@ -61,7 +95,8 @@ public class Transition implements TransitionInterface{
     }
 
     @Override
-    public void removeArcInput(ArcInterface a) {
+    public void removeArcInput(ArcInterface a)
+    {
         if(arcInputs.contains(a)){
             arcInputs.remove(a);
         }
@@ -69,11 +104,13 @@ public class Transition implements TransitionInterface{
     }
 
     @Override
-    public void removeArcOutput(ArcInterface a) {
+    public void removeArcOutput(ArcInterface a)
+    {
         if(arcOutputs.contains(a)){
             arcOutputs.remove(a);
         }
         else throw new IllegalArgumentException("arc does not exist here.");
 
     }
+
 }
