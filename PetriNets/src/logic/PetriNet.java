@@ -3,11 +3,9 @@ package logic;
 import java.util.ArrayList;
 import java.util.List;
 
-<<<<<<< Updated upstream
+
 public class PetriNet implements PetriNetInterface {
-=======
-public class  PetriNet {
->>>>>>> Stashed changes
+
     private ArrayList<PlaceInterface> places = new ArrayList<PlaceInterface>();
     private ArrayList<TransitionInterface> transitions = new ArrayList<TransitionInterface>();
     private CoverabilityNodeInterface currentNode = null;
