@@ -11,6 +11,7 @@ import java.awt.*;
 import java.awt.event.WindowEvent;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.prefs.Preferences;
 
 /**
  * This houses the GUI component
@@ -27,13 +28,19 @@ public class PetrinetGUI extends JFrame implements MenuBarListener {
     private JOptionPane optionPane;
 
     private FileFilter fileFilter ;
+    private final String LAST_USED_FOLDER  = "last_used_folder_pref";
+
+    private Preferences prefs ;
+
 
 
 
     public PetrinetGUI(){
         menuBar = new MenuBar(this);
+        prefs = Preferences.userRoot().node(getClass().getName());
         petrinetPanel = new PetrinetPanel();
-        fileChooser= new JFileChooser();
+        fileChooser= new JFileChooser(prefs.get(LAST_USED_FOLDER,
+                new File(".").getAbsolutePath()));
         storage = new Storage();
         optionPane = new JOptionPane();
 
@@ -105,6 +112,7 @@ public class PetrinetGUI extends JFrame implements MenuBarListener {
                 LogUIModel log = LogUIModel.createInfoLog(message);
                 petrinetPanel.log(log);
                 enablePanel(petrinetPanel, true);
+                prefs.put(LAST_USED_FOLDER, fileChooser.getSelectedFile().getParent());
             }
             // send this file path to storage
         }catch (Exception ex){
@@ -139,6 +147,7 @@ public class PetrinetGUI extends JFrame implements MenuBarListener {
 
                 petrinetProject.setFilePath(file.getPath());
                 storage.saveProject(petrinetProject);
+                prefs.put(LAST_USED_FOLDER, fileChooser.getSelectedFile().getParent());
                 String message = "Project " + petrinetProject.getName() + " Saved!!";
                 LogUIModel log = LogUIModel.createInfoLog(message);
                 petrinetPanel.log(log);
