@@ -7,6 +7,7 @@ import storage.ProjectModel;
 import storage.Storage;
 import storage.StorageInterface;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.filechooser.FileFilter;
 import java.awt.*;
@@ -38,13 +39,21 @@ public class PetrinetGUI extends JFrame implements MenuBarListener {
 
 
     public PetrinetGUI(){
+
+        petrinetLogic = new PetriNet();
+        storage = new Storage();
+        setUpGUI();
+
+
+    }
+
+    private void setUpGUI() {
+        petrinetPanel = new PetrinetPanel(petrinetLogic);
         menuBar = new MenuBar(this);
         prefs = Preferences.userRoot().node(getClass().getName());
-        petrinetLogic = new PetriNet();
-        petrinetPanel = new PetrinetPanel(petrinetLogic);
         fileChooser= new JFileChooser(prefs.get(LAST_USED_FOLDER,
                 new File(".").getAbsolutePath()));
-        storage = new Storage();
+
         optionPane = new JOptionPane();
         fileFilter = new FileFilter() {
             @Override
@@ -59,6 +68,7 @@ public class PetrinetGUI extends JFrame implements MenuBarListener {
             }
         };
         fileChooser.setFileFilter(fileFilter);
+        setIcon();
         enablePanel(petrinetPanel,false);
         this.getContentPane().add(petrinetPanel);
         this.setJMenuBar(menuBar);
@@ -66,11 +76,6 @@ public class PetrinetGUI extends JFrame implements MenuBarListener {
         this.setTitle("PETRINETS");
         this.pack();
         this.setVisible(true);
-
-
-
-
-
     }
 
     /**
@@ -248,6 +253,17 @@ public class PetrinetGUI extends JFrame implements MenuBarListener {
             String message ="Failed to open project!!";
             LogUIModel log =LogUIModel.createErrorLog(message);
             petrinetPanel.log(log);
+        }
+    }
+    private void setIcon(){
+        try {
+            Image img = ImageIO.read(getClass().getResource("/icons/app_logo.png"));
+
+            this.setIconImage(img);
+
+
+        }catch (Exception ex){
+            System.out.println("Error in loading image");
         }
     }
 }

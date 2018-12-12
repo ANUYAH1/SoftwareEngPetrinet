@@ -47,6 +47,7 @@ public class Storage implements StorageInterface {
         while(scanner.hasNextLine()){
             about+=scanner.nextLine() + "\n";
         }
+        scanner.close();
         return about;
 
 

@@ -149,6 +149,7 @@ public class PetrinetPanel extends JPanel implements ElementSelectListener,LogLi
         for (TransitionInterface trans : petrinetLogic.liveList()) {
             otherInfo += " " + trans.getName() + "\n";
         }
+        otherInfo+= "==== Live List End====\n";
 
         otherInfo += "Unbounded: "+petrinetLogic.unboundedPlaces().size() +"\n";
         otherInfo += "==== Unbounded Places ====\n";
@@ -156,7 +157,7 @@ public class PetrinetPanel extends JPanel implements ElementSelectListener,LogLi
             otherInfo += " " + place.getName() + "<" + (place.getNumTokens() == -1 ? "Infinity" :
                     "" + place.getNumTokens()) + ">" + "\n";
         }
-
+        otherInfo+= "==== Unbounded Places End ====\n";
         otherInfo += "Bounded: "+petrinetLogic.boundedPlaces().size() +"\n";
         otherInfo += "==== Bounded Places ====\n";
         for (PlaceInterface place : petrinetLogic.boundedPlaces()) {
@@ -164,17 +165,19 @@ public class PetrinetPanel extends JPanel implements ElementSelectListener,LogLi
                     "" + place.getNumTokens()) + ">" + "\n";
         }
 
-        otherInfo += "==== Reachable Places ====\n";
+        otherInfo += "==== Reachable Places (Extra) ====\n";
         for (PlaceInterface place : petrinetLogic.reachablePlaces()) {
             otherInfo += " " + place.getName() + "<" + (place.getNumTokens() == -1 ? "Infinity" :
                     "" + place.getNumTokens()) + ">" + "\n";
         }
+        otherInfo += "==== Reachable Places End ====\n";
 
-        otherInfo += "==== Unreachable Places ====\n";
+        otherInfo += "==== Unreachable Places (Extra) ====\n";
         for (PlaceInterface place : petrinetLogic.unreachablePlaces()) {
             otherInfo += " " + place.getName() + "<" + (place.getNumTokens() == -1 ? "Infinity" :
                     "" + place.getNumTokens()) + ">" + "\n";
         }
+        otherInfo += "==== Unreachable Places End====\n";
         return otherInfo;
     }
 }
