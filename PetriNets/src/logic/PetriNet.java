@@ -294,6 +294,7 @@ public class PetriNet implements PetriNetInterface {
         if(root == null) {
             startTreeTraversal();
         }
+        if(currentNode == null) return false;
         boolean toReturn = hasNextRecursive(currentNode);
         setPlaceStateArray(currentNode.getPetriState());
         return toReturn;
