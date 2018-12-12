@@ -22,35 +22,54 @@ public class CoverabilityTreePanel extends JPanel {
     public CoverabilityTreePanel(){
         tree = new JTree();
         scrollPane = new JScrollPane(tree);
-        rootNode = new DefaultMutableTreeNode("");
+        rootNode = new DefaultMutableTreeNode("Coverability Tree");
         model = new DefaultTreeModel(rootNode);
         tree.setModel(model);
-        this.setBorder(BorderFactory.createTitledBorder("Coverability Tree"));
-        this.setPreferredSize(new Dimension(200,700));
+
+        this.setPreferredSize(new Dimension(230,700));
         this.setLayout(new BorderLayout());
         this.add(scrollPane,BorderLayout.CENTER);
     }
     public void loadTree(CoverabilityNodeInterface rootTreeNode){
-        TransitionInterface transition =rootTreeNode.usedTransition();
-        String petriState = Arrays.toString(rootTreeNode.getPetriState());
-       rootNode.add(new DefaultMutableTreeNode("["+petriState+ "]" +(transition!=null?(": "+
-               rootTreeNode.usedTransition().getName()):"")));
+        rootNode.removeAllChildren();
+        recurSiveTree(rootTreeNode,rootNode);
+
 
         model.setRoot(rootNode);
         model.reload();
-
+        expandAllNodes(tree,0,tree.getRowCount());
 
 
     }
-    private DefaultMutableTreeNode createNode(DefaultMutableTreeNode parentNode
-            ,CoverabilityNodeInterface node
-                                              ){
-        if(node.isTerminal())
-            return  new DefaultMutableTreeNode(node.getPetriState());
 
-        for (CoverabilityNodeInterface n : node.getChildren()){
-            parentNode.add(createNode(parentNode,n));
+    private void expandAllNodes(JTree tree, int startingIndex, int rowCount){
+        for(int i=startingIndex;i<rowCount;++i){
+            tree.expandRow(i);
         }
-        return parentNode;
+
+        if(tree.getRowCount()!=rowCount){
+            expandAllNodes(tree, rowCount, tree.getRowCount());
+        }
     }
+    public void recurSiveTree (CoverabilityNodeInterface node,DefaultMutableTreeNode root){
+        if(node == null)
+        {
+            return ;
+        }
+        DefaultMutableTreeNode currentNode =
+                new DefaultMutableTreeNode("["+Arrays.toString(node.getPetriState())+ "]"
+                +(node.usedTransition()!=null?(": "+
+                node.usedTransition().getName()):""));
+        root.add(currentNode);
+        for (CoverabilityNodeInterface c : node.getChildren()){
+
+           recurSiveTree(c,currentNode);
+        }
+
+    }
+    public void clear(){
+        rootNode.removeAllChildren();
+        model.reload();
+    }
+
 }

@@ -117,9 +117,10 @@ public class PetrinetPanel extends JPanel implements ElementSelectListener,LogLi
        }else if(button.getName().equals("control_refresh_play")){
 
           petrinetLogic.abortTreeTraversal();
+
           controlPanel.setPlayEnabled(true);
           controlPanel.setCompleteEnabled (true);
-           drawPanel.refresh();
+          drawPanel.refresh();
        }
     }
 }

@@ -371,6 +371,7 @@ public class DrawPanel extends JPanel implements MouseListener, ActionListener {
 
     public void clearAll(){
         objects.clear();
+        coverabilityTreePanel.clear();
         refresh();
     }
 
