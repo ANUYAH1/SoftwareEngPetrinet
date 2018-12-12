@@ -28,6 +28,7 @@ public class Place2DObject implements  Petrinet2DObjectInterface{
 
     //TODO change this name back to the back end's
     private String Name;
+    private Point editableClickLocation;
 
     public Place2DObject(PlaceInterface place){
         this.place = place;
@@ -74,7 +75,10 @@ public class Place2DObject implements  Petrinet2DObjectInterface{
 
         graphics.setColor(TEXTCOLOR);
 
-        graphics.drawString(getName() +tokenString,(int)point.getX(),(int)point.getY()+PLACE_RADIUS+TEXTPADDING);
+        graphics.drawString(getName() +tokenString,(int)point.getX(),
+                (int)point.getY()+PLACE_RADIUS+TEXTPADDING);
+        //this is to make the text clickable
+        editableClickLocation = new Point(point.x,point.y+PLACE_RADIUS+TEXTPADDING);
 
     }
 
@@ -106,6 +110,11 @@ public class Place2DObject implements  Petrinet2DObjectInterface{
     @Override
     public int getTolerance() {
         return TOLERANCE;
+    }
+
+    @Override
+    public Point getEditClickableLocation() {
+        return editableClickLocation;
     }
 
 

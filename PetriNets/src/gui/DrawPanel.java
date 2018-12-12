@@ -75,6 +75,13 @@ public class DrawPanel extends JPanel implements MouseListener, ActionListener {
         currentPetrinetObject = element;
     }
 
+    /**
+     * this returns the closest
+     * object solely based on origin
+     * @param x
+     * @param y
+     * @return
+     */
     private Petrinet2DObjectInterface getClosestObject(int x, int y){
 
         for(Petrinet2DObjectInterface object:objects){
@@ -85,6 +92,31 @@ public class DrawPanel extends JPanel implements MouseListener, ActionListener {
                 ) {
                     return object;
                 }
+
+        }
+        return null;
+    }
+
+
+    /**
+     *  this returns an object that
+     *  can be edited based on its area text
+     *  location
+
+     * @param x the mouse clicked x
+     * @param y the mouse clicked y
+     * @return
+     */
+    private Petrinet2DObjectInterface getClosestForEdit (int x, int y){
+
+        for(Petrinet2DObjectInterface object:objects){
+
+            if (Math.abs(object.getEditClickableLocation().getY() - y) <= object.getTolerance() &&
+                    Math.abs(object.getEditClickableLocation().getX() - x) <= object.getTolerance()
+
+            ) {
+                return object;
+            }
 
         }
         return null;
@@ -104,9 +136,10 @@ public class DrawPanel extends JPanel implements MouseListener, ActionListener {
             int positionY = e.getY();
             // check if there is an object closeby
             // around the tolerance of the GUI
-            Petrinet2DObjectInterface closeBy =
-                    getClosestObject(positionX,positionY);
+
             if (SwingUtilities.isLeftMouseButton(e)) {
+                Petrinet2DObjectInterface closeBy =
+                    getClosestObject(positionX,positionY);
                 if (closeBy != null) {
                     logListener.log(LogUIModel.createErrorLog("Please select another location, " + closeBy.getName() + " has close proximity!!"));
                     return;
@@ -191,9 +224,21 @@ public class DrawPanel extends JPanel implements MouseListener, ActionListener {
                     logListener.log(LogUIModel.createErrorLog("Choose a petrinet model"));
                 }
             }else if (SwingUtilities.isRightMouseButton(e)){
-                if (closeBy==null)
+                Petrinet2DObjectInterface closeForEdit = getClosestForEdit(positionX,positionY);
+                if (closeForEdit==null)
                     return ;
-                currentSelectedObject = closeBy;
+                currentSelectedObject = closeForEdit;
+                if (closeForEdit instanceof  Transition2DObject) {
+                    Transition2DObject  transition2DObject = (Transition2DObject)closeForEdit;
+                    // this checks if the transition object is fireable
+                    if (transition2DObject.getTransition().checkTransition()){
+                        elementOptionMenu.setFireOptionEnabled(false);
+                    }
+                    elementOptionMenu.setFireOptionVisible(true);
+                }
+                else {
+                    elementOptionMenu.setFireOptionVisible(false);
+                }
                 elementOptionMenu.setInvoker(this);
                 elementOptionMenu.setLocation(e.getX(),e.getY());
                 elementOptionMenu.setVisible(true);
@@ -516,6 +561,13 @@ public class DrawPanel extends JPanel implements MouseListener, ActionListener {
             }
             refresh();
 
+        }else if (button.getName().equals("element_option_fire")){
+            if (currentSelectedObject instanceof Transition2DObject) {
+                Transition2DObject transition = (Transition2DObject) currentSelectedObject;
+                // attempt transition fire at that point
+                transition.getTransition().executeTransition();
+                refresh();
+            }
         }
 
 

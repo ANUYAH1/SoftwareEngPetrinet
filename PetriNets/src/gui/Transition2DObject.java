@@ -27,7 +27,7 @@ public class Transition2DObject implements Petrinet2DObjectInterface {
     private String Id;
     private ArrayList<Petrinet2DObjectInterface> arcIn;
     private ArrayList<Petrinet2DObjectInterface> arcOut;
-
+    private Point editableClickLocation;
 
     //TODO change this name back to the back end's
     private String Name;
@@ -64,6 +64,7 @@ public class Transition2DObject implements Petrinet2DObjectInterface {
         graphics.setColor(currentColor);
         graphics.fillRect((int)point.getX(),(int)point.getY(),TRANSITION_WIDTH,TRANSITION_HEIGHT);
         graphics.drawString(getName(),(int)point.getX(),(int)point.getY()+TRANSITION_HEIGHT+TEXTPADDING);
+        editableClickLocation = new Point(point.x,point.y+TRANSITION_HEIGHT+TEXTPADDING);
 
 
     }
@@ -96,6 +97,11 @@ public class Transition2DObject implements Petrinet2DObjectInterface {
     @Override
     public int getTolerance() {
         return  TOLERANCE;
+    }
+
+    @Override
+    public Point getEditClickableLocation() {
+        return editableClickLocation;
     }
 
     /**

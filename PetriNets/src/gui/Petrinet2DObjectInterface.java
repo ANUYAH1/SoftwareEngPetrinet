@@ -61,4 +61,11 @@ public interface Petrinet2DObjectInterface {
      */
     int getTolerance ();
 
+    /**
+     *
+     * @return clickable location for listening
+     * to right click
+     *
+     */
+    Point getEditClickableLocation();
 }

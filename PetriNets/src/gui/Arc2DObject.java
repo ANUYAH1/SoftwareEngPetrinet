@@ -26,6 +26,7 @@ public class Arc2DObject implements Petrinet2DObjectInterface {
 
     private Petrinet2DObjectInterface origin;
     private Petrinet2DObjectInterface destination;
+    private Point editClickableLocation;
 
     /**
      * returns the origin of the arc
@@ -41,6 +42,7 @@ public class Arc2DObject implements Petrinet2DObjectInterface {
      */
     public void setOrigin(Petrinet2DObjectInterface origin) {
         this.origin = origin;
+
     }
 
     /**
@@ -68,6 +70,7 @@ public class Arc2DObject implements Petrinet2DObjectInterface {
      */
     public Arc2DObject(ArcInterface arc){
         this.arc = arc;
+
     }
 
     /**
@@ -133,7 +136,7 @@ public class Arc2DObject implements Petrinet2DObjectInterface {
         // get the center of the arc and plavce name tag
         int centerX = (int)(point.getX() +destinationPoint.getX())/2;
         int centerY = (int)(point.getY()+destinationPoint.getY())/2 ;
-
+        editClickableLocation= new Point(centerX,centerY);
         graphics.drawString(Name + " <weight: "+arc.getWeight()+">",centerX+TEXTPADDING,centerY+TEXTPADDING);
 
 
@@ -176,6 +179,10 @@ public class Arc2DObject implements Petrinet2DObjectInterface {
 
     public ArcInterface getArc() {
         return arc;
+    }
+
+    public Point getEditClickableLocation(){
+        return editClickableLocation;
     }
 
 
