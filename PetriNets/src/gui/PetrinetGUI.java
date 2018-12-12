@@ -37,6 +37,7 @@ public class PetrinetGUI extends JFrame implements MenuBarListener {
 
     private PetriNetInterface petrinetLogic ;
 
+    private Image appIcon;
 
     public PetrinetGUI(){
 
@@ -215,7 +216,9 @@ public class PetrinetGUI extends JFrame implements MenuBarListener {
     public void aboutMenuCommand() {
         try{
             String about = storage.getAbout();
-            JOptionPane.showMessageDialog(this,about,"About",JOptionPane.PLAIN_MESSAGE);
+
+            JOptionPane.showMessageDialog(this,about,
+                    "About",JOptionPane.PLAIN_MESSAGE,new ImageIcon(appIcon));
         }catch (Exception ex){
             String message = "Could not load About!!";
             LogUIModel log =LogUIModel.createErrorLog(message);
@@ -257,9 +260,9 @@ public class PetrinetGUI extends JFrame implements MenuBarListener {
     }
     private void setIcon(){
         try {
-            Image img = ImageIO.read(getClass().getResource("/icons/app_logo.png"));
+            appIcon = ImageIO.read(getClass().getResource("/icons/app_logo.png"));
 
-            this.setIconImage(img);
+            this.setIconImage(appIcon);
 
 
         }catch (Exception ex){
