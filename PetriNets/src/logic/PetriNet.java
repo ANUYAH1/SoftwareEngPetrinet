@@ -431,13 +431,13 @@ public class PetriNet implements PetriNetInterface {
 
     @Override
     public void abortTreeTraversal(){
-        if(root == null) return;
         for(PlaceInterface p : places){
             p.resetTokens();
         }
         for(TransitionInterface t : transitions){
             t.setJustFired(false);
         }
+        if(root == null) return;
         leaves = null;
         root = null;
         currentNode = null;

@@ -3,20 +3,19 @@
   <component name="ChangeListManager">
     <list default="true" id="009330af-c4b0-4fbe-bf41-4236a0234001" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PetriNets/gui/CoverabilityTreePanel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/PetriNets_jar/PetriNets.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/PetriNets_jar/PetriNets.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PetriNets/gui/Arc2DObject.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PetriNets/gui/Arc2DObject.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PetriNets/gui/ConfirmationDialog.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PetriNets/gui/ConfirmationDialog.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PetriNets/gui/DrawPanel$DrawCanvas.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PetriNets/gui/DrawPanel$DrawCanvas.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PetriNets/gui/DrawPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PetriNets/gui/DrawPanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PetriNets/gui/MenuBar.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PetriNets/gui/MenuBar.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PetriNets/gui/PetrinetGUI$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PetriNets/gui/PetrinetGUI$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PetriNets/gui/ElementOptionMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PetriNets/gui/ElementOptionMenu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PetriNets/gui/Petrinet2DObjectInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PetriNets/gui/Petrinet2DObjectInterface.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PetriNets/gui/PetrinetGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PetriNets/gui/PetrinetGUI.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PetriNets/gui/PetrinetPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PetriNets/gui/PetrinetPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PetriNets/gui/Place2DObject.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PetriNets/gui/Place2DObject.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PetriNets/gui/Transition2DObject.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PetriNets/gui/Transition2DObject.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PetriNets/logic/PetriNet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PetriNets/logic/PetriNet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PetriNets/storage/Storage.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PetriNets/storage/Storage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PetriNets/test/StorageUnitTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PetriNets/test/StorageUnitTests.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/DrawPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/DrawPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/PetrinetGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/PetrinetGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/PetrinetPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/PetrinetPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/Place2DObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/Place2DObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/PetriNet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/PetriNet.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -49,14 +48,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/gui/DrawPanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="335">
-              <caret line="506" column="58" lean-forward="true" selection-start-line="506" selection-start-column="58" selection-end-line="506" selection-end-column="58" />
+            <state relative-caret-position="1025">
+              <caret line="552" column="58" lean-forward="true" selection-start-line="552" selection-start-column="58" selection-end-line="552" selection-end-column="58" />
               <folding>
                 <element signature="e#2198#2199#0" expanded="true" />
                 <element signature="e#2245#2246#0" expanded="true" />
-                <element signature="e#2704#2705#0" expanded="true" />
-                <element signature="e#2740#2741#0" expanded="true" />
-                <element signature="e#17482#17483#0" expanded="true" />
                 <element signature="e#19962#19963#0" expanded="true" />
                 <element signature="e#20001#20002#0" expanded="true" />
               </folding>
@@ -64,15 +60,17 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/gui/PetrinetGUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="76" column="16" selection-start-line="76" selection-start-column="16" selection-end-line="76" selection-end-column="39" />
+            <state relative-caret-position="-324">
+              <caret line="206" column="27" selection-start-line="206" selection-start-column="27" selection-end-line="206" selection-end-column="27" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1809#1810#0" expanded="true" />
                 <element signature="e#1885#1886#0" expanded="true" />
+                <element signature="e#2032#2189#0" expanded="true" />
+                <element signature="e#2188#2189#0" expanded="true" />
                 <element signature="e#6633#6634#0" expanded="true" />
                 <element signature="e#6669#6670#0" expanded="true" />
                 <element signature="e#6720#6721#0" expanded="true" />
@@ -115,16 +113,34 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/gui/Arc2DObject.java">
+        <entry file="file://$PROJECT_DIR$/src/gui/Place2DObject.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1072">
-              <caret line="97" column="16" selection-start-line="97" selection-start-column="16" selection-end-line="97" selection-end-column="16" />
+            <state relative-caret-position="379">
+              <caret line="82" column="16" lean-forward="true" selection-start-line="82" selection-start-column="16" selection-end-line="82" selection-end-column="16" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2204#2205#0" expanded="true" />
-                <element signature="e#2260#2261#0" expanded="true" />
-                <element signature="e#4284#4285#0" expanded="true" />
-                <element signature="e#4316#4317#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/logic/PlaceInterface.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-93">
+              <caret line="3" column="17" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/logic/PetriNet.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="303">
+              <caret line="436" column="36" lean-forward="true" selection-start-line="436" selection-start-column="36" selection-end-line="436" selection-end-column="36" />
+              <folding>
+                <element signature="e#176#192#0" expanded="true" />
+                <element signature="e#261#282#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -133,8 +149,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/gui/PetrinetPanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1687">
-              <caret line="147" column="37" lean-forward="true" selection-start-line="147" selection-start-column="37" selection-end-line="147" selection-end-column="37" />
+            <state relative-caret-position="1702">
+              <caret line="148" column="37" lean-forward="true" selection-start-line="148" selection-start-column="37" selection-end-line="148" selection-end-column="37" />
             </state>
           </provider>
         </entry>
@@ -148,28 +164,6 @@
                 <element signature="e#1139#1368#0" expanded="true" />
                 <element signature="e#1367#1368#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/logic/PetriNet.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3146">
-              <caret line="298" selection-start-line="298" selection-end-line="298" />
-              <folding>
-                <element signature="e#176#192#0" expanded="true" />
-                <element signature="e#261#282#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/logic/PetriNetInterface.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="742">
-              <caret line="134" column="30" selection-start-line="134" selection-start-column="30" selection-end-line="134" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -264,9 +258,7 @@
         <option value="$PROJECT_DIR$/src/storage/Storage.java" />
         <option value="$PROJECT_DIR$/src/gui/ElementSelectButton.java" />
         <option value="$PROJECT_DIR$/src/test/StorageUnitTests.java" />
-        <option value="$PROJECT_DIR$/src/logic/PetriNet.java" />
         <option value="$PROJECT_DIR$/src/logic/PlaceInterface.java" />
-        <option value="$PROJECT_DIR$/src/gui/Place2DObject.java" />
         <option value="$PROJECT_DIR$/src/gui/ElementOptionMenu.java" />
         <option value="$PROJECT_DIR$/src/gui/ControlPanel.java" />
         <option value="$PROJECT_DIR$/src/gui/CustomDialog.java" />
@@ -280,6 +272,8 @@
         <option value="$PROJECT_DIR$/src/gui/DrawPanel.java" />
         <option value="$PROJECT_DIR$/src/gui/PetrinetPanel.java" />
         <option value="$PROJECT_DIR$/src/gui/PetrinetGUI.java" />
+        <option value="$PROJECT_DIR$/src/gui/Place2DObject.java" />
+        <option value="$PROJECT_DIR$/src/logic/PetriNet.java" />
       </list>
     </option>
   </component>
@@ -363,7 +357,7 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544642304378" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544653942893" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="jdk.selected.JAVA_MODULE" value="1.11" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -435,17 +429,18 @@
       <workItem from="1544200573530" duration="1875000" />
       <workItem from="1544202774786" duration="2361000" />
       <workItem from="1544232088581" duration="13631000" />
-      <workItem from="1544392180970" duration="25837000" />
+      <workItem from="1544392180970" duration="26958000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="119053000" />
+    <option name="totallyTimeSpent" value="120174000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.28606358" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.28606358" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -454,7 +449,7 @@
       <window_info id="Image Layers" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32883817" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4993895" visible="true" weight="0.32780084" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4993895" visible="true" weight="0.32780084" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3973029" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -495,7 +490,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/gui/DrawPanel.java</url>
-          <line>530</line>
+          <line>584</line>
           <properties />
           <option name="timeStamp" value="6" />
         </line-breakpoint>
@@ -875,23 +870,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/Place2DObject.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-112">
-          <caret line="71" column="40" lean-forward="true" selection-start-line="71" selection-start-column="40" selection-end-line="71" selection-end-column="40" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2355#2356#0" expanded="true" />
-            <element signature="e#2433#2434#0" expanded="true" />
-            <element signature="e#2501#2502#0" expanded="true" />
-            <element signature="e#2587#2588#0" expanded="true" />
-            <element signature="e#2659#2660#0" expanded="true" />
-            <element signature="e#2738#2739#0" expanded="true" />
-            <element signature="e#2807#2808#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/ControlPanel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="186">
@@ -943,13 +921,6 @@
           <folding>
             <element signature="e#203#204#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/logic/PlaceInterface.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-312">
-          <caret line="3" column="17" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
         </state>
       </provider>
     </entry>
@@ -1012,27 +983,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/logic/PetriNet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3146">
-          <caret line="298" selection-start-line="298" selection-end-line="298" />
-          <folding>
-            <element signature="e#176#192#0" expanded="true" />
-            <element signature="e#261#282#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/Arc2DObject.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1072">
-          <caret line="97" column="16" selection-start-line="97" selection-start-column="16" selection-end-line="97" selection-end-column="16" />
+        <state relative-caret-position="1327">
+          <caret line="100" column="16" selection-start-line="100" selection-start-column="16" selection-end-line="100" selection-end-column="16" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2204#2205#0" expanded="true" />
-            <element signature="e#2260#2261#0" expanded="true" />
-            <element signature="e#4284#4285#0" expanded="true" />
-            <element signature="e#4316#4317#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1064,14 +1020,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/DrawPanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="335">
-          <caret line="506" column="58" lean-forward="true" selection-start-line="506" selection-start-column="58" selection-end-line="506" selection-end-column="58" />
+        <state relative-caret-position="1025">
+          <caret line="552" column="58" lean-forward="true" selection-start-line="552" selection-start-column="58" selection-end-line="552" selection-end-column="58" />
           <folding>
             <element signature="e#2198#2199#0" expanded="true" />
             <element signature="e#2245#2246#0" expanded="true" />
-            <element signature="e#2704#2705#0" expanded="true" />
-            <element signature="e#2740#2741#0" expanded="true" />
-            <element signature="e#17482#17483#0" expanded="true" />
             <element signature="e#19962#19963#0" expanded="true" />
             <element signature="e#20001#20002#0" expanded="true" />
           </folding>
@@ -1092,23 +1045,53 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/PetrinetPanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1687">
-          <caret line="147" column="37" lean-forward="true" selection-start-line="147" selection-start-column="37" selection-end-line="147" selection-end-column="37" />
+        <state relative-caret-position="1702">
+          <caret line="148" column="37" lean-forward="true" selection-start-line="148" selection-start-column="37" selection-end-line="148" selection-end-column="37" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/PetrinetGUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="76" column="16" selection-start-line="76" selection-start-column="16" selection-end-line="76" selection-end-column="39" />
+        <state relative-caret-position="-324">
+          <caret line="206" column="27" selection-start-line="206" selection-start-column="27" selection-end-line="206" selection-end-column="27" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1809#1810#0" expanded="true" />
             <element signature="e#1885#1886#0" expanded="true" />
+            <element signature="e#2032#2189#0" expanded="true" />
+            <element signature="e#2188#2189#0" expanded="true" />
             <element signature="e#6633#6634#0" expanded="true" />
             <element signature="e#6669#6670#0" expanded="true" />
             <element signature="e#6720#6721#0" expanded="true" />
             <element signature="e#6756#6757#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/Place2DObject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="379">
+          <caret line="82" column="16" lean-forward="true" selection-start-line="82" selection-start-column="16" selection-end-line="82" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/logic/PlaceInterface.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-93">
+          <caret line="3" column="17" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/logic/PetriNet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="303">
+          <caret line="436" column="36" lean-forward="true" selection-start-line="436" selection-start-column="36" selection-end-line="436" selection-end-column="36" />
+          <folding>
+            <element signature="e#176#192#0" expanded="true" />
+            <element signature="e#261#282#0" expanded="true" />
           </folding>
         </state>
       </provider>
