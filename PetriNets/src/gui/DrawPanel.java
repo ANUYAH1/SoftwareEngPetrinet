@@ -40,7 +40,7 @@ public class DrawPanel extends JPanel implements MouseListener, ActionListener {
     private Petrinet2DObjectInterface currentSelectedObject ;
     private ElementOptionMenu elementOptionMenu;
 
-    private CoverabilityTreePanel coverabilityTreePanel;
+    private SidePanel sidePanel;
 
     // back end logic that houses
     // the algorithms
@@ -56,7 +56,7 @@ public class DrawPanel extends JPanel implements MouseListener, ActionListener {
         canvas.addMouseListener(this);
         objects =new ArrayList<>();
         redoHistory = new ArrayList<>();
-        coverabilityTreePanel = new CoverabilityTreePanel();
+        sidePanel = new SidePanel();
         this.elementOptionMenu = new ElementOptionMenu(this);
         elementOptionMenu.enablePaste(false);
         this.setLayout(new BorderLayout());
@@ -66,7 +66,7 @@ public class DrawPanel extends JPanel implements MouseListener, ActionListener {
 
 
         this.petrinetLogic = petrinetLogic;
-        this.add(coverabilityTreePanel,BorderLayout.EAST);
+        this.add(sidePanel,BorderLayout.EAST);
         this.add(canvas,BorderLayout.CENTER);
         this.currentPetrinetObject = Element.NONE;
     }
@@ -103,7 +103,7 @@ public class DrawPanel extends JPanel implements MouseListener, ActionListener {
         // around the tolerance of the GUI
         Petrinet2DObjectInterface closeBy =
                 getClosestObject(positionX,positionY);
-          if (e.getButton() == MouseEvent.BUTTON1) {
+          if (SwingUtilities.isLeftMouseButton(e)) {
             if (closeBy != null) {
                 logListener.log(LogUIModel.createErrorLog("Please select another location, " + closeBy.getName() + " has close proximity!!"));
                 return;
@@ -191,7 +191,7 @@ public class DrawPanel extends JPanel implements MouseListener, ActionListener {
               if (closeBy==null)
                   return ;
               currentSelectedObject = closeBy;
-              elementOptionMenu.setInvoker(canvas);
+              elementOptionMenu.setInvoker(this);
               elementOptionMenu.setLocation(e.getX(),e.getY());
               elementOptionMenu.setVisible(true);
           }
@@ -371,7 +371,7 @@ public class DrawPanel extends JPanel implements MouseListener, ActionListener {
 
     public void clearAll(){
         objects.clear();
-        coverabilityTreePanel.clear();
+        sidePanel.clear();
         refresh();
     }
 
@@ -488,13 +488,20 @@ public class DrawPanel extends JPanel implements MouseListener, ActionListener {
 
 
     }
+    public  void setPetriAttrib(String text){
+        sidePanel.setText(text);
+    }
 
     public void refresh() {
         canvas.repaint();
         if (petrinetLogic.getCoverabilityTreeRoot()!=null) {
-            coverabilityTreePanel.
+            sidePanel.
                     loadTree(petrinetLogic.getCoverabilityTreeRoot());
         }
+    }
+
+    public void clearPetriAttribText(){
+        sidePanel.setText("");
     }
 
     class DrawCanvas extends JPanel {

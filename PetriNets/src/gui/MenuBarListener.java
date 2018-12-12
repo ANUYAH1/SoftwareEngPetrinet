@@ -48,4 +48,5 @@ public interface MenuBarListener {
      * is clicked
      */
     void newMenuCommand();
+
 }

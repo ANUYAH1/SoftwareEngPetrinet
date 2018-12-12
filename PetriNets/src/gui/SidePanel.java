@@ -11,24 +11,49 @@ import javax.swing.*;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
 import java.awt.*;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
 import java.util.Arrays;
 
-public class CoverabilityTreePanel extends JPanel {
+public class SidePanel extends JPanel {
     private JTree tree ;
     private JScrollPane scrollPane;
     DefaultTreeModel model;
     DefaultMutableTreeNode rootNode;
-
-    public CoverabilityTreePanel(){
+    JTextArea textArea;
+    private  JSplitPane splitPane;
+    private boolean firstResize = true;
+    private JScrollPane textScrollPane;
+    private JScrollPane treeScrollPane;
+    public SidePanel(){
         tree = new JTree();
-        scrollPane = new JScrollPane(tree);
+
+        textArea = new JTextArea();
+        textArea.setEnabled(false);
+        textScrollPane = new JScrollPane(textArea);
+        treeScrollPane = new JScrollPane(tree);
+
+
+
+        splitPane = new JSplitPane(JSplitPane.VERTICAL_SPLIT);
+        splitPane.setTopComponent(treeScrollPane);
+        splitPane.setBottomComponent(textScrollPane);
+
+        splitPane.addComponentListener(new ComponentAdapter(){
+            @Override
+            public void componentResized(ComponentEvent e) {
+                    splitPane.setDividerLocation(0.5);
+                    //firstResize = false;
+
+            }
+        });
         rootNode = new DefaultMutableTreeNode("Coverability Tree");
         model = new DefaultTreeModel(rootNode);
         tree.setModel(model);
 
         this.setPreferredSize(new Dimension(230,700));
         this.setLayout(new BorderLayout());
-        this.add(scrollPane,BorderLayout.CENTER);
+        this.add(splitPane,BorderLayout.CENTER);
     }
     public void loadTree(CoverabilityNodeInterface rootTreeNode){
         rootNode.removeAllChildren();
@@ -42,6 +67,14 @@ public class CoverabilityTreePanel extends JPanel {
 
     }
 
+    /**
+     * this updates other
+     * information
+     */
+    public void setText(String text){
+        textArea.setText(text);
+
+    }
     private void expandAllNodes(JTree tree, int startingIndex, int rowCount){
         for(int i=startingIndex;i<rowCount;++i){
             tree.expandRow(i);
@@ -70,6 +103,9 @@ public class CoverabilityTreePanel extends JPanel {
     public void clear(){
         rootNode.removeAllChildren();
         model.reload();
+        textArea.setText("");
+       revalidate();
+
     }
 
 }

@@ -61,6 +61,9 @@ public class MenuBar extends JMenuBar implements ActionListener {
         editMenu.add(undo);
         editMenu.add(redo);
         this.add(editMenu);
+
+
+
         // End work on Edit Menu
 
 
