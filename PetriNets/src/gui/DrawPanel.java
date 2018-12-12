@@ -40,7 +40,7 @@ public class DrawPanel extends JPanel implements MouseListener, ActionListener {
     private Petrinet2DObjectInterface currentSelectedObject ;
     private ElementOptionMenu elementOptionMenu;
 
-    private SidePanel sidePanel;
+    private AttributePanel attributePanel;
 
     // back end logic that houses
     // the algorithms
@@ -56,7 +56,7 @@ public class DrawPanel extends JPanel implements MouseListener, ActionListener {
         canvas.addMouseListener(this);
         objects =new ArrayList<>();
         redoHistory = new ArrayList<>();
-        sidePanel = new SidePanel();
+        attributePanel = new AttributePanel();
         this.elementOptionMenu = new ElementOptionMenu(this);
         elementOptionMenu.enablePaste(false);
         this.setLayout(new BorderLayout());
@@ -66,7 +66,7 @@ public class DrawPanel extends JPanel implements MouseListener, ActionListener {
 
 
         this.petrinetLogic = petrinetLogic;
-        this.add(sidePanel,BorderLayout.EAST);
+        this.add(attributePanel,BorderLayout.EAST);
         this.add(canvas,BorderLayout.CENTER);
         this.currentPetrinetObject = Element.NONE;
     }
@@ -95,106 +95,113 @@ public class DrawPanel extends JPanel implements MouseListener, ActionListener {
     }
     @Override
     public void mouseClicked(MouseEvent e) {
+
         if(!this.isEnabled())
             return;
-        int positionX =e.getX();
-        int positionY = e.getY();
-        // check if there is an object closeby
-        // around the tolerance of the GUI
-        Petrinet2DObjectInterface closeBy =
-                getClosestObject(positionX,positionY);
-          if (SwingUtilities.isLeftMouseButton(e)) {
-            if (closeBy != null) {
-                logListener.log(LogUIModel.createErrorLog("Please select another location, " + closeBy.getName() + " has close proximity!!"));
-                return;
-            }
-            petrinetLogic.abortTreeTraversal();
-            if (currentPetrinetObject == Element.TRANSITION) {
 
-                // at this point a transition was selected
-                // create a dialog asking for transition name
-                CustomDialog dialog = new CustomDialog(this, "Enter Transition name",
-                        "Add Transition","");
-                if (dialog.isPostiveSelection()) {
-                    String name = dialog.getValidatedText();
-                    if (!name.isEmpty()) {
-                        TransitionInterface transition = new Transition();
-                        transition.setName(name);
-                        // add transition instance in the back end as well
-                        petrinetLogic.addTransition(transition);
-
-                        //if (transitionInterface.attemptTransition())
-                        Petrinet2DObjectInterface transitionObject =
-                                new Transition2DObject(transition);
-
-                        transitionObject.setID(UUID.randomUUID().toString());
-                        transitionObject.setName(name);
-
-                        transitionObject.setPoint(new Point(positionX, positionY));
-                        objects.add(transitionObject);
-                        redoHistory.clear();
-
-                        log(LogUIModel.createInfoLog("Added Transition: " + name));
-                        refresh();
-                    } else {
-
-                        log(LogUIModel.createErrorLog("Transition name cannot be empty: :("));
-                    }
+        try{
+            int positionX =e.getX();
+            int positionY = e.getY();
+            // check if there is an object closeby
+            // around the tolerance of the GUI
+            Petrinet2DObjectInterface closeBy =
+                    getClosestObject(positionX,positionY);
+            if (SwingUtilities.isLeftMouseButton(e)) {
+                if (closeBy != null) {
+                    logListener.log(LogUIModel.createErrorLog("Please select another location, " + closeBy.getName() + " has close proximity!!"));
+                    return;
                 }
+                petrinetLogic.abortTreeTraversal();
+                if (currentPetrinetObject == Element.TRANSITION) {
 
-            } else if (currentPetrinetObject == Element.PLACE) {
-                // at this point a transition was selected
-                // create a dialog asking for transition name
-                CustomDialog dialog = new CustomDialog(this, "Enter Place " +
-                        "in format: name<tokens>", "Add place","");
-                if (dialog.isPostiveSelection()) {
-                    String value = dialog.getValidatedText();
-                    if (!value.isEmpty()) {
-                        // parse value
-                        String[] parsedContent = parsePlaceString(value);
-                        if (parsedContent != null) {
-                            String name = parsedContent[0];
-                            int numTokens = Integer.parseInt(parsedContent[1]);
-                            PlaceInterface place = new Place();
-                            place.setName(name);
-                            place.setNumTokens(numTokens);
-                            // add in the back end as well
-                            petrinetLogic.addPlace(place);
+                    // at this point a transition was selected
+                    // create a dialog asking for transition name
+                    CustomDialog dialog = new CustomDialog(this, "Enter Transition name",
+                            "Add Transition","");
+                    if (dialog.isPostiveSelection()) {
+                        String name = dialog.getValidatedText();
+                        if (!name.isEmpty()) {
+                            TransitionInterface transition = new Transition();
+                            transition.setName(name);
+                            // add transition instance in the back end as well
+                            petrinetLogic.addTransition(transition);
 
                             //if (transitionInterface.attemptTransition())
-                            Petrinet2DObjectInterface place2DObject =
-                                    new Place2DObject(place);
+                            Petrinet2DObjectInterface transitionObject =
+                                    new Transition2DObject(transition);
 
-                            place2DObject.setID
-                                    (UUID.randomUUID().toString());
-                            place2DObject.setName(name);
+                            transitionObject.setID(UUID.randomUUID().toString());
+                            transitionObject.setName(name);
 
-                            place2DObject.setPoint
-                                    (new Point(positionX, positionY));
-                            objects.add(place2DObject);
+                            transitionObject.setPoint(new Point(positionX, positionY));
+                            objects.add(transitionObject);
                             redoHistory.clear();
 
-                            log(LogUIModel.createInfoLog("Added Place: " + value));
+                            log(LogUIModel.createInfoLog("Added Transition: " + name));
                             refresh();
                         } else {
-                            log(LogUIModel.createErrorLog("Unable to parse place, follow this placename<tokens>"));
-                        }
-                    } else {
-                        logListener.log(LogUIModel.createErrorLog("Transition name cannot be empty: :("));
-                    }
-                }
 
-            } else if (currentPetrinetObject == Element.NONE) {
-                logListener.log(LogUIModel.createErrorLog("Choose a petrinet model"));
+                            log(LogUIModel.createErrorLog("Transition name cannot be empty: :("));
+                        }
+                    }
+
+                } else if (currentPetrinetObject == Element.PLACE) {
+                    // at this point a transition was selected
+                    // create a dialog asking for transition name
+                    CustomDialog dialog = new CustomDialog(this, "Enter Place " +
+                            "in format: name<tokens>", "Add place","");
+                    if (dialog.isPostiveSelection()) {
+                        String value = dialog.getValidatedText();
+                        if (!value.isEmpty()) {
+                            // parse value
+                            String[] parsedContent = parsePlaceString(value);
+                            if (parsedContent != null) {
+                                String name = parsedContent[0];
+                                int numTokens = Integer.parseInt(parsedContent[1]);
+                                PlaceInterface place = new Place();
+                                place.setName(name);
+                                place.setNumTokens(numTokens);
+                                // add in the back end as well
+                                petrinetLogic.addPlace(place);
+
+                                //if (transitionInterface.attemptTransition())
+                                Petrinet2DObjectInterface place2DObject =
+                                        new Place2DObject(place);
+
+                                place2DObject.setID
+                                        (UUID.randomUUID().toString());
+                                place2DObject.setName(name);
+
+                                place2DObject.setPoint
+                                        (new Point(positionX, positionY));
+                                objects.add(place2DObject);
+                                redoHistory.clear();
+
+                                log(LogUIModel.createInfoLog("Added Place: " + value));
+                                refresh();
+                            } else {
+                                log(LogUIModel.createErrorLog("Unable to parse place, follow this placename<tokens>"));
+                            }
+                        } else {
+                            logListener.log(LogUIModel.createErrorLog("Transition name cannot be empty: :("));
+                        }
+                    }
+
+                } else if (currentPetrinetObject == Element.NONE) {
+                    logListener.log(LogUIModel.createErrorLog("Choose a petrinet model"));
+                }
+            }else if (SwingUtilities.isRightMouseButton(e)){
+                if (closeBy==null)
+                    return ;
+                currentSelectedObject = closeBy;
+                elementOptionMenu.setInvoker(this);
+                elementOptionMenu.setLocation(e.getX(),e.getY());
+                elementOptionMenu.setVisible(true);
             }
-        }else if (SwingUtilities.isRightMouseButton(e)){
-              if (closeBy==null)
-                  return ;
-              currentSelectedObject = closeBy;
-              elementOptionMenu.setInvoker(this);
-              elementOptionMenu.setLocation(e.getX(),e.getY());
-              elementOptionMenu.setVisible(true);
-          }
+
+        } catch (Exception ex){
+            logListener.log(LogUIModel.createErrorLog("An unexpected error occured!! msg: "+ex.getMessage()));
+        }
 
     }
 
@@ -226,118 +233,123 @@ public class DrawPanel extends JPanel implements MouseListener, ActionListener {
 
     @Override
     public void mouseReleased(MouseEvent e) {
-        if(currentPetrinetObject == Element.ARC){
-            int x = e.getX();
-            int y = e.getY();
-            if(!this.isEnabled())
-                return;
+        try{
+            if(currentPetrinetObject == Element.ARC){
+                int x = e.getX();
+                int y = e.getY();
+                if(!this.isEnabled())
+                    return;
 
-            destinationObject = getClosestObject(x,y);
-            if(destinationObject!=null && originObject != null) {
-                logListener.log(LogUIModel.createInfoLog("drawing arc to: " + destinationObject.getName()));
-                destinationPoint = new Point(x,y);
-                petrinetLogic.abortTreeTraversal();
-                if(destinationObject.getClass() != originObject.getClass()) {
-                    CustomDialog dialog = new CustomDialog(this, "Enter Arc " +
-                            "in format: Arc Name<Weight>", "Add Arc", "");
-                    if (dialog.isPostiveSelection()) {
-                        String value = dialog.getValidatedText();
-                        if (!value.isEmpty()) {
-                            // parse value
-                            String[] parsedContent = parsePlaceString(value);
-                            if (parsedContent != null) {
-                                String name = parsedContent[0];
-                                int weight = Integer.parseInt(parsedContent[1]);
+                destinationObject = getClosestObject(x,y);
+                if(destinationObject!=null && originObject != null) {
+                    logListener.log(LogUIModel.createInfoLog("drawing arc to: " + destinationObject.getName()));
+                    destinationPoint = new Point(x,y);
+                    petrinetLogic.abortTreeTraversal();
+                    if(destinationObject.getClass() != originObject.getClass()) {
+                        CustomDialog dialog = new CustomDialog(this, "Enter Arc " +
+                                "in format: Arc Name<Weight>", "Add Arc", "");
+                        if (dialog.isPostiveSelection()) {
+                            String value = dialog.getValidatedText();
+                            if (!value.isEmpty()) {
+                                // parse value
+                                String[] parsedContent = parsePlaceString(value);
+                                if (parsedContent != null) {
+                                    String name = parsedContent[0];
+                                    int weight = Integer.parseInt(parsedContent[1]);
 
-                                // TODO someone has to compromise polymorphism
-                                ArcInterface arc = null;
-                                try {
-                                    if (originObject instanceof  Transition2DObject
-                                            && destinationObject instanceof Place2DObject) {
-                                        Transition2DObject transition2DObject = (Transition2DObject) originObject;
-                                        TransitionInterface transition = transition2DObject.getTransition();
+                                    // TODO someone has to compromise polymorphism
+                                    ArcInterface arc = null;
+                                    try {
+                                        if (originObject instanceof  Transition2DObject
+                                                && destinationObject instanceof Place2DObject) {
+                                            Transition2DObject transition2DObject = (Transition2DObject) originObject;
+                                            TransitionInterface transition = transition2DObject.getTransition();
 
-                                        Place2DObject place2DObject = (Place2DObject) destinationObject;
-                                        PlaceInterface place = place2DObject.getPlace();
+                                            Place2DObject place2DObject = (Place2DObject) destinationObject;
+                                            PlaceInterface place = place2DObject.getPlace();
 
-                                        arc = new TransitionToPlaceArc
-                                                (transition, place);
-                                        arc.setWeight(weight);
-                                        arc.setName(name);
+                                            arc = new TransitionToPlaceArc
+                                                    (transition, place);
+                                            arc.setWeight(weight);
+                                            arc.setName(name);
 
-                                        // now add this arc instance to the back end
-                                        // for the coverability tree
-                                        // TODO ask for explanation
-                                        //transition.addArcOutput(arc);
-                                        //place.addArcInput(arc);
+                                            // now add this arc instance to the back end
+                                            // for the coverability tree
+                                            // TODO ask for explanation
+                                            //transition.addArcOutput(arc);
+                                            //place.addArcInput(arc);
+                                            refresh();
+                                            logListener.log(LogUIModel.createInfoLog("Arc Drawn from : " +
+                                                    originObject.getName() + " to" + destinationObject.getName()));
+
+
+                                        } else if (originObject instanceof  Place2DObject
+                                                && destinationObject instanceof Transition2DObject) {
+                                            Transition2DObject transition2DObject = (Transition2DObject) destinationObject;
+                                            TransitionInterface transition = transition2DObject.getTransition();
+
+                                            Place2DObject place2DObject = (Place2DObject) originObject;
+                                            PlaceInterface place = place2DObject.getPlace();
+
+                                            arc = new PlaceToTransitionArc
+                                                    (place, transition);
+                                            arc.setWeight(weight);
+                                            arc.setName(name);
+
+                                            // now add this arc instance to the back end
+                                            // for the coverability tree
+                                            // TODO ASK FOR EXPLANATION
+                                            // transition.addArcInput(arc);
+                                            //place.addArcOutput(arc);
+
+                                        } else {
+                                            logListener.log(LogUIModel.createErrorLog("The above case should not occur"));
+                                        }
+                                    }catch (IllegalArgumentException ex){
+                                        logListener.log(LogUIModel.createErrorLog(""+ex.getMessage()));
+                                    }
+                                    if(arc!=null){
+                                        Arc2DObject arc2DObject = new Arc2DObject(arc);
+                                        arc2DObject.setName(name);
+                                        arc2DObject.setDestinationPoint(destinationPoint);
+                                        arc2DObject.setPoint(originPoint);
+                                        arc2DObject.setDestination(destinationObject);
+                                        arc2DObject.setOrigin(originObject);
+                                        arc2DObject.setID(UUID.randomUUID().toString());
+
+                                        Petrinet2DObjectInterface arcObject= arc2DObject;
+
+
+                                        objects.add(arcObject);
+
                                         refresh();
                                         logListener.log(LogUIModel.createInfoLog("Arc Drawn from : " +
                                                 originObject.getName() + " to" + destinationObject.getName()));
-
-
-                                    } else if (originObject instanceof  Place2DObject
-                                            && destinationObject instanceof Transition2DObject) {
-                                        Transition2DObject transition2DObject = (Transition2DObject) destinationObject;
-                                        TransitionInterface transition = transition2DObject.getTransition();
-
-                                        Place2DObject place2DObject = (Place2DObject) originObject;
-                                        PlaceInterface place = place2DObject.getPlace();
-
-                                        arc = new PlaceToTransitionArc
-                                                (place, transition);
-                                        arc.setWeight(weight);
-                                        arc.setName(name);
-
-                                        // now add this arc instance to the back end
-                                        // for the coverability tree
-                                        // TODO ASK FOR EXPLANATION
-                                       // transition.addArcInput(arc);
-                                        //place.addArcOutput(arc);
-
-                                    } else {
-                                        logListener.log(LogUIModel.createErrorLog("The above case should not occur"));
                                     }
-                                }catch (IllegalArgumentException ex){
-                                    logListener.log(LogUIModel.createErrorLog(""+ex.getMessage()));
+
+
+                                }else{
+                                    logListener.log(LogUIModel.createErrorLog("Unable to parse arc, -> Format ArcName<Weight>"));
                                 }
-                                if(arc!=null){
-                                    Arc2DObject arc2DObject = new Arc2DObject(arc);
-                                    arc2DObject.setName(name);
-                                    arc2DObject.setDestinationPoint(destinationPoint);
-                                    arc2DObject.setPoint(originPoint);
-                                    arc2DObject.setDestination(destinationObject);
-                                    arc2DObject.setOrigin(originObject);
-                                    arc2DObject.setID(UUID.randomUUID().toString());
-
-                                    Petrinet2DObjectInterface arcObject= arc2DObject;
-
-
-                                    objects.add(arcObject);
-
-                                    refresh();
-                                    logListener.log(LogUIModel.createInfoLog("Arc Drawn from : " +
-                                            originObject.getName() + " to" + destinationObject.getName()));
-                                }
-
-
-                            }else{
-                                logListener.log(LogUIModel.createErrorLog("Unable to parse arc, -> Format ArcName<Weight>"));
                             }
                         }
+                    }else{
+                        logListener.log(LogUIModel.createErrorLog("Cannot draw arc between the same object type"));
                     }
-                }else{
-                    logListener.log(LogUIModel.createErrorLog("Cannot draw arc between the same object type"));
                 }
+                else
+                    logListener.log(LogUIModel.createErrorLog("Ending arc no transition / place"));
+
+                originObject = null;
+                destinationObject = null;
+                originPoint = null;
+                destinationPoint = null;
+
             }
-            else
-                logListener.log(LogUIModel.createErrorLog("Ending arc no transition / place"));
-
-            originObject = null;
-            destinationObject = null;
-            originPoint = null;
-            destinationPoint = null;
-
+        }catch (Exception ex){
+            logListener.log(LogUIModel.createErrorLog("an un expected error occured: "+ex.getMessage()));
         }
+
     }
 
     @Override
@@ -371,7 +383,7 @@ public class DrawPanel extends JPanel implements MouseListener, ActionListener {
 
     public void clearAll(){
         objects.clear();
-        sidePanel.clear();
+        attributePanel.clear();
         refresh();
     }
 
@@ -428,6 +440,7 @@ public class DrawPanel extends JPanel implements MouseListener, ActionListener {
                 if (currentSelectedObject instanceof  Transition2DObject){
                     Transition2DObject  transition2DObject = (Transition2DObject)currentSelectedObject;
                     TransitionInterface transition = transition2DObject.getTransition();
+                    // look for referencing arcs
 
                     petrinetLogic.removeTransition(transition);
                 } else if (currentSelectedObject instanceof  Place2DObject){
@@ -489,19 +502,22 @@ public class DrawPanel extends JPanel implements MouseListener, ActionListener {
 
     }
     public  void setPetriAttrib(String text){
-        sidePanel.setText(text);
+        attributePanel.setText(text);
     }
 
     public void refresh() {
         canvas.repaint();
         if (petrinetLogic.getCoverabilityTreeRoot()!=null) {
-            sidePanel.
+            attributePanel.
                     loadTree(petrinetLogic.getCoverabilityTreeRoot());
         }
     }
 
-    public void clearPetriAttribText(){
-        sidePanel.setText("");
+
+
+    public void clearPetriAttribPanel(){
+
+        attributePanel.clear();
     }
 
     class DrawCanvas extends JPanel {

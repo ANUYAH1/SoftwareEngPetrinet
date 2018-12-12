@@ -15,7 +15,7 @@ import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 import java.util.Arrays;
 
-public class SidePanel extends JPanel {
+public class AttributePanel extends JPanel {
     private JTree tree ;
     private JScrollPane scrollPane;
     DefaultTreeModel model;
@@ -25,7 +25,7 @@ public class SidePanel extends JPanel {
     private boolean firstResize = true;
     private JScrollPane textScrollPane;
     private JScrollPane treeScrollPane;
-    public SidePanel(){
+    public AttributePanel(){
         tree = new JTree();
 
         textArea = new JTextArea();

@@ -1,6 +1,5 @@
 package gui;
 
-import logic.PetriNet;
 import logic.PetriNetInterface;
 import logic.PlaceInterface;
 import logic.TransitionInterface;
@@ -111,78 +110,22 @@ public class PetrinetPanel extends JPanel implements ElementSelectListener,LogLi
            button.setEnabled(canDo);
            if(canDo) {
                petrinetLogic.next();
-               drawPanel.refresh();
+
            }else{
-               String otherInfo = "==== Live List ====\n";
-               for (TransitionInterface trans : petrinetLogic.liveList()){
-                   otherInfo += " " +trans.getName() + "\n";
-               }
-
-
-                otherInfo += "==== Unbounded Places ====\n";
-               for (PlaceInterface place : petrinetLogic.unboundedPlaces()){
-                   otherInfo += " " +place.getName() + "<"+(place.getNumTokens()==-1?"Infinity":
-                           ""+place.getNumTokens())+">"+"\n";
-               }
-
-               otherInfo += "==== Bounded Places ====\n";
-               for (PlaceInterface place : petrinetLogic.boundedPlaces()){
-                   otherInfo += " " +place.getName() + "<"+(place.getNumTokens()==-1?"Infinity":
-                           ""+place.getNumTokens())+">"+"\n";
-               }
-
-               otherInfo += "==== Reachable Places ====\n";
-               for (PlaceInterface place : petrinetLogic.reachablePlaces()){
-                   otherInfo += " " +place.getName() + "<"+(place.getNumTokens()==-1?"Infinity":
-                           ""+place.getNumTokens())+">"+"\n";
-               }
-
-               otherInfo += "==== Unreachable Places ====\n";
-               for (PlaceInterface place : petrinetLogic.unreachablePlaces()){
-                   otherInfo += " " +place.getName() + "<"+(place.getNumTokens()==-1?"Infinity":
-                           ""+place.getNumTokens())+">"+"\n";
-               }
+               String otherInfo = getFullPetriInformation();
                drawPanel.setPetriAttrib(otherInfo);
+               controlPanel.setCompleteEnabled(false);
            }
+           drawPanel.refresh();
        }else if(button.getName().equals("control_complete_play")){
-           boolean canDo = petrinetLogic.hasNext();
+
            petrinetLogic.complete();
-           button.setEnabled(canDo);
-           if(canDo) {
-               petrinetLogic.next();
-               drawPanel.refresh();
-           }else{
-               String otherInfo = "==== Live List ====\n";
-               for (TransitionInterface trans : petrinetLogic.liveList()){
-                   otherInfo += " " +trans.getName() + "\n";
-               }
+           button.setEnabled(false);
+           controlPanel.setPlayEnabled(false);
 
+           String otherInfo = getFullPetriInformation();
+           drawPanel.setPetriAttrib(otherInfo);
 
-               otherInfo += "==== Unbounded Places ====\n";
-               for (PlaceInterface place : petrinetLogic.unboundedPlaces()){
-                   otherInfo += " " +place.getName() + "<"+(place.getNumTokens()==-1?"Infinity":
-                           ""+place.getNumTokens())+">"+"\n";
-               }
-
-               otherInfo += "==== Bounded Places ====\n";
-               for (PlaceInterface place : petrinetLogic.boundedPlaces()){
-                   otherInfo += " " +place.getName() + "<"+(place.getNumTokens()==-1?"Infinity":
-                           ""+place.getNumTokens())+">"+"\n";
-               }
-
-               otherInfo += "==== Reachable Places ====\n";
-               for (PlaceInterface place : petrinetLogic.reachablePlaces()){
-                   otherInfo += " " +place.getName() + "<"+(place.getNumTokens()==-1?"Infinity":
-                           ""+place.getNumTokens())+">"+"\n";
-               }
-
-               otherInfo += "==== Unreachable Places ====\n";
-               for (PlaceInterface place : petrinetLogic.unreachablePlaces()){
-                   otherInfo += " " +place.getName() + "<"+(place.getNumTokens()==-1?"Infinity":
-                           ""+place.getNumTokens())+">"+"\n";
-               }
-               drawPanel.setPetriAttrib(otherInfo);
-           }
 
 
            drawPanel.refresh();
@@ -193,7 +136,41 @@ public class PetrinetPanel extends JPanel implements ElementSelectListener,LogLi
           controlPanel.setPlayEnabled(true);
           controlPanel.setCompleteEnabled (true);
           drawPanel.refresh();
-          drawPanel.clearPetriAttribText();
+
+          drawPanel.clearPetriAttribPanel();
        }
+    }
+
+    private String getFullPetriInformation() {
+        String otherInfo = "==== Live List ====\n";
+        for (TransitionInterface trans : petrinetLogic.liveList()) {
+            otherInfo += " " + trans.getName() + "\n";
+        }
+
+
+        otherInfo += "==== Unbounded Places ====\n";
+        for (PlaceInterface place : petrinetLogic.unboundedPlaces()) {
+            otherInfo += " " + place.getName() + "<" + (place.getNumTokens() == -1 ? "Infinity" :
+                    "" + place.getNumTokens()) + ">" + "\n";
+        }
+
+        otherInfo += "==== Bounded Places ====\n";
+        for (PlaceInterface place : petrinetLogic.boundedPlaces()) {
+            otherInfo += " " + place.getName() + "<" + (place.getNumTokens() == -1 ? "Infinity" :
+                    "" + place.getNumTokens()) + ">" + "\n";
+        }
+
+        otherInfo += "==== Reachable Places ====\n";
+        for (PlaceInterface place : petrinetLogic.reachablePlaces()) {
+            otherInfo += " " + place.getName() + "<" + (place.getNumTokens() == -1 ? "Infinity" :
+                    "" + place.getNumTokens()) + ">" + "\n";
+        }
+
+        otherInfo += "==== Unreachable Places ====\n";
+        for (PlaceInterface place : petrinetLogic.unreachablePlaces()) {
+            otherInfo += " " + place.getName() + "<" + (place.getNumTokens() == -1 ? "Infinity" :
+                    "" + place.getNumTokens()) + ">" + "\n";
+        }
+        return otherInfo;
     }
 }

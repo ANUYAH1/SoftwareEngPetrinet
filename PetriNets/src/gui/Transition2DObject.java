@@ -2,7 +2,12 @@ package gui;
 
 import logic.TransitionInterface;
 
-import java.awt.*;
+
+import java.awt.Color;
+import java.awt.Point;
+import java.awt.Graphics;
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -20,6 +25,8 @@ public class Transition2DObject implements Petrinet2DObjectInterface {
     private final Color TRANSITIONFIREDCOLOR = Color.green;
     private final int TOLERANCE = 30;
     private String Id;
+    private ArrayList<Petrinet2DObjectInterface> arcIn;
+    private ArrayList<Petrinet2DObjectInterface> arcOut;
 
 
     //TODO change this name back to the back end's
@@ -27,9 +34,23 @@ public class Transition2DObject implements Petrinet2DObjectInterface {
 
     public Transition2DObject(TransitionInterface transition){
         this.transition = transition;
+        this.arcIn = new ArrayList<>();
+        this.arcOut = new ArrayList<>();
+
     }
 
+    public List<Petrinet2DObjectInterface> getArcsIn (){
+        return  arcIn;
+    }
 
+    public List<Petrinet2DObjectInterface> getArcsOut(){
+        return arcOut;
+    }
+
+    public void removeArcOut(Petrinet2DObjectInterface arc){
+        arcOut.remove(arc);
+
+    }
 
     @Override
     public Point getPoint() {
