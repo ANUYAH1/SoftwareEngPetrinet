@@ -23,6 +23,7 @@ public class Place2DObject implements  Petrinet2DObjectInterface{
     private final Color TOKENCOLOR = Color.black;
     private final Color INFINITYCOLOR = Color.red;
     private final int MAXTOKENTODISPLAY =10;
+    private final int PLACECENTERPADDING =9;
 
     private String Id;
 
@@ -78,7 +79,9 @@ public class Place2DObject implements  Petrinet2DObjectInterface{
         graphics.drawString(getName() +tokenString,(int)point.getX(),
                 (int)point.getY()+PLACE_RADIUS+TEXTPADDING);
         //this is to make the text clickable
-        editableClickLocation = new Point(point.x,point.y);
+        editableClickLocation = new Point(point.x +PLACECENTERPADDING,
+                point.y+PLACECENTERPADDING);
+
 
     }
 
