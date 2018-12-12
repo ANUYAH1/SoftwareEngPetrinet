@@ -108,4 +108,11 @@ public class ControlPanel extends JPanel implements  ActionListener {
     }
 
 
+    public void setPlayEnabled(boolean b) {
+        stepPlayButton.setEnabled(b);
+    }
+
+    public void setCompleteEnabled(boolean b) {
+        completPlayButton.setEnabled(b);
+    }
 }

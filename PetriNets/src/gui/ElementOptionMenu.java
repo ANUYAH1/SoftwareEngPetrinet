@@ -18,6 +18,10 @@ public class ElementOptionMenu extends JPopupMenu {
         deleteItem.addActionListener(listener);
         copyItem.addActionListener(listener);
         pasteItem.addActionListener(listener);
+        editItem.setName("element_option_edit");
+        deleteItem.setName("element_option_delete");
+        copyItem.setName("element_option_copy");
+        pasteItem.setName("element_option_paste");
         this.add(editItem);
         this.add(deleteItem);
         this.add(copyItem);

@@ -1,5 +1,6 @@
 package logic;
 
+
 public interface PlaceInterface extends ArcEndpointInterface {
 	/**
 	 *

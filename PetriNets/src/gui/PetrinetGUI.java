@@ -1,5 +1,7 @@
 package gui;
 
+import logic.PetriNet;
+import logic.PetriNetInterface;
 import storage.ProjectInterface;
 import storage.ProjectModel;
 import storage.Storage;
@@ -32,18 +34,18 @@ public class PetrinetGUI extends JFrame implements MenuBarListener {
 
     private Preferences prefs ;
 
-
+    private PetriNetInterface petrinetLogic ;
 
 
     public PetrinetGUI(){
         menuBar = new MenuBar(this);
         prefs = Preferences.userRoot().node(getClass().getName());
-        petrinetPanel = new PetrinetPanel();
+        petrinetLogic = new PetriNet();
+        petrinetPanel = new PetrinetPanel(petrinetLogic);
         fileChooser= new JFileChooser(prefs.get(LAST_USED_FOLDER,
                 new File(".").getAbsolutePath()));
         storage = new Storage();
         optionPane = new JOptionPane();
-
         fileFilter = new FileFilter() {
             @Override
             public boolean accept(File f) {
@@ -107,6 +109,9 @@ public class PetrinetGUI extends JFrame implements MenuBarListener {
                 petrinetProject = storage.loadProject(file.getPath());
                 this.setTitle("Petrinet- " + petrinetProject.getName());
                 petrinetPanel.clearProject();
+
+                petrinetLogic.abortTreeTraversal();
+                petrinetLogic.emptyPetriNet();
                 petrinetPanel.loadProject(petrinetProject.getGuiObjects());
                 String message = "Project " + petrinetProject.getName() + " Loaded!!";
                 LogUIModel log = LogUIModel.createInfoLog(message);
@@ -141,8 +146,10 @@ public class PetrinetGUI extends JFrame implements MenuBarListener {
                 File file = fileChooser.getSelectedFile();
 
 
+                petrinetLogic.abortTreeTraversal();
+
                 ArrayList<Petrinet2DObjectInterface> objectCopy =
-                        petrinetPanel.getGuiObjects();
+                        petrinetPanel.getProjectStateForSave();
                 petrinetProject.setGuiObjects(objectCopy);
 
                 petrinetProject.setFilePath(file.getPath());
@@ -195,7 +202,7 @@ public class PetrinetGUI extends JFrame implements MenuBarListener {
         try{
             String projectName= "";
             // get plast accessed folder
-            CustomDialog dialog = new CustomDialog(this,"Create New Project","New Project");
+            CustomDialog dialog = new CustomDialog(this,"Create New Project","New Project","");
             if (dialog.isPostiveSelection()){
                 projectName = dialog.getValidatedText();
                 this.setTitle("Petrinet- "+projectName);

@@ -47,6 +47,8 @@ public class DrawPanel extends JPanel implements MouseListener, ActionListener {
     private PetriNetInterface petrinetLogic ;
 
 
+
+
     public DrawPanel(LogListener logListener,PetriNetInterface petrinetLogic){
         this.logListener = logListener;
 
@@ -106,11 +108,13 @@ public class DrawPanel extends JPanel implements MouseListener, ActionListener {
                 logListener.log(LogUIModel.createErrorLog("Please select another location, " + closeBy.getName() + " has close proximity!!"));
                 return;
             }
+            petrinetLogic.abortTreeTraversal();
             if (currentPetrinetObject == Element.TRANSITION) {
 
                 // at this point a transition was selected
                 // create a dialog asking for transition name
-                CustomDialog dialog = new CustomDialog(this, "Enter Transition name", "Add Transition");
+                CustomDialog dialog = new CustomDialog(this, "Enter Transition name",
+                        "Add Transition","");
                 if (dialog.isPostiveSelection()) {
                     String name = dialog.getValidatedText();
                     if (!name.isEmpty()) {
@@ -142,7 +146,7 @@ public class DrawPanel extends JPanel implements MouseListener, ActionListener {
                 // at this point a transition was selected
                 // create a dialog asking for transition name
                 CustomDialog dialog = new CustomDialog(this, "Enter Place " +
-                        "in format: name<tokens>", "Add place");
+                        "in format: name<tokens>", "Add place","");
                 if (dialog.isPostiveSelection()) {
                     String value = dialog.getValidatedText();
                     if (!value.isEmpty()) {
@@ -183,7 +187,14 @@ public class DrawPanel extends JPanel implements MouseListener, ActionListener {
             } else if (currentPetrinetObject == Element.NONE) {
                 logListener.log(LogUIModel.createErrorLog("Choose a petrinet model"));
             }
-        }
+        }else if (SwingUtilities.isRightMouseButton(e)){
+              if (closeBy==null)
+                  return ;
+              currentSelectedObject = closeBy;
+              elementOptionMenu.setInvoker(canvas);
+              elementOptionMenu.setLocation(e.getX(),e.getY());
+              elementOptionMenu.setVisible(true);
+          }
 
     }
 
@@ -195,14 +206,7 @@ public class DrawPanel extends JPanel implements MouseListener, ActionListener {
             return;
         Petrinet2DObjectInterface closeBy =
                 getClosestObject(x, y);
-        if (e.getButton() == MouseEvent.BUTTON2){
-            currentSelectedObject = closeBy;
-            if (currentSelectedObject!=null){
-                elementOptionMenu.setLocation(x,y);
-                elementOptionMenu.setInvoker(canvas);
-                elementOptionMenu.setVisible(true);
-            }
-        }else
+
         if (e.getButton() == MouseEvent.BUTTON1) {
             if (currentPetrinetObject == Element.ARC) {
 
@@ -232,9 +236,10 @@ public class DrawPanel extends JPanel implements MouseListener, ActionListener {
             if(destinationObject!=null && originObject != null) {
                 logListener.log(LogUIModel.createInfoLog("drawing arc to: " + destinationObject.getName()));
                 destinationPoint = new Point(x,y);
+                petrinetLogic.abortTreeTraversal();
                 if(destinationObject.getClass() != originObject.getClass()) {
                     CustomDialog dialog = new CustomDialog(this, "Enter Arc " +
-                            "in format: Arc Name<Weight>", "Add Arc");
+                            "in format: Arc Name<Weight>", "Add Arc", "");
                     if (dialog.isPostiveSelection()) {
                         String value = dialog.getValidatedText();
                         if (!value.isEmpty()) {
@@ -412,12 +417,74 @@ public class DrawPanel extends JPanel implements MouseListener, ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (currentSelectedObject!=null) {
+        JMenuItem button = ((JMenuItem)e.getSource());
+        petrinetLogic.abortTreeTraversal();
+        if(button.getName().equals("element_option_delete")){
 
-            objects.remove(currentSelectedObject);
+            if (currentSelectedObject!=null) {
 
-            redoHistory.add(currentSelectedObject);
+                objects.remove(currentSelectedObject);
+                if (currentSelectedObject instanceof  Transition2DObject){
+                    Transition2DObject  transition2DObject = (Transition2DObject)currentSelectedObject;
+                    TransitionInterface transition = transition2DObject.getTransition();
+
+                    petrinetLogic.removeTransition(transition);
+                } else if (currentSelectedObject instanceof  Place2DObject){
+                    Place2DObject place2DObject = (Place2DObject) currentSelectedObject;
+                    petrinetLogic.removePlace(place2DObject.getPlace());
+
+                }
+
+                redoHistory.add(currentSelectedObject);
+                refresh();
+            }
+
+        }else if(button.getName().equals("element_option_edit")){
+            petrinetLogic.abortTreeTraversal();
+            if (currentSelectedObject!=null) {
+               if (currentSelectedObject instanceof Transition2DObject) {
+                   Transition2DObject transition = (Transition2DObject)currentSelectedObject;
+                   CustomDialog dialog = new CustomDialog(this, "Enter Transition name",
+                           "Edit Transition",
+                           currentSelectedObject.getName());
+                   if (dialog.isPostiveSelection()) {
+                       String name = dialog.getValidatedText();
+                       if (!name.isEmpty()) {
+                           transition.setName(name);
+                           transition.getTransition().setName(name);
+
+                       }else{
+                           logListener.log(LogUIModel.createErrorLog("Transition name cannot be empty"));
+                       }
+                   }
+
+               }else if (currentSelectedObject instanceof Place2DObject){
+                   Place2DObject place = (Place2DObject)currentSelectedObject;
+                   CustomDialog dialog = new CustomDialog(this, "Enter Place " +
+                           "in format: name<tokens>", "Edit place", place.getName()
+                           + " <"+ place.getPlace().getNumTokens()+">");
+                   if (dialog.isPostiveSelection()) {
+                       String value = dialog.getValidatedText();
+                       if (!value.isEmpty()) {
+                           // parse value
+                           String[] parsedContent = parsePlaceString(value);
+                           if (parsedContent != null) {
+                               String name = parsedContent[0];
+                               int numTokens = Integer.parseInt(parsedContent[1]);
+                               place.getPlace().setNumTokens(numTokens);
+                               place.getPlace().setName(name);
+                               place.setName(name);
+                           }
+                       }
+                   }
+               }
+
+
+            }
+            refresh();
+
         }
+
 
     }
 

@@ -22,10 +22,13 @@ class CustomDialog {
     public String getValidatedText() {
         return typedText;
     }
+
+
  
     /** Creates the reusable dialog. */
-    public CustomDialog(Component aFrame,String Message,String title) {
+    public CustomDialog(Component aFrame,String Message,String title,String defaultText) {
         textField = new JTextField(10);
+        textField.setText(defaultText);
 
         //Create an array of the text and components to be displayed.
 

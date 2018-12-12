@@ -21,6 +21,9 @@ public class Place2DObject implements  Petrinet2DObjectInterface{
     private final Color TRANSITIONCOLOR = Color.black;
     private final Color TEXTCOLOR = Color.BLACK;
     private final Color TOKENCOLOR = Color.black;
+    private final Color INFINITYCOLOR = Color.red;
+    private final int MAXTOKENTODISPLAY =10;
+
     private String Id;
 
     //TODO change this name back to the back end's
@@ -43,23 +46,35 @@ public class Place2DObject implements  Petrinet2DObjectInterface{
         Random ran = new Random();
         graphics.setColor(TRANSITIONCOLOR);
         graphics.drawOval((int)point.getX(),(int)point.getY(),PLACE_RADIUS,PLACE_RADIUS);
+
+        // This simple logic is to draw tokens within
+
+
+        String tokenString = "";
+
+        if(place.getNumTokens()>=0) {
+            // the circle
+            int randX = 0;
+            int randY = 0;
+            graphics.setColor(TOKENCOLOR);
+            int tokenCount = Math.min(MAXTOKENTODISPLAY,place.getNumTokens());
+            int randPadding=12;
+            for (int i = 0; i < tokenCount; i++) {
+                randX = ran.nextInt(PLACE_RADIUS - randPadding) +
+                        (int) point.getX() + (i == 0 ? randPadding : 0);
+                randY = ran.nextInt(PLACE_RADIUS - randPadding) +
+                        (int) point.getY() + (i == 0 ? randPadding : 0);
+
+                graphics.fillOval(randX, randY, TOKEN_RADIUS, TOKEN_RADIUS);
+            }
+            tokenString = " <"+place.getNumTokens()+">";
+        }else{
+            tokenString = " <Infinity>";
+        }
+
         graphics.setColor(TEXTCOLOR);
 
-        graphics.drawString(getName() +" <"+place.getNumTokens()+">",(int)point.getX(),(int)point.getY()+PLACE_RADIUS+TEXTPADDING);
-        // This simple logic is to draw tokens within
-        // the circle
-        int randX = 0;
-        int randY = 0;
-
-        int randPadding=12;
-        graphics.setColor(TOKENCOLOR);
-
-        for(int i = 0; i <place.getNumTokens();i++){
-             randX = ran.nextInt(PLACE_RADIUS-randPadding)+(int)point.getX() +(i==0?randPadding:0);
-             randY = ran.nextInt(PLACE_RADIUS-randPadding)+(int)point.getY()+(i==0?randPadding:0);
-
-            graphics.fillOval(randX,randY,TOKEN_RADIUS,TOKEN_RADIUS);
-        }
+        graphics.drawString(getName() +tokenString,(int)point.getX(),(int)point.getY()+PLACE_RADIUS+TEXTPADDING);
 
     }
 

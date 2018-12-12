@@ -19,8 +19,8 @@ public class PetrinetPanel extends JPanel implements ElementSelectListener,LogLi
     private LogPanel logPanel;
     private PetriNetInterface petrinetLogic;
 
-    public PetrinetPanel(){
-        petrinetLogic = new PetriNet();
+    public PetrinetPanel(PetriNetInterface petrinetLogic){
+        this.petrinetLogic = petrinetLogic;
         drawPanel = new DrawPanel(this,petrinetLogic);
         controlPanel = new ControlPanel(this,this);
         logPanel = new LogPanel();
@@ -68,7 +68,8 @@ public class PetrinetPanel extends JPanel implements ElementSelectListener,LogLi
      * back end instances
      * @return
      */
-    public ArrayList<Petrinet2DObjectInterface> getGuiObjects() {
+    public ArrayList<Petrinet2DObjectInterface> getProjectStateForSave() {
+
         return drawPanel.getGuiObjects();
     }
 
@@ -104,8 +105,20 @@ public class PetrinetPanel extends JPanel implements ElementSelectListener,LogLi
     public void actionPerformed(ActionEvent actionEvent) {
        JButton button = ((JButton)actionEvent.getSource());
        if(button.getName().equals("control_step_play")){
-           boolean canDo = petrinetLogic.next();
+           boolean canDo = petrinetLogic.hasNext();
            button.setEnabled(canDo);
+           petrinetLogic.next();
+           drawPanel.refresh();
+       }else if(button.getName().equals("control_complete_play")){
+
+
+           petrinetLogic.complete();
+           drawPanel.refresh();
+       }else if(button.getName().equals("control_refresh_play")){
+
+          petrinetLogic.abortTreeTraversal();
+          controlPanel.setPlayEnabled(true);
+          controlPanel.setCompleteEnabled (true);
            drawPanel.refresh();
        }
     }
