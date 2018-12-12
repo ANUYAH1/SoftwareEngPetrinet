@@ -232,7 +232,7 @@ public class DrawPanel extends JPanel implements MouseListener, ActionListener {
                     Transition2DObject  transition2DObject = (Transition2DObject)closeForEdit;
                     // this checks if the transition object is fireable
                     if (transition2DObject.getTransition().checkTransition()){
-                        elementOptionMenu.setFireOptionEnabled(false);
+                        elementOptionMenu.setFireOptionEnabled(true);
                     }
                     elementOptionMenu.setFireOptionVisible(true);
                 }

@@ -20,14 +20,14 @@ public class ConfirmationDialog {
 
 
     /** Creates the reusable dialog. */
-    public ConfirmationDialog(Component aFrame, String Message, String title) {
+    public ConfirmationDialog(Component aFrame, String Message, String title,String confirmationText, String cancelText) {
 
         //Create an array of the text and components to be displayed.
 
 
         Object[] array = {Message};
         String [] options =new String[]{
-                "Ok","Cancel"
+                confirmationText,cancelText
         };
 
 

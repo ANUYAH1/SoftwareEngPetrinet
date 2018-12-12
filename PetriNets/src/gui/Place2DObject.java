@@ -16,7 +16,7 @@ public class Place2DObject implements  Petrinet2DObjectInterface{
     private final int PLACE_RADIUS =40;
     private final int TOKEN_RADIUS =5;
     private Element objectType;
-    private final int TOLERANCE =70;
+    private final int TOLERANCE =15;
     private final int TEXTPADDING =40;
     private final Color TRANSITIONCOLOR = Color.black;
     private final Color TEXTCOLOR = Color.BLACK;

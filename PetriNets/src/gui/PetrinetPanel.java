@@ -110,6 +110,7 @@ public class PetrinetPanel extends JPanel implements ElementSelectListener,LogLi
            button.setEnabled(canDo);
            if(canDo) {
                petrinetLogic.next();
+               button.setEnabled(petrinetLogic.hasNext());
 
            }else{
                String otherInfo = getFullPetriInformation();

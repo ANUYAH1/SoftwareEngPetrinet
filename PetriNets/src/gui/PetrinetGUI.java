@@ -191,7 +191,8 @@ public class PetrinetGUI extends JFrame implements MenuBarListener {
 //            if (petrinetProject.getGuiObjects().size() !=
 //                    petrinetPanel.getProjectStateForSave().size()) {
                 ConfirmationDialog confirmationDialog = new ConfirmationDialog(this,
-                        "Save changes to " + petrinetProject.getName() + " ?", "Save Changes");
+                        "Save changes to " + petrinetProject.getName() + " ?", "Save Changes",
+                        "Save","Don't Save");
                 if (confirmationDialog.isPostiveSelection()) {
                     saveFileMenuCommand();
                    System.exit(0);

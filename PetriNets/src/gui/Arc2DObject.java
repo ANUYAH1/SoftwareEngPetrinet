@@ -20,7 +20,7 @@ public class Arc2DObject implements Petrinet2DObjectInterface {
     private final int ARCTHICKNESS = 4;
     private final int ARROWHEAD = 6;
     private final int TEXTPADDING =15;
-    private final int TOLERANCE = 30;
+    private final int TOLERANCE = 15;
     private String Id;
     private String Name;
 
@@ -136,8 +136,8 @@ public class Arc2DObject implements Petrinet2DObjectInterface {
         // get the center of the arc and plavce name tag
         int centerX = (int)(point.getX() +destinationPoint.getX())/2;
         int centerY = (int)(point.getY()+destinationPoint.getY())/2 ;
-        editClickableLocation= new Point(centerX,centerY);
-        graphics.drawString(Name + " <weight: "+arc.getWeight()+">",centerX+TEXTPADDING,centerY+TEXTPADDING);
+        editClickableLocation= new Point(centerX+TEXTPADDING,centerY+TEXTPADDING);
+        graphics.drawString(Name + " <"+arc.getWeight()+">",centerX+TEXTPADDING,centerY+TEXTPADDING);
 
 
         // now lets draw the weight
