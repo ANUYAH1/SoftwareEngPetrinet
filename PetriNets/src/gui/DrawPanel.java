@@ -491,6 +491,25 @@ public class DrawPanel extends JPanel implements MouseListener, ActionListener {
                            }
                        }
                    }
+               }else if (currentSelectedObject instanceof Arc2DObject){
+                   Arc2DObject arc = (Arc2DObject)currentSelectedObject;
+                   CustomDialog dialog = new CustomDialog(this, "Enter Arc " +
+                           "in format: name<tokens>", "Edit arc", arc.getName()
+                           + " <"+ arc.getArc().getWeight()+">");
+                   if (dialog.isPostiveSelection()) {
+                       String value = dialog.getValidatedText();
+                       if (!value.isEmpty()) {
+                           // parse value
+                           String[] parsedContent = parsePlaceString(value);
+                           if (parsedContent != null) {
+                               String name = parsedContent[0];
+                               int arcWeight = Integer.parseInt(parsedContent[1]);
+                               arc.getArc().setWeight(arcWeight);
+                               arc.getArc().setName(name);
+                               arc.setName(name);
+                           }
+                       }
+                   }
                }
 
 

@@ -145,39 +145,39 @@ public class PetrinetPanel extends JPanel implements ElementSelectListener,LogLi
 
         String otherInfo = "";
         otherInfo += "Liveness: "+petrinetLogic.liveList().size() +"\n";
-        otherInfo+= "==== Live List ====\n";
+        otherInfo+= "== Live List\n";
         for (TransitionInterface trans : petrinetLogic.liveList()) {
             otherInfo += " " + trans.getName() + "\n";
         }
-        otherInfo+= "==== Live List End====\n";
+        otherInfo+= "==Live List End \n";
 
         otherInfo += "Unbounded: "+petrinetLogic.unboundedPlaces().size() +"\n";
-        otherInfo += "==== Unbounded Places ====\n";
+        otherInfo += "== Unbounded Places \n";
         for (PlaceInterface place : petrinetLogic.unboundedPlaces()) {
             otherInfo += " " + place.getName() + "<" + (place.getNumTokens() == -1 ? "Infinity" :
                     "" + place.getNumTokens()) + ">" + "\n";
         }
-        otherInfo+= "==== Unbounded Places End ====\n";
+        otherInfo+= "==Unbounded Places End\n";
         otherInfo += "Bounded: "+petrinetLogic.boundedPlaces().size() +"\n";
-        otherInfo += "==== Bounded Places ====\n";
+        otherInfo += "== Bounded Places\n";
         for (PlaceInterface place : petrinetLogic.boundedPlaces()) {
             otherInfo += " " + place.getName() + "<" + (place.getNumTokens() == -1 ? "Infinity" :
                     "" + place.getNumTokens()) + ">" + "\n";
         }
 
-        otherInfo += "==== Reachable Places (Extra) ====\n";
+        otherInfo += "==Reachable Places (Extra) \n";
         for (PlaceInterface place : petrinetLogic.reachablePlaces()) {
             otherInfo += " " + place.getName() + "<" + (place.getNumTokens() == -1 ? "Infinity" :
                     "" + place.getNumTokens()) + ">" + "\n";
         }
-        otherInfo += "==== Reachable Places End ====\n";
+        otherInfo += "==Reachable Places End\n";
 
-        otherInfo += "==== Unreachable Places (Extra) ====\n";
+        otherInfo += "==Unreachable Places (Extra)\n";
         for (PlaceInterface place : petrinetLogic.unreachablePlaces()) {
             otherInfo += " " + place.getName() + "<" + (place.getNumTokens() == -1 ? "Infinity" :
                     "" + place.getNumTokens()) + ">" + "\n";
         }
-        otherInfo += "==== Unreachable Places End====\n";
+        otherInfo += "==Unreachable Places End\n";
         return otherInfo;
     }
 }

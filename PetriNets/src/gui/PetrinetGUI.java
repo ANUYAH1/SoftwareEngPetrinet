@@ -11,6 +11,7 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.filechooser.FileFilter;
 import java.awt.*;
+import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.File;
 import java.util.ArrayList;
@@ -70,6 +71,13 @@ public class PetrinetGUI extends JFrame implements MenuBarListener {
         };
         fileChooser.setFileFilter(fileFilter);
         setIcon();
+        this.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                exitMenuCommand();
+            }
+        });
+        this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         enablePanel(petrinetPanel,false);
         this.getContentPane().add(petrinetPanel);
         this.setJMenuBar(menuBar);
@@ -186,19 +194,16 @@ public class PetrinetGUI extends JFrame implements MenuBarListener {
                         "Save changes to " + petrinetProject.getName() + " ?", "Save Changes");
                 if (confirmationDialog.isPostiveSelection()) {
                     saveFileMenuCommand();
-                    this.dispatchEvent(new
-                            WindowEvent(this, WindowEvent.WINDOW_CLOSING));
+                   System.exit(0);
                 } else {
-                    this.dispatchEvent(new
-                            WindowEvent(this, WindowEvent.WINDOW_CLOSING));
+                    System.exit(0);
                 }
 //            } else {
 //                this.dispatchEvent(new
 //                        WindowEvent(this, WindowEvent.WINDOW_CLOSING));
 //            }
         }else{
-            this.dispatchEvent(new
-                    WindowEvent(this, WindowEvent.WINDOW_CLOSING));
+            System.exit(0);
         }
     }
 
@@ -265,8 +270,10 @@ public class PetrinetGUI extends JFrame implements MenuBarListener {
             this.setIconImage(appIcon);
 
 
+
         }catch (Exception ex){
             System.out.println("Error in loading image");
         }
     }
+
 }
