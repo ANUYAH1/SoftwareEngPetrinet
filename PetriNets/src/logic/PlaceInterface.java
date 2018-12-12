@@ -18,9 +18,27 @@ public interface PlaceInterface extends ArcEndpointInterface {
 	 * PRECONDITION:  tokens >= 0 OR tokens == -1.  If tokens == -1, that represents infinity.
 	 * POSTCONDITION:  The place now has tokens tokens
 	 *
+	 * Like a call to later setNumTokens(tokens, true)
+	 *
 	 * @param tokens The new number of tokens on this place
 	 */
 	void setNumTokens(int tokens);
+
+	/**
+	 * Resets numTokens to original number of tokens
+	 */
+	void resetTokens();
+
+	/**
+	 * PRECONDITION:  tokens >= 0 OR tokens == -1.  If tokens == -1, that represents infinity.
+	 * POSTCONDITION:  The place now has tokens tokens
+	 *
+	 *
+	 *
+	 * @param tokens The new number of tokens on this place
+	 * @param permanent Whether this is intermediate or permanent
+	 */
+	void setNumTokens(int tokens, boolean permanent);
 
 	/**
 	 * Adds a number of tokens to the place.

@@ -25,10 +25,8 @@ public class CoverabilityNode implements CoverabilityNodeInterface{
         this.parent = parent;
         this.transition = transition;
 
-        //Find Smaller Ancestors
+        //Check to see if this is all infinity.
         CoverabilityNodeInterface temp;
-
-
         //Determine whether there are propagatable ancestors
         if(parent != null && !parent.hasPropagatableAncestors()) {
             smallerAncestors = new ArrayList<CoverabilityNodeInterface>();
@@ -60,6 +58,16 @@ public class CoverabilityNode implements CoverabilityNodeInterface{
 //        }
 
         children = new ArrayList<CoverabilityNodeInterface>();
+//        boolean terminal = true;
+//        for(int i = 0; i < placeState.length; i++){
+//            if(placeState[i] != -1) {
+//                terminal = false;
+//                break;
+//            }
+//        }
+//        this.terminal = this.terminal || terminal;
+//        if(terminal) return;
+
 
     }
 
@@ -111,6 +119,8 @@ public class CoverabilityNode implements CoverabilityNodeInterface{
             }
         }
         CoverabilityNodeInterface toReturn = new CoverabilityNode(this, null, placeState);
+
+
         return toReturn;
     }
 
@@ -157,7 +167,7 @@ public class CoverabilityNode implements CoverabilityNodeInterface{
     public String toString()
     {
         String toReturn = Arrays.toString(petriState);
-        if(children.size() != 0) {
+        if(children != null && children.size() != 0) {
             toReturn += "\n>";
             for (CoverabilityNodeInterface n : children) {
                 toReturn += n.toString();

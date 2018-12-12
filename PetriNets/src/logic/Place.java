@@ -6,6 +6,7 @@ import java.util.List;
 public class Place implements PlaceInterface {
     private String name = "";
     private int numTokens = 0;
+    private int originalNumTokens = 0;
 
     private ArrayList<ArcInterface> arcInputs = new ArrayList<ArcInterface>();
     private ArrayList<ArcInterface> arcOutputs = new ArrayList<ArcInterface>();
@@ -26,12 +27,20 @@ public class Place implements PlaceInterface {
 
     @Override
     public void setNumTokens(int tokens) {
+        setNumTokens(tokens, true);
+    }
+    @Override
+    public void setNumTokens(int tokens, boolean permanent) {
         if(tokens >= -1){
             numTokens = tokens;
+            if(permanent) originalNumTokens = tokens;
         }
         else throw new IllegalArgumentException("tokens is less than 0.  tokens = " + tokens);
     }
-
+    @Override
+    public void resetTokens(){
+        numTokens = originalNumTokens;
+    }
     @Override
     public void addTokens(int tokens) {
         if(tokens >= 0){

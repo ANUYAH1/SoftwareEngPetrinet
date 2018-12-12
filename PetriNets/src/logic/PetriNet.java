@@ -9,6 +9,7 @@ public class PetriNet implements PetriNetInterface {
     private CoverabilityNodeInterface currentNode = null;
     private CoverabilityNodeInterface root = null;
     private List<CoverabilityNodeInterface> leaves = null;
+    private int[] petriState;
 
     private boolean treeComplete = false;
 
@@ -29,8 +30,12 @@ public class PetriNet implements PetriNetInterface {
 
     @Override
     public void removePlace(PlaceInterface place) {
-        if(places.contains(place)){
+        int index = places.indexOf(place);
+        if(index != -1){
+            int[] newPlceState = new int[places.size()-1];
+//            for(int i = 0; )
             places.remove(place);
+            place.remove();
             abortTreeTraversal();
         }else throw new IllegalArgumentException("place does not exist in petri net");
     }
@@ -410,7 +415,7 @@ public class PetriNet implements PetriNetInterface {
     }
     private void setPlaceStateArray(int[] placeArray){
         for(int i = 0; i < places.size(); i++){
-            places.get(i).setNumTokens(placeArray[i]);
+            places.get(i).setNumTokens(placeArray[i], false);
         }
     }
 
@@ -427,11 +432,18 @@ public class PetriNet implements PetriNetInterface {
     @Override
     public void abortTreeTraversal(){
         if(root == null) return;
-        setPlaceStateArray(root.getPetriState());
+        for(PlaceInterface p : places){
+            p.resetTokens();
+        }
+        for(TransitionInterface t : transitions){
+            t.setJustFired(false);
+        }
         leaves = null;
         root = null;
         currentNode = null;
         treeComplete = false;
     }
+
+
 
 }

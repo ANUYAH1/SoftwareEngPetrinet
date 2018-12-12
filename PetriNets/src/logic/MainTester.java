@@ -19,7 +19,7 @@ public class MainTester {
         }
         ArcInterface[] arcs = new ArcInterface[9];
         arcs[0] = new PlaceToTransitionArc(places[0], transitions[0]);
-        arcs[0].setWeight(2);
+        arcs[0].setWeight(1);
         arcs[1] = new TransitionToPlaceArc(transitions[0], places[1]);
         arcs[1].setWeight(2);
 
