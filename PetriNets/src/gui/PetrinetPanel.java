@@ -142,18 +142,22 @@ public class PetrinetPanel extends JPanel implements ElementSelectListener,LogLi
     }
 
     private String getFullPetriInformation() {
-        String otherInfo = "==== Live List ====\n";
+
+        String otherInfo = "";
+        otherInfo += "Liveness: "+petrinetLogic.liveList().size() +"\n";
+        otherInfo+= "==== Live List ====\n";
         for (TransitionInterface trans : petrinetLogic.liveList()) {
             otherInfo += " " + trans.getName() + "\n";
         }
 
-
+        otherInfo += "Unbounded: "+petrinetLogic.unboundedPlaces().size() +"\n";
         otherInfo += "==== Unbounded Places ====\n";
         for (PlaceInterface place : petrinetLogic.unboundedPlaces()) {
             otherInfo += " " + place.getName() + "<" + (place.getNumTokens() == -1 ? "Infinity" :
                     "" + place.getNumTokens()) + ">" + "\n";
         }
 
+        otherInfo += "Bounded: "+petrinetLogic.boundedPlaces().size() +"\n";
         otherInfo += "==== Bounded Places ====\n";
         for (PlaceInterface place : petrinetLogic.boundedPlaces()) {
             otherInfo += " " + place.getName() + "<" + (place.getNumTokens() == -1 ? "Infinity" :

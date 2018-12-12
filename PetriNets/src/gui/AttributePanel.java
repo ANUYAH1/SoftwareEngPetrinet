@@ -30,6 +30,8 @@ public class AttributePanel extends JPanel {
 
         textArea = new JTextArea();
         textArea.setEnabled(false);
+        textArea.setLineWrap(true);
+        textArea.setText("Displays liveness, boundedness, reachability when the tree has been trasversed");
         textScrollPane = new JScrollPane(textArea);
         treeScrollPane = new JScrollPane(tree);
 
@@ -103,7 +105,7 @@ public class AttributePanel extends JPanel {
     public void clear(){
         rootNode.removeAllChildren();
         model.reload();
-        textArea.setText("");
+        textArea.setText("Displays liveness, boundedness, reachability when the tree has been trasversed");
        revalidate();
 
     }

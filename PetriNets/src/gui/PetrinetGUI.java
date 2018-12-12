@@ -173,8 +173,27 @@ public class PetrinetGUI extends JFrame implements MenuBarListener {
 
     @Override
     public void exitMenuCommand() {
-        this.dispatchEvent(new
-                WindowEvent(this, WindowEvent.WINDOW_CLOSING));
+        if (petrinetProject!=null) {
+//            if (petrinetProject.getGuiObjects().size() !=
+//                    petrinetPanel.getProjectStateForSave().size()) {
+                ConfirmationDialog confirmationDialog = new ConfirmationDialog(this,
+                        "Save changes to " + petrinetProject.getName() + " ?", "Save Changes");
+                if (confirmationDialog.isPostiveSelection()) {
+                    saveFileMenuCommand();
+                    this.dispatchEvent(new
+                            WindowEvent(this, WindowEvent.WINDOW_CLOSING));
+                } else {
+                    this.dispatchEvent(new
+                            WindowEvent(this, WindowEvent.WINDOW_CLOSING));
+                }
+//            } else {
+//                this.dispatchEvent(new
+//                        WindowEvent(this, WindowEvent.WINDOW_CLOSING));
+//            }
+        }else{
+            this.dispatchEvent(new
+                    WindowEvent(this, WindowEvent.WINDOW_CLOSING));
+        }
     }
 
     @Override
