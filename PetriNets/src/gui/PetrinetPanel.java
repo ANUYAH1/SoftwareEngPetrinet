@@ -106,17 +106,17 @@ public class PetrinetPanel extends JPanel implements ElementSelectListener,LogLi
     public void actionPerformed(ActionEvent actionEvent) {
        JButton button = ((JButton)actionEvent.getSource());
        if(button.getName().equals("control_step_play")){
-           boolean canDo = petrinetLogic.hasNext();
-           button.setEnabled(canDo);
-           if(canDo) {
-               petrinetLogic.next();
-               button.setEnabled(petrinetLogic.hasNext());
 
-           }else{
-               String otherInfo = getFullPetriInformation();
-               drawPanel.setPetriAttrib(otherInfo);
-               controlPanel.setCompleteEnabled(false);
-           }
+
+               petrinetLogic.next();
+               boolean canDo = petrinetLogic.hasNext();
+               button.setEnabled(canDo);
+
+                if (!canDo) {
+                    String otherInfo = getFullPetriInformation();
+                    drawPanel.setPetriAttrib(otherInfo);
+                    controlPanel.setCompleteEnabled(false);
+                }
            drawPanel.refresh();
        }else if(button.getName().equals("control_complete_play")){
 
@@ -145,12 +145,12 @@ public class PetrinetPanel extends JPanel implements ElementSelectListener,LogLi
     private String getFullPetriInformation() {
 
         String otherInfo = "";
-        otherInfo += "Liveness: "+petrinetLogic.liveList().size() +"\n";
-        otherInfo+= "== Live List\n";
+        otherInfo += "Liveness 4 count: "+petrinetLogic.liveList().size() +"\n";
+        otherInfo+= "== Live List 4\n";
         for (TransitionInterface trans : petrinetLogic.liveList()) {
             otherInfo += " " + trans.getName() + "\n";
         }
-        otherInfo+= "==Live List End \n";
+        otherInfo+= "==Live List \n";
 
         otherInfo += "Unbounded: "+petrinetLogic.unboundedPlaces().size() +"\n";
         otherInfo += "== Unbounded Places \n";

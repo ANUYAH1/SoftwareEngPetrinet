@@ -501,6 +501,7 @@ public class DrawPanel extends JPanel implements MouseListener, ActionListener {
         }else if(button.getName().equals("element_option_edit")){
             petrinetLogic.abortTreeTraversal();
             if (currentSelectedObject!=null) {
+                petrinetLogic.abortTreeTraversal();
                if (currentSelectedObject instanceof Transition2DObject) {
                    Transition2DObject transition = (Transition2DObject)currentSelectedObject;
                    CustomDialog dialog = new CustomDialog(this, "Enter Transition name",
@@ -563,6 +564,7 @@ public class DrawPanel extends JPanel implements MouseListener, ActionListener {
 
         }else if (button.getName().equals("element_option_fire")){
             if (currentSelectedObject instanceof Transition2DObject) {
+                petrinetLogic.abortTreeTraversal();
                 Transition2DObject transition = (Transition2DObject) currentSelectedObject;
                 // attempt transition fire at that point
                 transition.getTransition().executeTransition();

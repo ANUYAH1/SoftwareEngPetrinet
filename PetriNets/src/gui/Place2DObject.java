@@ -16,7 +16,7 @@ public class Place2DObject implements  Petrinet2DObjectInterface{
     private final int PLACE_RADIUS =40;
     private final int TOKEN_RADIUS =5;
     private Element objectType;
-    private final int TOLERANCE =15;
+    private final int TOLERANCE =25;
     private final int TEXTPADDING =40;
     private final Color TRANSITIONCOLOR = Color.black;
     private final Color TEXTCOLOR = Color.BLACK;
@@ -78,7 +78,7 @@ public class Place2DObject implements  Petrinet2DObjectInterface{
         graphics.drawString(getName() +tokenString,(int)point.getX(),
                 (int)point.getY()+PLACE_RADIUS+TEXTPADDING);
         //this is to make the text clickable
-        editableClickLocation = new Point(point.x,point.y+PLACE_RADIUS+TEXTPADDING);
+        editableClickLocation = new Point(point.x,point.y);
 
     }
 

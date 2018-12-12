@@ -64,7 +64,7 @@ public class Transition2DObject implements Petrinet2DObjectInterface {
         graphics.setColor(currentColor);
         graphics.fillRect((int)point.getX(),(int)point.getY(),TRANSITION_WIDTH,TRANSITION_HEIGHT);
         graphics.drawString(getName(),(int)point.getX(),(int)point.getY()+TRANSITION_HEIGHT+TEXTPADDING);
-        editableClickLocation = new Point(point.x,point.y+TRANSITION_HEIGHT+TEXTPADDING);
+        editableClickLocation = new Point(point.x,point.y);
 
 
     }
