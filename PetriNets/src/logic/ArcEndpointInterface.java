@@ -6,11 +6,6 @@ public interface ArcEndpointInterface {
 
 	/**
 	 *
-	 * @param h The host of the endpoint
-	 */
-	void setHost(PetriNetInterface h);
-	/**
-	 *
 	 * @return The incoming arcs for this ArcEndpoint
 	 */
 	List<ArcInterface> getArcInputs();

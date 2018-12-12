@@ -22,7 +22,6 @@ public class PetriNet implements PetriNetInterface {
 //        }
         if(!places.contains(newPlace)) {
             places.add(newPlace);
-            newPlace.setHost(this);
         }
         else throw new IllegalArgumentException("Place already exists");
         abortTreeTraversal();
@@ -43,7 +42,6 @@ public class PetriNet implements PetriNetInterface {
 //        }
         if(!transitions.contains(newTransition)) {
             transitions.add(newTransition);
-            newTransition.setHost(this);
         }
         else throw new IllegalArgumentException("Transition already exists in PetriNet");
         abortTreeTraversal();

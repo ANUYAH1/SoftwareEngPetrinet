@@ -10,14 +10,9 @@ public class Place implements PlaceInterface {
     private ArrayList<ArcInterface> arcInputs = new ArrayList<ArcInterface>();
     private ArrayList<ArcInterface> arcOutputs = new ArrayList<ArcInterface>();
 
-    private PetriNetInterface host = null;
 
     public Place(){
 
-    }
-    @Override
-    public void setHost(PetriNetInterface h){
-        host = h;
     }
     @Override
     public void setName(String name) {
@@ -91,7 +86,6 @@ public class Place implements PlaceInterface {
             arcInputs.add(a);
         }
         else throw new IllegalArgumentException("arc a already exists in this place");
-        host.abortTreeTraversal();
     }
 
     @Override
@@ -105,7 +99,6 @@ public class Place implements PlaceInterface {
         }
 
         else throw new IllegalArgumentException("arc a already exists in this place");
-        host.abortTreeTraversal();
     }
 
     @Override
@@ -114,7 +107,6 @@ public class Place implements PlaceInterface {
             arcInputs.remove(a);
         }
         else throw new IllegalArgumentException("arc does not exist here.");
-        host.abortTreeTraversal();
     }
 
     @Override
@@ -123,7 +115,6 @@ public class Place implements PlaceInterface {
             arcOutputs.remove(a);
         }
         else throw new IllegalArgumentException("arc does not exist here.");
-        host.abortTreeTraversal();
 
     }
 
@@ -134,8 +125,7 @@ public class Place implements PlaceInterface {
         }
         for(ArcInterface a : arcOutputs){
             a.getDestination().removeArcInput(a);
-        }
-        host.removePlace(this);
+    }
 
     }
 
@@ -145,8 +135,6 @@ public class Place implements PlaceInterface {
         List<ArcInterface> arcsOut = arcOutputs;
         arcInputs = new ArrayList<ArcInterface>(arcsIn.size());
         arcOutputs = new ArrayList<ArcInterface>(arcsOut.size());
-
-        host.addPlace(this);
 
         for(ArcInterface a : arcsIn){
             a.readdArc();

@@ -10,7 +10,7 @@ public class MainTester {
             places[i].setNumTokens(2-i);
             net.addPlace(places[i]);
         }
-        places[0].setNumTokens(1);
+        places[0].setNumTokens(2);
         TransitionInterface[] transitions = new TransitionInterface[4];
         for(int i = 0; i < transitions.length; i++){
             transitions[i] = new Transition();
@@ -46,8 +46,8 @@ public class MainTester {
         arcs[8].removeArc();
         arcs[8].readdArc();
 
-        places[0].remove();
-        places[0].readd();
+//        places[0].remove();
+//        places[0].readd();
 
 
         for(int i = 0; i < transitions.length; i++){

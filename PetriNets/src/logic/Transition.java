@@ -12,12 +12,7 @@ public class Transition implements TransitionInterface{
     private ArrayList<ArcInterface> arcInputs = new ArrayList<ArcInterface>();
     private ArrayList<ArcInterface> arcOutputs = new ArrayList<ArcInterface>();
 
-    private PetriNetInterface host = null;
 
-    @Override
-    public void setHost(PetriNetInterface h){
-        host = h;
-    }
 
     @Override
     public void setName(String name)
@@ -99,7 +94,6 @@ public class Transition implements TransitionInterface{
             arcInputs.add(a);
         }
         else throw new IllegalArgumentException("arc a already exists in this logic.Transition");
-        host.abortTreeTraversal();
     }
 
     @Override
@@ -113,7 +107,6 @@ public class Transition implements TransitionInterface{
         }
 
         else throw new IllegalArgumentException("arc a already exists in this logic.Transition");
-        host.abortTreeTraversal();
     }
 
     @Override
@@ -123,7 +116,7 @@ public class Transition implements TransitionInterface{
             arcInputs.remove(a);
         }
         else throw new IllegalArgumentException("arc does not exist here.");
-        host.abortTreeTraversal();
+
     }
 
     @Override
@@ -133,7 +126,7 @@ public class Transition implements TransitionInterface{
             arcOutputs.remove(a);
         }
         else throw new IllegalArgumentException("arc does not exist here.");
-        host.abortTreeTraversal();
+
 
     }
 
@@ -145,7 +138,7 @@ public class Transition implements TransitionInterface{
         for(ArcInterface a : arcOutputs){
             a.getDestination().removeArcInput(a);
         }
-        host.removeTransition(this);
+
 
     }
 
@@ -156,7 +149,7 @@ public class Transition implements TransitionInterface{
         arcInputs = new ArrayList<ArcInterface>(arcsIn.size());
         arcOutputs = new ArrayList<ArcInterface>(arcsOut.size());
 
-        host.addTransition(this);
+
 
         for(ArcInterface a : arcsIn){
             a.readdArc();
