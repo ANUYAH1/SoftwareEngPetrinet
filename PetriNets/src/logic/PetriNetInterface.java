@@ -11,9 +11,21 @@ public interface PetriNetInterface {
 
     /**
      *
+     * @param place Place To Remove
+     */
+    void removePlace(PlaceInterface place);
+
+    /**
+     *
      * @param transition A Transition to be added to the PetriNet.
      */
     void addTransition(TransitionInterface transition);
+
+    /**
+     *
+     * @param transition Transition to remove.
+     */
+    void removeTransition(TransitionInterface transition);
 
     /**
      *
@@ -105,6 +117,12 @@ public interface PetriNetInterface {
     boolean next();
 
     /**
+     *
+     * @return Whether there is a next.
+     */
+    boolean hasNext();
+
+    /**
      * Completes the coverability tree.
      */
     void complete();
@@ -136,4 +154,11 @@ public interface PetriNetInterface {
      * @return true if last call of next() returned false.
      */
     boolean treeTraversalCompleted();
+
+    /**
+     * Resets the petrinet to an empty petri net
+     */
+    void emptyPetriNet();
+
+
 }

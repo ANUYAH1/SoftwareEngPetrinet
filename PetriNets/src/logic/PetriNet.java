@@ -22,8 +22,18 @@ public class PetriNet implements PetriNetInterface {
 //        }
         if(!places.contains(newPlace)) {
             places.add(newPlace);
+            newPlace.setHost(this);
         }
         else throw new IllegalArgumentException("Place already exists");
+        abortTreeTraversal();
+    }
+
+    @Override
+    public void removePlace(PlaceInterface place) {
+        if(places.contains(place)){
+            places.remove(place);
+            abortTreeTraversal();
+        }else throw new IllegalArgumentException("place does not exist in petri net");
     }
 
     @Override
@@ -33,8 +43,18 @@ public class PetriNet implements PetriNetInterface {
 //        }
         if(!transitions.contains(newTransition)) {
             transitions.add(newTransition);
+            newTransition.setHost(this);
         }
         else throw new IllegalArgumentException("Transition already exists in PetriNet");
+        abortTreeTraversal();
+    }
+
+    @Override
+    public void removeTransition(TransitionInterface transition) {
+        if(transitions.contains(transition)){
+            transitions.remove(transition);
+            abortTreeTraversal();
+        }else throw new IllegalArgumentException("transition does not exist in petri net");
     }
 
     @Override
@@ -265,6 +285,66 @@ public class PetriNet implements PetriNetInterface {
     }
 
     @Override
+    public void emptyPetriNet() {
+        abortTreeTraversal();
+        places = new ArrayList<PlaceInterface>();
+        transitions = new ArrayList<TransitionInterface>();
+    }
+
+    @Override
+    public boolean hasNext(){
+        if(root == null) {
+            startTreeTraversal();
+        }
+        boolean toReturn = hasNextRecursive(currentNode);
+        setPlaceStateArray(currentNode.getPetriState());
+        return toReturn;
+    }
+
+    private boolean hasNextRecursive(CoverabilityNodeInterface currentNode)
+    {
+        if(currentNode == null)
+        {
+            treeComplete = true;
+            return false;
+        }
+        if(currentNode.hasPropagatableAncestors())
+        {
+            if(currentNode.getChildren().size() == 0)
+            {
+                return true;
+            }else{
+                currentNode = currentNode.getParent();
+
+                setPlaceStateArray(currentNode.getPetriState());
+                return hasNextRecursive(currentNode);
+            }
+        }
+        int index = -1;
+        if(currentNode.isTerminal()){
+            currentNode = currentNode.getParent();
+            int[] state = currentNode.getPetriState();
+            setPlaceStateArray(state);
+        }
+        if(currentNode.getChildren().size() != 0){
+
+            index = transitions.indexOf(currentNode.getChildren().get(currentNode.getChildren().size()-1).usedTransition());
+        }
+        for (int i = index + 1; i < transitions.size(); i++) {
+
+            TransitionInterface t = transitions.get(i);
+
+            if (t.checkTransition()) {
+                return true;
+            }
+        }
+
+        currentNode = currentNode.getParent();
+        if(currentNode != null) setPlaceStateArray(currentNode.getPetriState());
+
+        return hasNextRecursive(currentNode);
+    }
+    @Override
     public boolean next(){
         if(root == null) {
             startTreeTraversal();
@@ -274,6 +354,7 @@ public class PetriNet implements PetriNetInterface {
             treeComplete = true;
             return false;
         }
+        if(currentNode.usedTransition() != null) currentNode.usedTransition().setJustFired(false);
         leaves = null;
         if(currentNode.hasPropagatableAncestors())
         {
@@ -310,6 +391,7 @@ public class PetriNet implements PetriNetInterface {
                 CoverabilityNodeInterface newNode = new CoverabilityNode(currentNode, t, newPlaceState);
                 currentNode.addChild(newNode);
                 currentNode = newNode;
+                t.setJustFired(true);
                 return true;
             }
         }
@@ -345,6 +427,8 @@ public class PetriNet implements PetriNetInterface {
 
     @Override
     public void abortTreeTraversal(){
+        if(root == null) return;
+        setPlaceStateArray(root.getPetriState());
         leaves = null;
         root = null;
         currentNode = null;

@@ -48,4 +48,15 @@ public interface ArcInterface {
 	 * @return The destination of the arc.
 	 */
 	ArcEndpointInterface getDestination();
+
+	/**
+	 * Removes an arc from a petrinet
+	 */
+	void removeArc();
+
+	/**
+	 * Adds a previously removed arc back to the petri net
+	 */
+	void readdArc();
+
 }

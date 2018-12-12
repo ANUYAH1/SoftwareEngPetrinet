@@ -3,6 +3,12 @@ package logic;
 import java.util.List;
 
 public interface ArcEndpointInterface {
+
+	/**
+	 *
+	 * @param h The host of the endpoint
+	 */
+	void setHost(PetriNetInterface h);
 	/**
 	 *
 	 * @return The incoming arcs for this ArcEndpoint
@@ -36,4 +42,15 @@ public interface ArcEndpointInterface {
 	 * @param a An outgoing arc to be removed.
 	 */
 	void removeArcOutput(ArcInterface a);
+
+	/**
+	 * Removes an endpoint
+	 */
+	void remove();
+
+	/**
+	 * Readds a previously removed endpoint
+	 */
+	void readd();
+
 }

@@ -73,4 +73,15 @@ public abstract class AbstractArc implements ArcInterface{
             return true;
         return false;
     }
+    @Override
+    public void removeArc(){
+        origin.removeArcOutput(this);
+        destination.removeArcInput(this);
+    }
+    @Override
+    public void readdArc(){
+        origin.addArcOutput(this);
+        destination.addArcInput(this);
+
+    }
 }

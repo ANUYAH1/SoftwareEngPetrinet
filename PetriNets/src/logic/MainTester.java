@@ -15,6 +15,7 @@ public class MainTester {
         for(int i = 0; i < transitions.length; i++){
             transitions[i] = new Transition();
             net.addTransition(transitions[i]);
+            transitions[i].setName(i+"");
         }
         ArcInterface[] arcs = new ArcInterface[9];
         arcs[0] = new PlaceToTransitionArc(places[0], transitions[0]);
@@ -42,9 +43,25 @@ public class MainTester {
         arcs[8] = new TransitionToPlaceArc(transitions[3], places[0]);
         arcs[8].setWeight(1);
 
+        arcs[8].removeArc();
+        arcs[8].readdArc();
 
-        net.startTreeTraversal();
-        while(net.next()) {
+        places[0].remove();
+        places[0].readd();
+
+
+        for(int i = 0; i < transitions.length; i++){
+            if(transitions[i].checkTransition()) {
+                System.out.println(i);
+                System.out.println(transitions[i].getArcInputs().size());
+                System.out.println(transitions[i].getArcOutputs().size());
+                System.out.println(transitions[i]);
+                System.out.println();
+            }
+        }
+
+        while(net.hasNext()) {
+            net.next();
             System.out.println(net.getCoverabilityTreeRoot());
         }
         System.out.println(net.notLiveList().size());

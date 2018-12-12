@@ -10,10 +10,15 @@ public class Place implements PlaceInterface {
     private ArrayList<ArcInterface> arcInputs = new ArrayList<ArcInterface>();
     private ArrayList<ArcInterface> arcOutputs = new ArrayList<ArcInterface>();
 
+    private PetriNetInterface host = null;
+
     public Place(){
 
     }
-
+    @Override
+    public void setHost(PetriNetInterface h){
+        host = h;
+    }
     @Override
     public void setName(String name) {
         this.name = name;
@@ -86,6 +91,7 @@ public class Place implements PlaceInterface {
             arcInputs.add(a);
         }
         else throw new IllegalArgumentException("arc a already exists in this place");
+        host.abortTreeTraversal();
     }
 
     @Override
@@ -99,6 +105,7 @@ public class Place implements PlaceInterface {
         }
 
         else throw new IllegalArgumentException("arc a already exists in this place");
+        host.abortTreeTraversal();
     }
 
     @Override
@@ -107,6 +114,7 @@ public class Place implements PlaceInterface {
             arcInputs.remove(a);
         }
         else throw new IllegalArgumentException("arc does not exist here.");
+        host.abortTreeTraversal();
     }
 
     @Override
@@ -115,6 +123,36 @@ public class Place implements PlaceInterface {
             arcOutputs.remove(a);
         }
         else throw new IllegalArgumentException("arc does not exist here.");
+        host.abortTreeTraversal();
 
+    }
+
+    @Override
+    public void remove() {
+        for(ArcInterface a : arcInputs){
+            a.getOrigin().removeArcOutput(a);
+        }
+        for(ArcInterface a : arcOutputs){
+            a.getDestination().removeArcInput(a);
+        }
+        host.removePlace(this);
+
+    }
+
+    @Override
+    public void readd() {
+        List<ArcInterface> arcsIn = arcInputs;
+        List<ArcInterface> arcsOut = arcOutputs;
+        arcInputs = new ArrayList<ArcInterface>(arcsIn.size());
+        arcOutputs = new ArrayList<ArcInterface>(arcsOut.size());
+
+        host.addPlace(this);
+
+        for(ArcInterface a : arcsIn){
+            a.readdArc();
+        }
+        for(ArcInterface a : arcsOut){
+            a.readdArc();
+        }
     }
 }

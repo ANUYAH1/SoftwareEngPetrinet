@@ -24,5 +24,17 @@ public interface TransitionInterface extends ArcEndpointInterface {
 	 * Fires the transition if checkTransition() returns true.
 	 */
 	void executeTransition();
+
+	/**
+	 *
+	 * @param justFired True if it was just fired in the coverability tree.
+	 */
+	void setJustFired(boolean justFired);
+
+	/**
+	 *
+	 * @return Whether this transition ws just fired in the coverability tree
+	 */
+	boolean justFired();
 	
 }

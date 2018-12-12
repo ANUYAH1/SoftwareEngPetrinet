@@ -7,8 +7,17 @@ import java.util.List;
 public class Transition implements TransitionInterface{
     private String name;
 
+    private boolean justFired;
+
     private ArrayList<ArcInterface> arcInputs = new ArrayList<ArcInterface>();
     private ArrayList<ArcInterface> arcOutputs = new ArrayList<ArcInterface>();
+
+    private PetriNetInterface host = null;
+
+    @Override
+    public void setHost(PetriNetInterface h){
+        host = h;
+    }
 
     @Override
     public void setName(String name)
@@ -57,6 +66,16 @@ public class Transition implements TransitionInterface{
         }
     }
 
+    @Override
+    public void setJustFired(boolean justFired) {
+        this.justFired = justFired;
+    }
+
+    @Override
+    public boolean justFired() {
+        return justFired;
+    }
+
 
     @Override
     public List<ArcInterface> getArcInputs()
@@ -80,6 +99,7 @@ public class Transition implements TransitionInterface{
             arcInputs.add(a);
         }
         else throw new IllegalArgumentException("arc a already exists in this logic.Transition");
+        host.abortTreeTraversal();
     }
 
     @Override
@@ -93,6 +113,7 @@ public class Transition implements TransitionInterface{
         }
 
         else throw new IllegalArgumentException("arc a already exists in this logic.Transition");
+        host.abortTreeTraversal();
     }
 
     @Override
@@ -102,6 +123,7 @@ public class Transition implements TransitionInterface{
             arcInputs.remove(a);
         }
         else throw new IllegalArgumentException("arc does not exist here.");
+        host.abortTreeTraversal();
     }
 
     @Override
@@ -111,7 +133,37 @@ public class Transition implements TransitionInterface{
             arcOutputs.remove(a);
         }
         else throw new IllegalArgumentException("arc does not exist here.");
+        host.abortTreeTraversal();
 
+    }
+
+    @Override
+    public void remove() {
+        for(ArcInterface a : arcInputs){
+            a.getOrigin().removeArcOutput(a);
+        }
+        for(ArcInterface a : arcOutputs){
+            a.getDestination().removeArcInput(a);
+        }
+        host.removeTransition(this);
+
+    }
+
+    @Override
+    public void readd() {
+        List<ArcInterface> arcsIn = arcInputs;
+        List<ArcInterface> arcsOut = arcOutputs;
+        arcInputs = new ArrayList<ArcInterface>(arcsIn.size());
+        arcOutputs = new ArrayList<ArcInterface>(arcsOut.size());
+
+        host.addTransition(this);
+
+        for(ArcInterface a : arcsIn){
+            a.readdArc();
+        }
+        for(ArcInterface a : arcsOut){
+            a.readdArc();
+        }
     }
 
 }
